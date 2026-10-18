@@ -1,0 +1,85 @@
+# ─────────────────────────────────────────────────────────────
+# Galería de Instagram · Musubigara ®
+# Sistema Musubigara® · se ejecuta solo, a diario
+# ─────────────────────────────────────────────────────────────
+name: Galería de Instagram (Musubigara)
+
+on:
+  schedule:
+    # 06:43 UTC = 08:43 en Vitoria-Gasteiz. Minuto raro a propósito:
+    # a las horas en punto GitHub va saturado y retrasa las tareas.
+    # Media hora más tarde que LARRE para no solapar las dos.
+    - cron: '43 6 * * *'
+  workflow_dispatch:        # botón para lanzarlo a mano cuando quieras
+
+concurrency:
+  group: instagram-musubigara
+  cancel-in-progress: false
+
+permissions:
+  contents: write           # para poder publicar las fotos nuevas
+
+jobs:
+  sincronizar:
+    runs-on: ubuntu-latest
+    env:
+      GH_PAT: ${{ secrets.GH_PAT }}
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar el conversor de imágenes
+        run: npm install --no-save --no-audit --no-fund sharp@0.33.5
+
+      - name: Sincronizar con Instagram
+        env:
+          IG_TOKEN:   ${{ secrets.IG_TOKEN }}
+          IG_ACCOUNT: musubi.gara
+          IG_PROFILE: https://www.instagram.com/musubi.gara/
+          SITE_URL:   https://musubigara.org
+          IG_LIMIT:   '36'
+          IG_SIZES:   '(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px'
+        run: node scripts/instagram-sync.mjs
+
+      - name: Guardar la clave renovada por Meta
+        run: |
+          if [ -z "$GH_PAT" ]; then
+            echo "Sin GH_PAT: la clave no se renueva sola. Habrá que regenerarla antes de 60 días."
+            exit 0
+          fi
+          if [ ! -f "$RUNNER_TEMP/ig_token_new.txt" ]; then
+            echo "Meta no devolvió clave nueva en esta pasada."
+            exit 0
+          fi
+          GH_TOKEN="$GH_PAT" gh secret set IG_TOKEN \
+            --body "$(cat "$RUNNER_TEMP/ig_token_new.txt")" \
+            --repo "$GITHUB_REPOSITORY"
+          echo "Clave renovada y guardada. Siguiente caducidad: dentro de 60 días."
+
+      - name: Comprobar que no se cuela ninguna clave en el repositorio
+        run: |
+          rm -rf node_modules
+          if grep -rIlE 'IG[A-Za-z0-9]{3}[A-Za-z0-9_-]{30,}' . \
+               --exclude-dir=.git --exclude-dir=node_modules --exclude='*.md'; then
+            echo "ALTO: algo con pinta de clave de acceso está dentro del repositorio."
+            exit 1
+          fi
+          echo "Limpio."
+
+      - name: Publicar los cambios
+        run: |
+          git config user.name  "Robot Musubigara"
+          git config user.email "robot@musubigara.org"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nada que publicar: la web ya estaba al día."
+            exit 0
+          fi
+          git commit -m "Galería: sincronizada con Instagram"
+          git push
+          echo "Publicado. Netlify se encarga del resto."
