@@ -1,3 +1,25 @@
 {
-  "_como_funciona": "Textos escritos a mano para las fotos. Lo que escribas aquí manda siempre sobre el pie que venga de Instagram: el robot nunca lo pisa. La clave es el nombre del fichero de la foto, tal y como aparece en gallery-data.js. Puedes poner solo los campos que quieras cambiar: es, eu, en, place."
+  "_como_funciona": "Textos escritos a mano para las fotos. Lo que escribas aquí manda siempre sobre el pie que venga de Instagram: el robot nunca lo pisa. La clave es el nombre del fichero de la foto, tal y como aparece en gallery-data.js. Puedes poner solo los campos que quieras cambiar: es, eu, en, place. Y si pones \"oculta\": true, esa foto no sale en la web (pero sigue en tu Instagram).",
+
+  "ig-2026-10-12-IM0001": {
+    "en": "Behind every figure."
+  },
+  "ig-2026-10-08-IM0002": {
+    "en": "An open path, two steps holding each other up."
+  },
+  "ig-2026-10-05-IM0003": {
+    "en": "A bib and a stopwatch are not a race. A poster and a bar are not a festival."
+  },
+  "ig-2026-09-28-IM0004": {
+    "en": "We see it at festivals."
+  },
+  "ig-2026-09-24-IM0005": {
+    "en": "Design is not decoration: it is fit, and keeping pace with the times."
+  },
+  "ig-2026-09-24-IM0006": {
+    "en": "Every project has a rhythm of its own."
+  },
+  "ig-2026-09-24-IM0007": {
+    "en": "Care is not an ornament. It is how we treat every project."
+  }
 }

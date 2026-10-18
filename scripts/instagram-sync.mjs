@@ -98,11 +98,47 @@ function arreglarCodificacion(s) {
   } catch { return s; }
 }
 
-/* Un pie de Instagram trae, además del texto, las menciones, la web y las
-   etiquetas. Aquí se queda solo el texto. Las publicaciones de @musubi.gara
-   van en castellano y euskera (y a veces inglés), separados por línea en
-   blanco: si llegan tres bloques se reparten ES/EU/EN; si llegan dos, ES/EU;
-   si llega uno, va al castellano y los otros se dejan para gallery-captions.json. */
+/* ── Lectura del pie ───────────────────────────────────────────
+   Un pie de @musubi.gara tiene esta forma: titular en castellano,
+   varios párrafos de cuerpo, titular en euskera, varios párrafos más,
+   y al final las etiquetas y la web. No se puede repartir por bloques
+   —el castellano ya ocupa cinco— así que se hace en dos pasos:
+     1. se detecta el idioma de cada bloque por sus palabras,
+     2. de cada idioma se coge el TITULAR, que es su primera línea.
+   Debajo de una foto en una rejilla cabe un titular, no un comunicado. */
+
+const PAL_ES = new Set(('de la el que no una con los las es en se por para del su lo al como mas pero '
+  + 'todo cada sin sobre nos nuestra nuestro cuando porque son esta este hay ya').split(' '));
+const PAL_EU = new Set(('eta ez da dira bat batean bateko dugu dute ditugu dituen gabe baizik egiten '
+  + 'duen den dela ere hau hori baino bakoitzaren izan zuen zegoen arte gure zure bere ditu dio nahi '
+  + 'behar guztia berberaz bezala horregatik baita dituzte duena zaintzen lan').split(' '));
+
+function idiomaDe(texto) {
+  const pal = texto.toLowerCase()
+    .normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .split(/[^a-z0-9]+/).filter(Boolean);
+  let es = 0, eu = 0;
+  for (const p of pal) {
+    if (PAL_ES.has(p)) es++;
+    if (PAL_EU.has(p)) eu++;
+    if (/(tzen|tzeko|tzea|aren|garen|rik|tzat)$/.test(p)) eu++;   // morfología vasca
+  }
+  if (eu > es) return 'eu';
+  if (es > eu) return 'es';
+  return null;                                   // demasiado corto para decidir
+}
+
+/* El titular de un bloque: su primera línea. Si esa línea es muy corta
+   —un «—» o tres palabras— se le pega la siguiente para que diga algo. */
+function titularDe(bloque) {
+  if (!bloque) return '';
+  const lineas = bloque.split('\n').map((l) => l.trim()).filter(Boolean);
+  if (!lineas.length) return '';
+  let t = lineas[0];
+  if (t.length < 18 && lineas[1]) t += ' ' + lineas[1];
+  return t.replace(/\s+/g, ' ').trim();
+}
+
 function parseCaption(raw) {
   const limpio = arreglarCodificacion(String(raw || ''))
     .replace(/\r/g, '')
@@ -112,11 +148,11 @@ function parseCaption(raw) {
     .filter((l) => !/^(https?:\/\/)?[\w.-]+\.(org|com|eus|net|eu)\/?$/i.test(l)) // webs sueltas
     .join('\n')
     .replace(/#[\p{L}\p{N}_]+/gu, '')
-    .replace(/[ \t]+/g, ' ')
-    .trim();
+    .replace(/[ \t]+/g, ' ');
 
   const bloques = limpio.split(/\n\s*\n/)
-    .map((b) => b.replace(/\s+/g, ' ').trim()).filter(Boolean);
+    .map((b) => b.trim())
+    .filter((b) => /[\p{L}]{3}/u.test(b));                // fuera guiones y adornos sueltos
 
   const cut = (x) => {
     if (!x) return '';
@@ -125,9 +161,14 @@ function parseCaption(raw) {
     return t.slice(0, t.lastIndexOf(' ')).replace(/[,;:·—-]$/, '') + '…';
   };
 
-  if (bloques.length >= 3) return { es: cut(bloques[0]), eu: cut(bloques[1]), en: cut(bloques[2]) };
-  if (bloques.length === 2) return { es: cut(bloques[0]), eu: cut(bloques[1]), en: '' };
-  return { es: cut(bloques[0] || ''), eu: '', en: '' };
+  const primero = (lang) => {
+    const b = bloques.find((x) => idiomaDe(x) === lang);
+    return b ? cut(titularDe(b)) : '';
+  };
+
+  // Si no se reconoce ningún idioma (pie muy corto), el primer bloque va al castellano.
+  const es = primero('es') || cut(titularDe(bloques[0] || ''));
+  return { es, eu: primero('eu'), en: '' };
 }
 
 /* El pie que se muestra en un idioma: si no hay texto propio, cae al
@@ -469,6 +510,9 @@ async function main() {
       } catch (e) { warn(`Fallo al convertir ${item.rutaRelativa}: ${e.message}`); continue; }
       const auto = parseCaption(item.caption);
       const over = manual[file] || {};
+      // "oculta": true en gallery-captions.json deja la foto fuera de la web
+      // sin tocar nada en Instagram.
+      if (over.oculta) { log(`Oculta por decisión propia: ${file}`); continue; }
       photos.push({
         id: code, file, date,
         place: over.place ?? '',
@@ -490,6 +534,7 @@ async function main() {
 
       const auto = parseCaption(item.caption);
       const over = manual[file] || manual[code] || {};
+      if (over.oculta) { log(`Oculta por decisión propia: ${file}`); continue; }
       photos.push({
         id: code, file, date,
         place: over.place ?? '',
