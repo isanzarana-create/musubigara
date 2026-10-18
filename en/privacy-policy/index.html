@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy policy | Musubigara®</title>
+  <meta name="description" content="Privacy policy of musubigara.org: data controller, purposes, rights and the providers that process data.">
+  <link rel="canonical" href="https://musubigara.org/en/privacy-policy/">
+  <link rel="alternate" hreflang="es" href="https://musubigara.org/politica-privacidad/">
+  <link rel="alternate" hreflang="eu" href="https://musubigara.org/eu/pribatutasun-politika/">
+  <link rel="alternate" hreflang="en" href="https://musubigara.org/en/privacy-policy/">
+  <link rel="alternate" hreflang="x-default" href="https://musubigara.org/politica-privacidad/">
+
+  <meta name="google-site-verification" content="-LSGoijhWGQ9pn2FXuiqQBVXnJoXULkFkj2VaSP_6Pc">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Musubigara®">
+  <meta property="og:title" content="Privacy policy | Musubigara®">
+  <meta property="og:description" content="Privacy policy of musubigara.org: data controller, purposes, rights and the providers that process data.">
+  <meta property="og:url" content="https://musubigara.org/en/privacy-policy/">
+  <meta property="og:image" content="https://musubigara.org/musubigara-og.png">
+  <meta property="og:image:alt" content="Musubigara®">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="eu_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Privacy policy | Musubigara®">
+  <meta name="twitter:description" content="Privacy policy of musubigara.org: data controller, purposes, rights and the providers that process data.">
+  <meta name="twitter:image" content="https://musubigara.org/musubigara-og.png">
+
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+  <meta name="author" content="Musubigara®">
+  <meta name="theme-color" content="#F4EEE1">
+  <meta name="geo.region" content="ES-VI">
+  <meta name="geo.placename" content="Vitoria-Gasteiz">
+  <meta name="geo.position" content="42.8467;-2.6716">
+  <meta name="ICBM" content="42.8467, -2.6716">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23F4EEE1'/%3E%3Ctext x='27' y='45' font-family='Arial,Helvetica,sans-serif' font-size='40' font-weight='700' fill='%230F0F0F' text-anchor='middle'%3EM%3C/text%3E%3Ccircle cx='48' cy='40' r='5' fill='%23C21838'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================
+       TOKENS
+       ============================================ */
+    :root {
+      --paper:   #F4EEE1;  /* arena */
+      --ink:     #0F0F0F;
+      --graphite:#6B6B6B;
+      --line:    #E4DCC9;
+      --brand:      #C21838;  /* cultura · acentos (punto, flechas, QR) */
+      --brand-title:#8A1226;  /* cultura · títulos legibles sobre arena */
+      --sport:      #35513C;  /* eventos deportivos · acentos */
+      --sport-title:#26402E;  /* eventos deportivos · títulos legibles */
+      --accent:     #C21838;  /* rojo de marca (el mismo del QR) · palabras destacadas en el cuerpo */
+
+      --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+      --gutter: clamp(1.5rem, 4vw, 3rem);
+      --section-pad-y: clamp(2rem, 5vw, 3.5rem);
+      --hero-pad: clamp(4rem, 10vw, 8rem);
+    }
+
+    /* ============================================
+       RESET & BASE
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    ::selection { background: var(--ink); color: var(--paper); }
+
+    :focus-visible { outline: 1px solid var(--ink); outline-offset: 3px; }
+
+    .container {
+      max-width: 1240px;
+      margin-inline: auto;
+      padding-inline: var(--gutter);
+    }
+
+    /* ============================================
+       TOP BAR
+       ============================================ */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-block: 0.9rem;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .logo img {
+      display: block;
+      height: 30px;
+      width: auto;
+    }
+
+    /* Wordmark tipográfico — sustituye al logo de imagen.
+       "musu·bigara": el punto marca la unión de las dos palabras
+       que forman el nombre (musubi = nudo, en japonés). */
+    .logo-wordmark {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .logo-knot {
+      color: var(--brand);
+      font-size: 1.15em;
+      letter-spacing: 0;
+    }
+    .reg {
+      font-size: 0.6em;
+      vertical-align: super;
+      letter-spacing: 0;
+    }
+
+    .topbar-coords {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      color: var(--graphite);
+      white-space: nowrap;
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      gap: 0.4rem;
+      align-items: center;
+      color: var(--graphite);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .lang-toggle .lang-opt {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: var(--graphite);
+      font: inherit;
+      letter-spacing: inherit;
+      text-transform: inherit;
+      transition: color 0.2s ease;
+    }
+    .lang-toggle .lang-opt.active { color: var(--ink); }
+    .lang-toggle .sep { opacity: 0.4; }
+
+    /* ============================================
+       MENÚ (dos rayas) — despliega el índice completo
+       ============================================ */
+    /* Botón MENÚ — píldora con etiqueta, alto contraste para que no pase desapercibido */
+    .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.42rem 0.9rem;
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      box-shadow: 0 3px 12px rgba(15,15,15,0.16);
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .menu-toggle:hover,
+    .menu-toggle:focus-visible {
+      background: var(--brand);
+      transform: translateY(-1px);
+      box-shadow: 0 5px 16px rgba(194,24,56,0.28);
+      outline: none;
+    }
+    .menu-toggle-icon {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 4px;
+      width: 1rem;
+    }
+    .menu-toggle-icon span {
+      display: block;
+      height: 1.6px;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+    .menu-toggle[aria-expanded="true"] .menu-toggle-icon span:first-child {
+      transform: translateY(2.8px) rotate(45deg);
+    }
+    .menu-toggle[aria-expanded="true"] .menu-toggle-icon span:last-child {
+      transform: translateY(-2.8px) rotate(-45deg);
+    }
+    .menu-toggle-label { line-height: 1; }
+
+    .menu-panel {
+      position: fixed;
+      top: var(--menu-panel-top, 4.4rem);
+      right: var(--gutter);
+      z-index: 200;
+      width: max-content;                  /* justo el ancho del texto más largo, sin partir líneas */
+      max-width: min(88vw, 360px);
+      max-height: calc(100dvh - 5.5rem);   /* sólo tope de seguridad; el contenido cabe sin scroll */
+      overflow-y: auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      box-shadow: 0 18px 44px rgba(15, 15, 15, 0.14);
+      padding: 0.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transform-origin: top right;
+      transform: scale(0.98) translateY(-8px);
+      transition: opacity 0.24s ease, transform 0.24s cubic-bezier(0.22,1,0.36,1), visibility 0s linear 0.24s;
+    }
+    /* sin barra de scroll visible (queda invisible como red de seguridad) */
+    .menu-panel { scrollbar-width: none; }
+    .menu-panel::-webkit-scrollbar { display: none; }
+
+    .menu-panel.is-open {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1) translateY(0);
+      transition: opacity 0.24s ease, transform 0.24s cubic-bezier(0.22,1,0.36,1);
+    }
+    .menu-list { list-style: none; width: 100%; }
+    .menu-list a {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.48rem 0.8rem;
+      border-radius: 4px;
+      color: var(--ink);
+      opacity: 0;                         /* entrada escalonada */
+      transform: translateY(8px);
+      transition: opacity 0.32s ease, transform 0.32s cubic-bezier(0.22,1,0.36,1),
+                  background 0.2s ease, color 0.2s ease;
+    }
+    .menu-panel.is-open .menu-list a { opacity: 1; transform: translateY(0); }
+    .menu-panel.is-open .menu-list li:nth-child(1) a { transition-delay: 0.04s; }
+    .menu-panel.is-open .menu-list li:nth-child(2) a { transition-delay: 0.07s; }
+    .menu-panel.is-open .menu-list li:nth-child(3) a { transition-delay: 0.10s; }
+    .menu-panel.is-open .menu-list li:nth-child(4) a { transition-delay: 0.13s; }
+    .menu-panel.is-open .menu-list li:nth-child(5) a { transition-delay: 0.16s; }
+    .menu-panel.is-open .menu-list li:nth-child(6) a { transition-delay: 0.19s; }
+    .menu-panel.is-open .menu-list li:nth-child(7) a { transition-delay: 0.22s; }
+    .menu-panel.is-open .menu-list li:nth-child(8) a { transition-delay: 0.25s; }
+
+    .menu-list a:hover,
+    .menu-list a:focus-visible {
+      background: rgba(194, 24, 56, 0.07);
+      color: var(--brand);
+      outline: none;
+    }
+    .menu-num {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      color: var(--brand-title);
+      min-width: 1.9em;
+      letter-spacing: 0.05em;
+    }
+    .menu-title {
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.7rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: var(--ink);
+      transition: color 0.2s ease;
+    }
+    .menu-list a:hover .menu-title,
+    .menu-list a:focus-visible .menu-title { color: var(--brand); }
+
+    /* Unidades de negocio destacadas por su color de unidad (cultura = granate, deporte = verde) */
+    .menu-unit--cultura .menu-num,
+    .menu-unit--cultura .menu-title { color: var(--brand-title); }
+    .menu-unit--deporte .menu-num,
+    .menu-unit--deporte .menu-title { color: var(--sport-title); }
+    .menu-unit--deporte:hover,
+    .menu-unit--deporte:focus-visible { background: rgba(53, 81, 60, 0.08); }
+    .menu-unit--deporte:hover .menu-title,
+    .menu-unit--deporte:focus-visible .menu-title { color: var(--sport-title); }
+    .menu-unit--deporte::after { color: var(--sport-title) !important; }
+    /* la etiqueta U.N.x + número necesita algo más de ancho */
+    .menu-num--unit { min-width: 4.6em; font-weight: 500; }
+    /* flecha que aparece y se desliza al pasar el ratón */
+    .menu-list a::after {
+      content: "→";
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--brand);
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .menu-list a:hover::after,
+    .menu-list a:focus-visible::after { opacity: 1; transform: translateX(0); }
+
+    @media (max-width: 460px) {
+      .menu-panel { width: calc(100vw - (2 * var(--gutter))); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .menu-panel, .menu-toggle span, .menu-list a { transition: none; }
+      .menu-panel.is-open .menu-list a { transition-delay: 0s; }
+    }
+
+    /* ============================================
+       HERO / 00 — claim breve arriba a la derecha +
+       nombre de marca gigante, recortado por el borde
+       ============================================ */
+    .hero {
+      padding-top: calc(var(--hero-pad) + 1.5rem);
+      padding-bottom: clamp(1.5rem, 4vw, 2.5rem);
+      overflow: hidden;
+    }
+
+    .hero-top {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .hero-top-col {
+      max-width: 30ch;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+    /* misma tipografía que el cuerpo de las secciones (mono, minúsculas) */
+    .hero-tagline {
+      font-family: var(--font-mono);
+      font-size: clamp(0.68rem, 0.9vw, 0.78rem);
+      font-weight: 400;
+      line-height: 1.7;
+      letter-spacing: 0;
+      text-align: left;
+      color: var(--brand-title);
+    }
+    .hero-arrow {
+      display: block;
+      width: 1.3rem;
+      height: 1.3rem;
+      color: var(--brand);
+      animation: heroArrowBob 2.2s ease-in-out infinite;
+    }
+    .hero-arrow svg { display: block; width: 100%; height: 100%; }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-arrow { animation: none; }
+    }
+    @keyframes heroArrowBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    .hero-giant {
+      margin-top: clamp(2rem, 7vw, 5rem);
+      padding-inline: var(--gutter);
+      width: 100%;
+      overflow: hidden;
+      font-family: var(--font-sans);
+      font-weight: 800;
+      font-size: clamp(3.25rem, 12.5vw, 9.5rem);
+      line-height: 0.85;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .hero-giant .es-body,
+    .hero-giant .eu-body { display: inline-block; }
+
+    /* ============================================
+       SECCIONES (abiertas; el índice numerado vive en el menú)
+       ============================================ */
+    /* Inicio = solo el título del hero. Cada sección permanece oculta y se
+       abre, una a una, desde el menú desplegable. */
+    .section {
+      display: none;
+      scroll-margin-top: 5.5rem;
+      padding-block: var(--section-pad-y);
+    }
+    .section.is-active { display: block; }
+    /* al abrir una sección se oculta el hero para ver solo ese contenido */
+    body.section-view .hero { display: none; }
+
+    .section-head { margin-bottom: 1.5rem; }
+
+    .section-title {
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--brand-title);
+      margin: 0;
+    }
+    /* La unidad de Eventos Deportivos usa el verde (título oscurecido) */
+    #gestion-deportiva .section-title { color: var(--sport-title); }
+
+    /* Etiqueta de unidad de negocio sobre el título de cada sección de servicios */
+    .unit-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin-bottom: 0.6rem;
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .unit-tag::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: currentColor;
+    }
+    .unit-tag--cultura { color: var(--brand-title); }
+    .unit-tag--deporte { color: var(--sport-title); }
+
+    /* ============================================
+       SECTION BODY
+       ============================================ */
+    .section-body {
+      padding-top: 0;
+    }
+    /* Párrafos: misma tipografía que los rótulos de sección (mono),
+       en minúsculas, cuerpo menor y justificados. */
+    .section-body-content {
+      max-width: 68ch;
+      font-family: var(--font-mono);
+      font-weight: 400;
+      font-size: 0.75rem;
+      line-height: 1.85;
+      text-transform: none;
+      letter-spacing: 0;
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      color: var(--ink);
+    }
+    .section-body-content p + p { margin-top: 1.4rem; }
+    .section-body-content strong { font-weight: 600; }
+
+    /* ============================================
+       HL — palabra clave destacada en naranja (negrita).
+       Emphasis dirigida al público objetivo; nivel de énfasis
+       distinto del <strong> negro estructural.
+       ============================================ */
+    .hl {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    /* dentro de un enlace, la palabra naranja mantiene su color y gana subrayado al pasar el ratón */
+    a .hl { border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
+    a:hover .hl, a:focus-visible .hl { border-bottom-color: var(--accent); }
+
+    /* enlaces a instituciones dentro del cuerpo de texto */
+    .section-body-content a.inst-link {
+      color: inherit;
+      border-bottom: 1px solid var(--line);
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+    .section-body-content a.inst-link:hover,
+    .section-body-content a.inst-link:focus-visible {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ============================================
+       ENTRADA ESCALONADA — al abrir una sección, sus bloques
+       aparecen uno a uno (fade + subida). Se activa por JS
+       añadiendo .is-entering al contenedor de la sección.
+       ============================================ */
+    .section.is-entering .reveal-item {
+      opacity: 0;
+      transform: translateY(14px);
+      animation: revealUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      animation-delay: calc(var(--reveal-i, 0) * 0.07s + 0.05s);
+    }
+    @keyframes revealUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .section.is-entering .reveal-item {
+        opacity: 1;
+        transform: none;
+        animation: none;
+      }
+    }
+
+    /* Subtítulos de servicio (ahora <h3> para jerarquía SEO): peso y color de unidad */
+    h3.service-lead,
+    .service-lead {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.7;
+      margin: 0;
+      position: relative;
+      padding-left: 0.95rem;
+    }
+    /* barra de acento que crece al abrir la sección */
+    .service-lead::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.3em;
+      width: 3px;
+      height: 0.95em;
+      background: var(--accent);
+      border-radius: 2px;
+      transform: scaleY(0);
+      transform-origin: top center;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+    }
+    #gestion-cultural .service-lead::before { background: var(--brand-title); }
+    #gestion-deportiva .service-lead::before { background: var(--sport-title); }
+    .section.is-active .service-lead::before { transform: scaleY(1); }
+    #gestion-cultural .service-lead strong { color: var(--brand-title); }
+    #gestion-deportiva .service-lead strong { color: var(--sport-title); }
+
+    /* Cifras: números con ancho tabular para que el contador no "baile" */
+    .figures-year, .figures-list li { font-variant-numeric: tabular-nums; }
+
+    /* Colaboraciones: nombres en párrafo corrido, misma tipografía que la intro */
+    .collab-names {
+      margin-top: 1.7rem;
+      hyphens: none;
+      -webkit-hyphens: none;
+    }
+
+    /* Gestión de Eventos Culturales / Gestión de Eventos Deportivos de Autor:
+       titulares en negrita, texto seguido, sin saltos entre párrafos */
+    #gestion-cultural .section-body-content p + p,
+    #gestion-deportiva .section-body-content p + p { margin-top: 0; }
+    #gestion-cultural .section-body-content .service-lead,
+    #gestion-deportiva .section-body-content .service-lead { margin-top: 1.5rem; }
+
+    /* Cifras: año + lista */
+    .figures-year {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+    }
+    .figures-list {
+      list-style: none;
+      margin: 0.8rem 0 1.4rem;
+      padding: 0;
+      text-align: left;
+    }
+    .figures-list li { padding: 0.12rem 0; }
+    /* cifra que pertenece a otra unidad (deportiva): se separa del bloque anterior */
+    .figures-list li.sep-top {
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--line);
+    }
+
+    /* Contact */
+    .contact-block {
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: start;
+      gap: 0.3rem;
+      max-width: none;
+      text-align: left;
+      hyphens: none;
+    }
+    /* rótulo y dato en la misma línea */
+    .contact-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      line-height: 1.35;
+    }
+    .contact-item .label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+      white-space: nowrap;
+    }
+    .contact-item a {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+    .contact-item a:hover { border-bottom-color: var(--ink); }
+    .contact-value {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+    }
+
+    /* Formulario de contacto (Netlify Forms) */
+    .bot-field-wrap { position: absolute; left: -9999px; }
+    .contact-form {
+      margin-top: 1.4rem;
+      max-width: 34ch;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .form-row label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+    }
+    .form-row input,
+    .form-row textarea {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--line);
+      padding: 0.3rem 0;
+      resize: vertical;
+      transition: border-color 0.2s ease;
+    }
+    .form-row input:focus,
+    .form-row textarea:focus {
+      outline: none;
+      border-bottom-color: var(--ink);
+    }
+    .contact-form button.service-cta {
+      align-self: center;
+      margin-inline: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    /* main como columna a altura de pantalla: empuja el footer (QR + CTAs)
+       al fondo, para que quede siempre abajo a la derecha */
+    main {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* footer a todo el ancho (sin el contenedor centrado de 1240px): así el
+       QR + CTAs van a la esquina inferior derecha en cualquier pantalla */
+    .site-footer {
+      margin-top: auto;
+      width: 100%;
+      padding-inline: var(--gutter);
+      padding-block: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* Columna derecha del footer: QR de WhatsApp + lugar */
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1.1rem;
+    }
+    /* QR de WhatsApp, en color de marca */
+    .footer-qr {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      width: max-content;
+    }
+    .footer-qr-code {
+      display: block;
+      width: 112px;
+      height: 112px;
+    }
+    .footer-qr-code svg { display: block; width: 100%; height: 100%; }
+    .footer-qr-caption {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      color: var(--graphite);
+      transition: color 0.2s ease;
+    }
+    .footer-qr-caption svg {
+      width: 15px;
+      height: 15px;
+      display: block;
+      flex: none;
+    }
+    .footer-qr:hover .footer-qr-caption { color: var(--ink); }
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 1.5rem 1.75rem;
+    }
+    .socials {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.85rem;
+      color: var(--brand);
+    }
+    .footer-legal {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.75rem;
+    }
+    .footer-legal > span {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      color: var(--graphite);
+    }
+    .socials a {
+      color: var(--brand);
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    .socials a:hover { color: var(--ink); }
+    .socials svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+    .footer-place {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--graphite);
+      line-height: 1;
+    }
+
+    /* ============================================
+       RESPONSIVE
+       ============================================ */
+    @media (max-width: 780px) {
+      .section-title { font-size: 0.86rem; }
+      .topbar-coords { display: none; }
+    }
+
+    /* En pantallas estrechas, las redes viven en el footer: se ocultan de la
+       barra superior para que el botón MENÚ siempre quepa y destaque. */
+    @media (max-width: 720px) {
+      .topbar .socials { display: none; }
+      .topbar-right { gap: 1rem; }
+    }
+
+    @media (max-width: 460px) {
+      .section-body-content { text-align: left; }
+      .socials { gap: 0.6rem; }
+      .socials svg { width: 16px; height: 16px; }
+      .topbar-right { gap: 0.9rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+
+    /* ============================================
+       LANGUAGE VISIBILITY (ES / EU / EN)
+       ============================================ */
+    [data-lang-body="es"] .eu-body,
+    [data-lang-body="es"] .en-body,
+    [data-lang-body="eu"] .es-body,
+    [data-lang-body="eu"] .en-body,
+    [data-lang-body="en"] .es-body,
+    [data-lang-body="en"] .eu-body {
+      display: none;
+    }
+    /* ============================================
+       SERVICIOS · aire antes de cada titular de servicio
+       ============================================ */
+    #gestion-cultural .section-body-content .service-lead,
+    #gestion-deportiva .section-body-content .service-lead { margin-top: 1.5rem; }
+
+    /* ============================================
+       EQUIPO · portadas de disco (mismo tamaño que el QR: 112px)
+       Reposo en gris para armonizar con la paleta; color al pasar
+       el ratón o al enfocar. Enlazan al álbum en Spotify.
+       ============================================ */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.1rem;
+      margin-top: 2rem;
+      align-items: start;
+    }
+    .team-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 0;            /* permite que la columna encoja para caber en una fila */
+    }
+    .team-member-name {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--ink);
+    }
+    .team-cover-wrap {
+      width: 100%;
+      max-width: 112px;        /* no crece por encima del tamaño del QR */
+      aspect-ratio: 1 / 1;     /* cuadrada aunque se reduzca */
+      overflow: hidden;
+    }
+    .team-album-cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(1) contrast(1.02);
+      transition: filter 0.4s ease, transform 0.4s ease;
+    }
+    .team-member:hover .team-album-cover,
+    .team-member:focus-visible .team-album-cover {
+      filter: grayscale(0);
+      transform: scale(1.03);
+    }
+    @media (max-width: 460px) {
+      .team-grid { gap: 0.6rem; }
+    }
+
+    /* ============================================
+       CTA FLOTANTE — visible sin desplegar ninguna sección
+       ============================================ */
+    /* QR + CTAs juntos en el footer: los botones a la derecha del QR */
+    .footer-contact {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+    }
+    .footer-cta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.45rem;
+    }
+    .cta-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.38rem;
+      padding: 0.34rem 0.68rem;
+      background: var(--ink);
+      color: var(--paper);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.56rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.14);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+    .cta-pill:hover,
+    .cta-pill:focus-visible { background: var(--brand); transform: translateY(-2px); }
+    .cta-pill svg { width: 0.9em; height: 0.9em; flex-shrink: 0; }
+    .cta-pill .cta-eu,
+    .cta-pill .cta-en { display: none; }
+    body[data-lang-body="eu"] .cta-pill .cta-es { display: none; }
+    body[data-lang-body="eu"] .cta-pill .cta-eu { display: inline; }
+    body[data-lang-body="en"] .cta-pill .cta-es { display: none; }
+    body[data-lang-body="en"] .cta-pill .cta-en { display: inline; }
+    @media (max-width: 460px) {
+      .footer-contact { flex-direction: column; align-items: flex-end; gap: 1rem; }
+      .cta-pill { padding: 0.32rem 0.6rem; font-size: 0.52rem; }
+    }
+
+    /* CTA de cierre al final de 02 Servicios */
+    .service-cta {
+      margin-top: 1.4rem;
+      margin-inline: auto;
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1rem;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+    .service-cta:hover,
+    .service-cta:focus-visible {
+      background: var(--brand);
+      border-color: var(--brand);
+      color: var(--paper);
+    }
+    /* Entradilla de unidad + lead/nota de contacto */
+    .unit-lead { color: var(--ink); margin-bottom: 1.2rem; }
+    /* Igual que el cuerpo del resto de secciones: mono, 0.75rem, justificado */
+    .contact-lead {
+      font-size: 0.75rem;
+      line-height: 1.85;
+      color: var(--ink);
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      max-width: 68ch;
+      margin-bottom: 1.6rem;
+    }
+    @media (max-width: 460px) { .contact-lead { text-align: left; } }
+
+    /* CTA de contacto: negro con texto claro y bordes redondeados, como los de junto al QR */
+    .contact-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      align-self: center;
+      padding: 0.5rem 1.1rem;
+      background: var(--ink);
+      color: var(--paper);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 3px 12px rgba(15, 15, 15, 0.14);
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .contact-cta:hover,
+    .contact-cta:focus-visible {
+      background: var(--brand);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(15, 15, 15, 0.22);
+      outline: none;
+    }
+    .form-note {
+      margin-top: 0.85rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0;
+      color: var(--graphite);
+    }
+
+    /* ============================================
+       PROYECTOS — chips enlazados a las webs oficiales
+       ============================================ */
+    .projects-block { margin-top: 2rem; }
+    .projects-label {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--graphite);
+      margin-bottom: 0.9rem;
+    }
+    .project-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+    .project-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      background: rgba(255,255,255,0.4);
+      transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .project-chip .chip-note {
+      font-size: 0.62rem;
+      color: var(--graphite);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .project-chip::after {
+      content: "↗";
+      font-size: 0.8rem;
+      color: var(--brand-title);
+    }
+    .project-chip:hover,
+    .project-chip:focus-visible {
+      border-color: var(--brand);
+      color: var(--brand-title);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    #gestion-deportiva .project-chip::after { color: var(--sport-title); }
+    #gestion-deportiva .project-chip:hover { border-color: var(--sport); color: var(--sport-title); }
+
+    /* ============================================
+       PROYECTOS PROPIOS / EVENTOS — botones tipo CTA,
+       negro sobre arena, apilados y del mismo tamaño
+       ============================================ */
+    .project-cta-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-top: 0.9rem;
+      max-width: 25rem;
+    }
+    .project-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.9rem;
+      width: 100%;
+      padding: 0.72rem 1.15rem;
+      background: var(--ink);
+      color: var(--paper);
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.03em;
+      box-shadow: 0 3px 12px rgba(15,15,15,0.14);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .project-cta .cta-name { font-weight: 500; }
+    .project-cta .cta-meta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      white-space: nowrap;
+    }
+    .project-cta .cta-note {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: rgba(244, 238, 225, 0.72);
+    }
+    .project-cta .cta-arrow { font-size: 0.88rem; }
+    a.project-cta:hover,
+    a.project-cta:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(15,15,15,0.22);
+      outline: none;
+    }
+    .project-cta--static { cursor: default; }
+
+    /* Evento destacado (LARRE) */
+    .event-feature {
+      margin-top: 1.6rem;
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--sport);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.4);
+    }
+    .event-feature + .event-feature { margin-top: 0.9rem; }
+    .event-feature-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.4rem 1rem;
+    }
+    .event-feature-name {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.02em;
+      color: var(--sport-title);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .event-feature-name a { border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
+    .event-feature-name a:hover { border-bottom-color: var(--sport); }
+    .event-feature-meta {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+    }
+    .event-feature-desc {
+      margin-top: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+    .event-feature-desc strong { font-weight: 500; }
+
+    /* ============================================
+       TRAYECTORIA — formato esquemático
+       ============================================ */
+    .track-list { list-style: none; margin: 0; padding: 0; }
+    .track-item {
+      display: grid;
+      grid-template-columns: 6.5rem 1fr;
+      gap: 0.4rem 1.1rem;
+      padding: 0.75rem 0;
+      border-top: 1px solid var(--line);
+    }
+    .track-item:first-child { border-top: none; }
+    .track-year {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--brand-title);
+      white-space: nowrap;
+    }
+    .track-item--sport .track-year { color: var(--sport-title); }
+    .track-desc {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+    .track-desc strong { font-weight: 500; }
+    .track-desc a { border-bottom: 1px solid var(--line); transition: border-color 0.2s ease; }
+    .track-desc a:hover { border-bottom-color: var(--ink); }
+    @media (max-width: 520px) {
+      .track-item { grid-template-columns: 1fr; gap: 0.15rem; }
+    }
+
+    /* ============================================
+       VOLVER AL MENÚ — control por sección
+       ============================================ */
+    .back-to-menu {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+      padding: 0.4rem 0.85rem 0.4rem 0.7rem;
+      background: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--graphite);
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+    .back-to-menu svg { width: 0.9rem; height: 0.9rem; display: block; }
+    .back-to-menu:hover,
+    .back-to-menu:focus-visible {
+      border-color: var(--ink);
+      color: var(--ink);
+      background: rgba(255,255,255,0.5);
+      outline: none;
+    }
+    .section-bottom-nav {
+      margin-top: 2.5rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--line);
+    }
+  
+
+    /* =====================================================
+       AÑADIDOS · sept. 2026
+       ===================================================== */
+
+    /* H1 = claim con palabras clave (antes era un <p>); mismo aspecto */
+    h1.hero-tagline { font-weight: 400; margin: 0; }
+
+    /* ---- Las dos unidades de negocio, visibles desde la portada ---- */
+    .hero-units { margin-top: clamp(1.75rem, 4vw, 2.75rem); }
+    .hero-units-label {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--graphite);
+      margin-bottom: 0.75rem;
+    }
+    .hero-units-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(0.75rem, 2vw, 1.5rem);
+    }
+    .hero-unit {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      column-gap: 0.8rem;
+      row-gap: 0.35rem;
+      align-items: baseline;
+      padding: 0.95rem 1rem 1.05rem;
+      border-top: 2px solid currentColor;
+      font-family: var(--font-mono);
+      transition: background 0.2s ease;
+    }
+    .hero-unit--cultura { color: var(--brand-title); }
+    .hero-unit--deporte { color: var(--sport-title); }
+    .hero-unit-num { font-size: 0.7rem; font-weight: 500; }
+    .hero-unit-name {
+      font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .hero-unit-arrow { font-size: 0.95rem; transition: transform 0.2s ease; }
+    .hero-unit-desc {
+      grid-column: 2 / 3;
+      font-size: 0.7rem;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+    .hero-unit--cultura:hover, .hero-unit--cultura:focus-visible { background: rgba(194, 24, 56, 0.06); }
+    .hero-unit--deporte:hover, .hero-unit--deporte:focus-visible { background: rgba(53, 81, 60, 0.08); }
+    .hero-unit:hover .hero-unit-arrow,
+    .hero-unit:focus-visible .hero-unit-arrow { transform: translateX(4px); }
+    @media (max-width: 640px) {
+      .hero-units-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Menú: los números de las unidades llevan el punto de color */
+    .menu-unit .menu-num::after {
+      content: "";
+      display: inline-block;
+      width: 0.42rem; height: 0.42rem;
+      margin-left: 0.45rem;
+      border-radius: 50%;
+      background: currentColor;
+      vertical-align: 0.12em;
+    }
+
+    /* Cifras: etiqueta de unidad sobre cada lista */
+    .figures-unit { display: flex; margin-top: 1.1rem; margin-bottom: 0.2rem; }
+    .figures-year + .figures-unit { margin-top: 0.4rem; }
+
+    /* Selector de idioma: ahora son enlaces a /, /eu/ y /en/ */
+    .lang-toggle a.lang-opt { color: var(--graphite); transition: color 0.2s ease; }
+    .lang-toggle a.lang-opt:hover,
+    .lang-toggle a.lang-opt.active { color: var(--ink); }
+
+    /* Iconos: área de toque cómoda y foco visible */
+    .socials a { padding: 0.2rem; border-radius: 4px; }
+    .socials a:focus-visible { outline: 1px solid var(--brand); outline-offset: 2px; }
+
+    /* Iconos en el pie: solo en móvil (en escritorio viven en la barra superior) */
+    .socials--footer { display: none; justify-content: flex-start; flex-basis: 100%; }
+    @media (max-width: 720px) {
+      .socials--footer { display: flex; }
+      .socials--footer svg { width: 20px; height: 20px; }
+    }
+
+
+    /* Formulario: selector con el mismo estilo que los campos */
+    .form-row select {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--line);
+      padding: 0.3rem 0;
+      border-radius: 0;
+      -webkit-appearance: none;
+      appearance: none;
+      background-image: linear-gradient(45deg, transparent 50%, var(--graphite) 50%), linear-gradient(135deg, var(--graphite) 50%, transparent 50%);
+      background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%;
+      background-size: 5px 5px;
+      background-repeat: no-repeat;
+      cursor: pointer;
+    }
+    .form-row select:focus { outline: none; border-bottom-color: var(--ink); }
+    .form-row input, .form-row textarea { border-bottom-color: #CFC4AC; }
+
+    /* ===== Ronda 2 (sept. 2026) ===== */
+    /* Claim del hero en tres líneas */
+
+    /* Trayectoria agrupada por años */
+    .track-group { padding: 0.9rem 0; border-top: 1px solid var(--line); }
+    .track-group:first-of-type { border-top: none; }
+    .track-years {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+      color: var(--brand-title);
+      margin-bottom: 0.35rem;
+    }
+    .track-group--sport .track-years { color: var(--sport-title); }
+    .track-items { list-style: none; margin: 0; padding: 0 0 0 0.9rem; border-left: 2px solid var(--line); }
+    .track-group .track-items { border-left-color: rgba(138, 18, 38, 0.35); }
+    .track-group--sport .track-items { border-left-color: rgba(38, 64, 46, 0.4); }
+    .track-items li { font-size: 0.75rem; line-height: 1.65; }
+    .track-items li + li { margin-top: 0.3rem; }
+    .track-items strong { font-weight: 500; }
+    .track-items a { border-bottom: 1px solid var(--line); transition: border-color 0.2s ease; }
+    .track-items a:hover, .track-items a:focus-visible { border-bottom-color: var(--ink); }
+    .track-group + .figures-list { margin-top: 1.2rem; }
+
+    /* Enlaces de proyectos más pequeños */
+    .project-cta-list { max-width: 19rem; gap: 0.4rem; margin-top: 0.6rem; }
+    .project-cta { padding: 0.42rem 0.9rem; font-size: 0.66rem; box-shadow: 0 2px 8px rgba(15,15,15,0.12); }
+    .project-cta .cta-note { font-size: 0.54rem; }
+    .project-cta .cta-arrow { font-size: 0.74rem; }
+
+    /* Contacto: botones más pequeños */
+    .contact-cta { padding: 0.42rem 0.95rem; font-size: 0.6rem; box-shadow: 0 2px 8px rgba(15,15,15,0.12); }
+
+    /* Pie: QR más pequeño, alineado con la línea de Aviso legal / Privacidad */
+    .footer-qr-code { width: 72px; height: 72px; }
+    .footer-qr { gap: 0.35rem; }
+    .footer-qr-caption { font-size: 0.62rem; }
+    .footer-qr-caption svg { width: 12px; height: 12px; }
+    .footer-row { align-items: flex-end; }
+    .footer-contact { align-items: flex-end; }
+    .footer-legal { padding-bottom: 0.1rem; }
+    .contact-cta, .project-cta { line-height: 1.25; }
+
+    /* ===== Ronda 3 · páginas propias de cada unidad ===== */
+    body[data-page="unit"] main > .section { display: block; }
+    body[data-page="unit"] main { padding-top: 4.2rem; }
+    h1.section-title { margin: 0; }
+    .unit-block { margin-top: 2.4rem; }
+    .unit-block-title {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--graphite);
+      margin-bottom: 0.6rem;
+    }
+    .faq-item { border-top: 1px solid var(--line); padding: 0.2rem 0; }
+    .faq-item:last-child { border-bottom: 1px solid var(--line); }
+    .faq-item summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.7rem 0;
+      font-weight: 600;
+      text-align: left;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; color: var(--brand); font-weight: 500; transition: transform 0.2s ease; }
+    #gestion-deportiva .faq-item summary::after { color: var(--sport); }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item p { padding-bottom: 0.8rem; margin: 0; }
+    .unit-crosslink { margin-top: 2.2rem; }
+    .unit-crosslink a { border-bottom: 1px solid var(--line); transition: border-color 0.2s ease; }
+    .unit-crosslink a:hover, .unit-crosslink a:focus-visible { border-bottom-color: var(--ink); }
+    /* punto de color de las unidades sin desplazar el título */
+    .menu-unit .menu-num { position: relative; }
+    .menu-unit .menu-num::after { position: absolute; margin-left: 0; left: 1.62em; top: 50%; transform: translateY(-50%); width: 0.36rem; height: 0.36rem; }
+
+  
+    /* ============================================
+       AJUSTES 24-09
+       ============================================ */
+    /* Número de sección visible en el título (02 Gestión Cultural…) */
+    .sec-num { display: inline-block; margin-right: 0.9em; color: var(--graphite); font-variant-numeric: tabular-nums; }
+
+    /* Portada: H1 = solo la frase clave; el resto va en un <p> con el mismo aspecto */
+    .hero-claim .hero-tagline { display: inline; margin: 0; }
+    h1.hero-tagline strong { font-weight: 600; }
+    h1.hero-tagline::after { content: "."; }
+
+    /* Pie: Aviso legal y Política de privacidad ahora son enlaces */
+    .footer-legal > a {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      color: var(--graphite);
+      border-bottom: 1px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .footer-legal > a:hover, .footer-legal > a:focus-visible { color: var(--ink); border-bottom-color: var(--ink); }
+
+    /* Listas con guion (una idea por guion) */
+    .dash-list {
+      list-style: none;
+      margin: 0.35rem 0 0;
+      padding: 0 0 0 0.95rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      line-height: 1.65;
+    }
+    .dash-list { text-align: left; }
+    .dash-list li + li { margin-top: 0.2rem; }
+    .dash-list li, .track-items li { position: relative; padding-left: 1.1em; }
+    .dash-list li::before, .track-items li::before { content: "-"; position: absolute; left: 0; }
+    .dash-list a { border-bottom: 1px solid var(--line); transition: border-color 0.2s ease; }
+    .dash-list a:hover { border-bottom-color: var(--ink); }
+
+    /* Páginas legales */
+    .legal-block h2 {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin: 0 0 0.55rem;
+    }
+    .legal-block + .legal-block { margin-top: 1.7rem; }
+    .section-body-content .legal-block p + p { margin-top: 0.7rem; }
+    .legal-block .dash-list { margin-top: 0.6rem; }
+    .legal-block a { border-bottom: 1px solid var(--line); transition: border-color 0.2s ease; }
+    .legal-block a:hover { border-bottom-color: var(--ink); }
+    .legal-updated { color: var(--graphite); }
+
+
+    /* Titular gigante de la portada: centrado */
+    .hero-giant { text-align: center; }
+    /* ---- Ronda 2 ---- */
+    /* Sin barra de acento junto a los subtítulos de servicio */
+    .service-lead::before,
+    #gestion-cultural .service-lead::before,
+    #gestion-deportiva .service-lead::before { display: none !important; content: none !important; }
+    h3.service-lead, .service-lead { padding-left: 0; }
+    .dash-list { padding-left: 0.6rem; }
+    /* Cada subtítulo de servicio en una sola línea (en móvil puede envolver: no cabe) */
+    @media (min-width: 720px) { h3.service-lead { white-space: nowrap; } }
+
+    /* Más aire entre "Volver al menú" y el título */
+
+    /* Móvil: nombre del servicio en una línea y eslogan debajo, más ligero */
+    @media (max-width: 719px) {
+      .service-sep { display: none; }
+      .service-tag { display: block; font-weight: 400; }
+    }
+    .back-to-menu { display: flex; width: fit-content; margin-bottom: 2.8rem; }
+    .section-head .unit-tag { display: flex; width: fit-content; margin-bottom: 0.7rem; }
+  
+    /* ============================================
+       MÓVIL · pie de página (solo ≤ 640 px; escritorio no cambia)
+       - sin QR (ya están los botones)
+       - iconos repartidos a todo el ancho, alineados con el margen
+       - enlaces legales en una línea, © debajo
+       - botones de contacto en una sola fila a todo el ancho
+       ============================================ */
+    @media (max-width: 640px) {
+      .footer-qr { display: none; }
+
+      .site-footer { padding-block: 2rem 1.75rem; gap: 0; }
+      .footer-row { flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 1.5rem; }
+
+      .footer-legal { align-items: center; gap: 1rem 1.5rem; padding-bottom: 0; }
+      .socials--footer {
+        order: 0;
+        gap: 0;
+        justify-content: space-between;
+        margin-inline: -0.2rem;          /* compensa el padding del área táctil */
+        flex: 0 0 calc(100% + 0.4rem);
+      }
+      .footer-legal > a { order: 1; }
+      .footer-legal > span { order: 2; flex-basis: 100%; margin-top: -0.35rem; }
+
+      .footer-right { align-items: stretch; }
+      .footer-contact { display: block; width: 100%; }
+      .footer-cta { flex-direction: row; flex-wrap: wrap; align-items: stretch; gap: 0.5rem; width: 100%; }
+      .cta-pill { flex: 1 1 auto; justify-content: center; white-space: nowrap; padding: 0.5rem 0.7rem; }
+    }
+  </style>
+</head>
+<body data-lang-body="en" data-page="unit" data-url-cult="/en/cultural-management/" data-url-dep="/en/sporting-events/">
+<!-- TOPBAR -->
+<header class="topbar">
+<div class="container topbar-inner">
+<a aria-label="Musubigara® — Home" class="logo" href="/en/">
+<span class="logo-wordmark">MUSU<span class="logo-knot">·</span>BIGARA<span class="reg">®</span></span>
+</a>
+<span aria-hidden="true" class="topbar-coords">42.8467° N · 2.6716° W</span>
+<div class="topbar-right">
+<div class="socials socials--top">
+<a aria-label="Instagram" href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank" title="Instagram"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+<a aria-label="LinkedIn" href="https://www.linkedin.com/company/136037162/" rel="noopener" target="_blank" title="LinkedIn"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><rect height="20" rx="3" width="20" x="2" y="2"></rect><line x1="7" x2="7" y1="10.5" y2="17"></line><line x1="7" x2="7.01" y1="7" y2="7"></line><path d="M11 17v-6.5M11 13.4c0-1.8 1.2-2.9 2.8-2.9s2.7 1.1 2.7 2.9V17"></path></svg></a>
+<a aria-label="Musubigara® playlist on Spotify" href="https://open.spotify.com/playlist/00UWiOt3csiHCbZ2pM4zWe" rel="noopener" target="_blank" title="Musubigara® playlist on Spotify"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M7.4 9.3c3-.9 7.4-.7 10.1 1.2"></path><path d="M8 12.4c2.5-.7 6.1-.5 8.4 1"></path><path d="M8.5 15.2c2-.5 4.7-.4 6.7.8"></path></svg></a>
+<a aria-label="WhatsApp" href="https://wa.me/34620463558" rel="noopener" target="_blank" title="WhatsApp"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.7z"></path><path d="M9.4 8.5c.2 0 .4.1.5.3l.7 1.5c.1.2 0 .4-.1.5l-.5.5c-.1.1-.1.2-.1.3.3.9 1.5 2.1 2.4 2.4.1 0 .2 0 .3-.1l.5-.5c.1-.1.3-.2.5-.1l1.5.7c.2.1.3.3.3.5 0 1-.8 1.7-1.7 1.7-2.9 0-5.9-3-5.9-5.9 0-.9.7-1.7 1.6-1.8z"></path></svg></a>
+<a aria-label="ignacio@musubigara.org" href="mailto:ignacio@musubigara.org" title="ignacio@musubigara.org" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><rect height="15" rx="2" width="19" x="2.5" y="4.5"></rect><polyline points="3.5 6.5 12 13 20.5 6.5"></polyline></svg></a>
+<a aria-label="Directions — Pintor Pablo Uranga 12" href="https://www.google.com/maps/search/?api=1&amp;query=Pintor+Pablo+Uranga+12%2C+01008+Vitoria-Gasteiz" rel="noopener" target="_blank" title="Directions — Pintor Pablo Uranga 12"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M20 10.4c0 5.4-8 12.1-8 12.1s-8-6.7-8-12.1a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10.2" r="2.9"></circle></svg></a>
+</div>
+<div aria-label="Language" class="lang-toggle" role="navigation">
+<a class="lang-opt" href="/politica-privacidad/" hreflang="es" lang="es">ES</a>
+<span aria-hidden="true" class="sep">/</span>
+<a class="lang-opt" href="/eu/pribatutasun-politika/" hreflang="eu" lang="eu">EU</a>
+<span aria-hidden="true" class="sep">/</span>
+<a aria-current="page" class="lang-opt active" href="/en/privacy-policy/" hreflang="en" lang="en">EN</a>
+</div>
+<button aria-controls="menuPanel" aria-expanded="false" aria-label="Open menu" class="menu-toggle" id="menuToggle">
+<span class="menu-toggle-icon"><span></span><span></span></span>
+<span class="menu-toggle-label">Menu</span>
+</button>
+</div>
+</div>
+</header>
+<nav aria-hidden="true" aria-label="Index" class="menu-panel" id="menuPanel">
+<ul class="menu-list">
+<li><a href="/en/#presentacion"><span class="menu-num">01</span><span class="menu-title">Introduction</span></a></li>
+<li><a class="menu-unit menu-unit--cultura" href="/en/cultural-management/"><span class="menu-num">02</span><span class="menu-title">Cultural Management</span></a></li>
+<li><a class="menu-unit menu-unit--deporte" href="/en/sporting-events/"><span class="menu-num">03</span><span class="menu-title">Signature Sporting Events</span></a></li>
+<li><a href="/en/#cifras"><span class="menu-num">04</span><span class="menu-title">Figures</span></a></li>
+<li><a href="/en/#colaboraciones"><span class="menu-num">05</span><span class="menu-title">Trusted by</span></a></li>
+<li><a href="/en/#trayectoria"><span class="menu-num">06</span><span class="menu-title">Track record</span></a></li>
+<li><a href="/en/gallery/"><span class="menu-num">07</span><span class="menu-title">Images</span></a></li>
+<li><a href="/en/#equipo"><span class="menu-num">08</span><span class="menu-title">Team</span></a></li>
+<li><a href="/en/#contacto"><span class="menu-num">09</span><span class="menu-title">Contact</span></a></li>
+</ul>
+</nav>
+<main id="top">
+<section class="section is-active" id="privacy-policy">
+<div class="section-head container">
+<button class="back-to-menu" data-back="" type="button">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24"><line x1="20" x2="5" y1="12" y2="12"></line><polyline points="11 18 5 12 11 6"></polyline></svg>
+<span>Back to menu</span>
+</button>
+<h1 class="section-title">Privacy policy</h1>
+</div>
+<div class="section-body container">
+<div class="section-body-content">
+<div class="en-body">
+<div class="legal-block">
+<h2>1. Data controller</h2>
+<p>The controller of the personal data processed through this website is:</p>
+<ul class="dash-list">
+<li><strong>Owner:</strong> Ignacio Sanz Arana</li>
+<li><strong>Tax ID (NIF):</strong> 72752567W</li>
+<li><strong>Address:</strong> Pintor Pablo Uranga 12, 01008 Vitoria-Gasteiz (Álava), Spain</li>
+<li><strong>Email:</strong> <a href="mailto:ignacio@musubigara.org" rel="noopener" target="_blank">ignacio@musubigara.org</a></li>
+</ul>
+<p>This policy complies with Regulation (EU) 2016/679 (GDPR) and Spanish Organic Law 3/2018 (LOPDGDD). No data protection officer has been appointed.</p>
+</div>
+<div class="legal-block">
+<h2>2. What data we process and why</h2>
+<p><strong>Contact form</strong></p>
+<ul class="dash-list">
+<li><strong>Data:</strong> name, email address, type of enquiry and the content of your message.</li>
+<li><strong>Purpose:</strong> to deal with your enquiry and reply to you.</li>
+<li><strong>Legal basis:</strong> your consent when you submit the form (Article 6(1)(a) GDPR) and, if you request a service, the application of pre-contractual measures at your request (Article 6(1)(b) GDPR).</li>
+</ul>
+<p><strong>Email, phone and WhatsApp</strong></p>
+<ul class="dash-list">
+<li><strong>Data:</strong> what you give us when you write or call (name, email or phone number, and the content of your message).</li>
+<li><strong>Purpose and legal basis:</strong> the same as for the form. You contact us on your own initiative.</li>
+</ul>
+<p><strong>Call scheduling (Calendly)</strong></p>
+<ul class="dash-list">
+<li><strong>Data:</strong> name, email address and the appointment details you enter when booking.</li>
+<li><strong>Purpose and legal basis:</strong> to manage the call you request (Article 6(1)(a) and (b) GDPR).</li>
+</ul>
+</div>
+<div class="legal-block">
+<h2>3. Retention period</h2>
+<p>We keep your data for as long as necessary to deal with your enquiry or manage the service you request. After that, we keep it blocked for the legal limitation periods for possible liabilities and delete it once they have passed.</p>
+</div>
+<div class="legal-block">
+<h2>4. Recipients and providers</h2>
+<p>We do not sell your data or pass it on to third parties, except where required by law. To provide the service we rely on these providers:</p>
+<ul class="dash-list">
+<li><strong>Netlify, Inc.:</strong> website hosting and receipt of form messages.</li>
+<li><strong>Calendly, LLC:</strong> call booking, only if you use the scheduler.</li>
+<li><strong>WhatsApp (Meta Platforms):</strong> messaging, only if you write to us through that channel.</li>
+<li><strong>Google (Google Fonts):</strong> the website's typefaces.</li>
+</ul>
+</div>
+<div class="legal-block">
+<h2>5. International transfers</h2>
+<p>Some of these providers are based in the United States. Data transfers rely on the safeguards each provider states in its privacy policy, such as the EU-US Data Privacy Framework or the European Commission's standard contractual clauses.</p>
+</div>
+<div class="legal-block">
+<h2>6. Cookies and similar technologies</h2>
+<p>This website does not use its own or third-party cookies for analytics, personalisation or advertising purposes. When the page loads, your browser requests the typefaces from Google Fonts, so Google may receive your IP address and basic technical data about your browser. If cookies or analytics tools are added in the future, this policy will be updated and your consent will be requested where required.</p>
+</div>
+<div class="legal-block">
+<h2>7. Your rights</h2>
+<p>You can exercise your rights of access, rectification, erasure, objection, restriction of processing and portability, and withdraw your consent at any time, by writing to <a href="mailto:ignacio@musubigara.org" rel="noopener" target="_blank">ignacio@musubigara.org</a> and stating the right you wish to exercise. To protect your data, we may ask you to verify your identity.</p>
+<p>If you believe your data has not been processed properly, you can lodge a complaint with the Spanish Data Protection Agency (AEPD) (<a href="https://www.aepd.es" rel="noopener" target="_blank">www.aepd.es</a>).</p>
+</div>
+<div class="legal-block">
+<h2>8. Security</h2>
+<p>We apply reasonable technical and organisational measures to protect your data against unauthorised access, loss or alteration.</p>
+</div>
+<div class="legal-block">
+<h2>9. Changes to this policy</h2>
+<p>We may update this policy to adapt it to changes in the law or in the website. The current version is the one published on this page.</p>
+<p class="legal-updated">Last updated: 24 September 2026.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="site-footer">
+<div class="footer-row">
+<div class="footer-legal">
+<div class="socials socials--footer">
+<a aria-label="Instagram" href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank" title="Instagram"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg></a>
+<a aria-label="LinkedIn" href="https://www.linkedin.com/company/136037162/" rel="noopener" target="_blank" title="LinkedIn"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><rect height="20" rx="3" width="20" x="2" y="2"></rect><line x1="7" x2="7" y1="10.5" y2="17"></line><line x1="7" x2="7.01" y1="7" y2="7"></line><path d="M11 17v-6.5M11 13.4c0-1.8 1.2-2.9 2.8-2.9s2.7 1.1 2.7 2.9V17"></path></svg></a>
+<a aria-label="Musubigara® playlist on Spotify" href="https://open.spotify.com/playlist/00UWiOt3csiHCbZ2pM4zWe" rel="noopener" target="_blank" title="Musubigara® playlist on Spotify"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><path d="M7.4 9.3c3-.9 7.4-.7 10.1 1.2"></path><path d="M8 12.4c2.5-.7 6.1-.5 8.4 1"></path><path d="M8.5 15.2c2-.5 4.7-.4 6.7.8"></path></svg></a>
+<a aria-label="WhatsApp" href="https://wa.me/34620463558" rel="noopener" target="_blank" title="WhatsApp"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.7z"></path><path d="M9.4 8.5c.2 0 .4.1.5.3l.7 1.5c.1.2 0 .4-.1.5l-.5.5c-.1.1-.1.2-.1.3.3.9 1.5 2.1 2.4 2.4.1 0 .2 0 .3-.1l.5-.5c.1-.1.3-.2.5-.1l1.5.7c.2.1.3.3.3.5 0 1-.8 1.7-1.7 1.7-2.9 0-5.9-3-5.9-5.9 0-.9.7-1.7 1.6-1.8z"></path></svg></a>
+<a aria-label="ignacio@musubigara.org" href="mailto:ignacio@musubigara.org" title="ignacio@musubigara.org" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><rect height="15" rx="2" width="19" x="2.5" y="4.5"></rect><polyline points="3.5 6.5 12 13 20.5 6.5"></polyline></svg></a>
+<a aria-label="Directions — Pintor Pablo Uranga 12" href="https://www.google.com/maps/search/?api=1&amp;query=Pintor+Pablo+Uranga+12%2C+01008+Vitoria-Gasteiz" rel="noopener" target="_blank" title="Directions — Pintor Pablo Uranga 12"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M20 10.4c0 5.4-8 12.1-8 12.1s-8-6.7-8-12.1a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10.2" r="2.9"></circle></svg></a>
+</div>
+<span>© 2026 Musubigara®</span>
+<a href="/en/legal-notice/">Legal notice</a>
+<a href="/en/privacy-policy/">Privacy policy</a>
+</div>
+<div class="footer-right">
+<div class="footer-contact">
+<a aria-label="Musubigara® on Instagram — @musubi.gara" class="footer-qr" href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank">
+<span class="footer-qr-code"><svg aria-label="Instagram QR code" role="img" viewbox="0 0 33 33" xmlns="http://www.w3.org/2000/svg"><path d="M2,2h1v1h-1zM3,2h1v1h-1zM4,2h1v1h-1zM5,2h1v1h-1zM6,2h1v1h-1zM7,2h1v1h-1zM8,2h1v1h-1zM16,2h1v1h-1zM17,2h1v1h-1zM20,2h1v1h-1zM21,2h1v1h-1zM24,2h1v1h-1zM25,2h1v1h-1zM26,2h1v1h-1zM27,2h1v1h-1zM28,2h1v1h-1zM29,2h1v1h-1zM30,2h1v1h-1zM2,3h1v1h-1zM8,3h1v1h-1zM10,3h1v1h-1zM11,3h1v1h-1zM12,3h1v1h-1zM15,3h1v1h-1zM17,3h1v1h-1zM21,3h1v1h-1zM24,3h1v1h-1zM30,3h1v1h-1zM2,4h1v1h-1zM4,4h1v1h-1zM5,4h1v1h-1zM6,4h1v1h-1zM8,4h1v1h-1zM11,4h1v1h-1zM17,4h1v1h-1zM18,4h1v1h-1zM21,4h1v1h-1zM24,4h1v1h-1zM26,4h1v1h-1zM27,4h1v1h-1zM28,4h1v1h-1zM30,4h1v1h-1zM2,5h1v1h-1zM4,5h1v1h-1zM5,5h1v1h-1zM6,5h1v1h-1zM8,5h1v1h-1zM12,5h1v1h-1zM14,5h1v1h-1zM17,5h1v1h-1zM18,5h1v1h-1zM20,5h1v1h-1zM24,5h1v1h-1zM26,5h1v1h-1zM27,5h1v1h-1zM28,5h1v1h-1zM30,5h1v1h-1zM2,6h1v1h-1zM4,6h1v1h-1zM5,6h1v1h-1zM6,6h1v1h-1zM8,6h1v1h-1zM10,6h1v1h-1zM11,6h1v1h-1zM14,6h1v1h-1zM15,6h1v1h-1zM16,6h1v1h-1zM17,6h1v1h-1zM19,6h1v1h-1zM20,6h1v1h-1zM21,6h1v1h-1zM22,6h1v1h-1zM24,6h1v1h-1zM26,6h1v1h-1zM27,6h1v1h-1zM28,6h1v1h-1zM30,6h1v1h-1zM2,7h1v1h-1zM8,7h1v1h-1zM13,7h1v1h-1zM16,7h1v1h-1zM17,7h1v1h-1zM18,7h1v1h-1zM20,7h1v1h-1zM21,7h1v1h-1zM22,7h1v1h-1zM24,7h1v1h-1zM30,7h1v1h-1zM2,8h1v1h-1zM3,8h1v1h-1zM4,8h1v1h-1zM5,8h1v1h-1zM6,8h1v1h-1zM7,8h1v1h-1zM8,8h1v1h-1zM10,8h1v1h-1zM12,8h1v1h-1zM14,8h1v1h-1zM16,8h1v1h-1zM18,8h1v1h-1zM20,8h1v1h-1zM22,8h1v1h-1zM24,8h1v1h-1zM25,8h1v1h-1zM26,8h1v1h-1zM27,8h1v1h-1zM28,8h1v1h-1zM29,8h1v1h-1zM30,8h1v1h-1zM14,9h1v1h-1zM15,9h1v1h-1zM16,9h1v1h-1zM17,9h1v1h-1zM19,9h1v1h-1zM20,9h1v1h-1zM21,9h1v1h-1zM22,9h1v1h-1zM2,10h1v1h-1zM4,10h1v1h-1zM6,10h1v1h-1zM8,10h1v1h-1zM12,10h1v1h-1zM14,10h1v1h-1zM16,10h1v1h-1zM18,10h1v1h-1zM19,10h1v1h-1zM21,10h1v1h-1zM22,10h1v1h-1zM26,10h1v1h-1zM29,10h1v1h-1zM2,11h1v1h-1zM4,11h1v1h-1zM5,11h1v1h-1zM7,11h1v1h-1zM14,11h1v1h-1zM18,11h1v1h-1zM22,11h1v1h-1zM23,11h1v1h-1zM24,11h1v1h-1zM27,11h1v1h-1zM30,11h1v1h-1zM2,12h1v1h-1zM3,12h1v1h-1zM6,12h1v1h-1zM8,12h1v1h-1zM11,12h1v1h-1zM15,12h1v1h-1zM28,12h1v1h-1zM29,12h1v1h-1zM30,12h1v1h-1zM3,13h1v1h-1zM5,13h1v1h-1zM7,13h1v1h-1zM9,13h1v1h-1zM11,13h1v1h-1zM13,13h1v1h-1zM18,13h1v1h-1zM19,13h1v1h-1zM20,13h1v1h-1zM21,13h1v1h-1zM26,13h1v1h-1zM29,13h1v1h-1zM2,14h1v1h-1zM3,14h1v1h-1zM4,14h1v1h-1zM7,14h1v1h-1zM8,14h1v1h-1zM11,14h1v1h-1zM18,14h1v1h-1zM19,14h1v1h-1zM20,14h1v1h-1zM22,14h1v1h-1zM23,14h1v1h-1zM24,14h1v1h-1zM27,14h1v1h-1zM29,14h1v1h-1zM30,14h1v1h-1zM6,15h1v1h-1zM10,15h1v1h-1zM13,15h1v1h-1zM15,15h1v1h-1zM18,15h1v1h-1zM22,15h1v1h-1zM23,15h1v1h-1zM24,15h1v1h-1zM25,15h1v1h-1zM27,15h1v1h-1zM30,15h1v1h-1zM3,16h1v1h-1zM4,16h1v1h-1zM6,16h1v1h-1zM8,16h1v1h-1zM9,16h1v1h-1zM11,16h1v1h-1zM12,16h1v1h-1zM13,16h1v1h-1zM14,16h1v1h-1zM16,16h1v1h-1zM18,16h1v1h-1zM19,16h1v1h-1zM22,16h1v1h-1zM23,16h1v1h-1zM25,16h1v1h-1zM27,16h1v1h-1zM29,16h1v1h-1zM30,16h1v1h-1zM2,17h1v1h-1zM3,17h1v1h-1zM6,17h1v1h-1zM7,17h1v1h-1zM9,17h1v1h-1zM10,17h1v1h-1zM12,17h1v1h-1zM13,17h1v1h-1zM15,17h1v1h-1zM16,17h1v1h-1zM18,17h1v1h-1zM19,17h1v1h-1zM20,17h1v1h-1zM23,17h1v1h-1zM24,17h1v1h-1zM27,17h1v1h-1zM29,17h1v1h-1zM2,18h1v1h-1zM4,18h1v1h-1zM5,18h1v1h-1zM6,18h1v1h-1zM8,18h1v1h-1zM14,18h1v1h-1zM16,18h1v1h-1zM17,18h1v1h-1zM18,18h1v1h-1zM19,18h1v1h-1zM23,18h1v1h-1zM24,18h1v1h-1zM25,18h1v1h-1zM27,18h1v1h-1zM29,18h1v1h-1zM30,18h1v1h-1zM3,19h1v1h-1zM4,19h1v1h-1zM7,19h1v1h-1zM12,19h1v1h-1zM16,19h1v1h-1zM22,19h1v1h-1zM24,19h1v1h-1zM27,19h1v1h-1zM28,19h1v1h-1zM30,19h1v1h-1zM2,20h1v1h-1zM6,20h1v1h-1zM7,20h1v1h-1zM8,20h1v1h-1zM10,20h1v1h-1zM12,20h1v1h-1zM14,20h1v1h-1zM15,20h1v1h-1zM24,20h1v1h-1zM25,20h1v1h-1zM29,20h1v1h-1zM30,20h1v1h-1zM3,21h1v1h-1zM4,21h1v1h-1zM6,21h1v1h-1zM10,21h1v1h-1zM11,21h1v1h-1zM14,21h1v1h-1zM17,21h1v1h-1zM19,21h1v1h-1zM20,21h1v1h-1zM22,21h1v1h-1zM24,21h1v1h-1zM27,21h1v1h-1zM29,21h1v1h-1zM2,22h1v1h-1zM5,22h1v1h-1zM7,22h1v1h-1zM8,22h1v1h-1zM17,22h1v1h-1zM18,22h1v1h-1zM19,22h1v1h-1zM22,22h1v1h-1zM23,22h1v1h-1zM24,22h1v1h-1zM25,22h1v1h-1zM26,22h1v1h-1zM10,23h1v1h-1zM14,23h1v1h-1zM15,23h1v1h-1zM18,23h1v1h-1zM19,23h1v1h-1zM20,23h1v1h-1zM21,23h1v1h-1zM22,23h1v1h-1zM26,23h1v1h-1zM28,23h1v1h-1zM29,23h1v1h-1zM30,23h1v1h-1zM2,24h1v1h-1zM3,24h1v1h-1zM4,24h1v1h-1zM5,24h1v1h-1zM6,24h1v1h-1zM7,24h1v1h-1zM8,24h1v1h-1zM11,24h1v1h-1zM13,24h1v1h-1zM14,24h1v1h-1zM16,24h1v1h-1zM18,24h1v1h-1zM21,24h1v1h-1zM22,24h1v1h-1zM24,24h1v1h-1zM26,24h1v1h-1zM27,24h1v1h-1zM29,24h1v1h-1zM30,24h1v1h-1zM2,25h1v1h-1zM8,25h1v1h-1zM11,25h1v1h-1zM13,25h1v1h-1zM15,25h1v1h-1zM16,25h1v1h-1zM19,25h1v1h-1zM20,25h1v1h-1zM22,25h1v1h-1zM26,25h1v1h-1zM27,25h1v1h-1zM29,25h1v1h-1zM30,25h1v1h-1zM2,26h1v1h-1zM4,26h1v1h-1zM5,26h1v1h-1zM6,26h1v1h-1zM8,26h1v1h-1zM10,26h1v1h-1zM11,26h1v1h-1zM12,26h1v1h-1zM13,26h1v1h-1zM16,26h1v1h-1zM18,26h1v1h-1zM19,26h1v1h-1zM22,26h1v1h-1zM23,26h1v1h-1zM24,26h1v1h-1zM25,26h1v1h-1zM26,26h1v1h-1zM29,26h1v1h-1zM30,26h1v1h-1zM2,27h1v1h-1zM4,27h1v1h-1zM5,27h1v1h-1zM6,27h1v1h-1zM8,27h1v1h-1zM11,27h1v1h-1zM13,27h1v1h-1zM14,27h1v1h-1zM15,27h1v1h-1zM16,27h1v1h-1zM18,27h1v1h-1zM19,27h1v1h-1zM20,27h1v1h-1zM26,27h1v1h-1zM28,27h1v1h-1zM29,27h1v1h-1zM30,27h1v1h-1zM2,28h1v1h-1zM4,28h1v1h-1zM5,28h1v1h-1zM6,28h1v1h-1zM8,28h1v1h-1zM10,28h1v1h-1zM13,28h1v1h-1zM15,28h1v1h-1zM19,28h1v1h-1zM20,28h1v1h-1zM22,28h1v1h-1zM23,28h1v1h-1zM25,28h1v1h-1zM26,28h1v1h-1zM27,28h1v1h-1zM30,28h1v1h-1zM2,29h1v1h-1zM8,29h1v1h-1zM11,29h1v1h-1zM12,29h1v1h-1zM14,29h1v1h-1zM16,29h1v1h-1zM17,29h1v1h-1zM18,29h1v1h-1zM19,29h1v1h-1zM20,29h1v1h-1zM21,29h1v1h-1zM22,29h1v1h-1zM26,29h1v1h-1zM29,29h1v1h-1zM2,30h1v1h-1zM3,30h1v1h-1zM4,30h1v1h-1zM5,30h1v1h-1zM6,30h1v1h-1zM7,30h1v1h-1zM8,30h1v1h-1zM10,30h1v1h-1zM11,30h1v1h-1zM14,30h1v1h-1zM15,30h1v1h-1zM19,30h1v1h-1zM21,30h1v1h-1zM22,30h1v1h-1zM24,30h1v1h-1zM25,30h1v1h-1zM26,30h1v1h-1zM27,30h1v1h-1zM29,30h1v1h-1zM30,30h1v1h-1z" fill="var(--brand)" shape-rendering="crispEdges"></path></svg></span>
+<span class="footer-qr-caption">
+<svg aria-hidden="true" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect height="18" rx="5" ry="5" width="18" x="3" y="3" fill="none" stroke="var(--brand)" stroke-width="2"></rect><circle cx="12" cy="12" r="4.2" fill="none" stroke="var(--brand)" stroke-width="2"></circle><circle cx="16.8" cy="7.2" r="1.2" fill="var(--brand)"></circle></svg>
+                Musubigara®
+              </span>
+</a>
+<div class="footer-cta">
+<a class="cta-pill" href="https://calendly.com/i-sanz-arana/new-meeting" rel="noopener" target="_blank">
+<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<rect height="16" rx="2.5" width="18" x="3" y="4.5"></rect>
+<line x1="3" x2="21" y1="9.5" y2="9.5"></line>
+<line x1="8" x2="8" y1="2.5" y2="6.5"></line>
+<line x1="16" x2="16" y1="2.5" y2="6.5"></line>
+</svg>
+<span>Book a call</span>
+</a>
+<a class="cta-pill" href="https://wa.me/34620463558" rel="noopener" target="_blank">
+<svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.05 4.91A9.816 9.816 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.004c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01zM12.04 20.15h-.004a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.24-8.23 2.2 0 4.27.86 5.82 2.42a8.18 8.18 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43-.14-.01-.31-.01-.48-.01-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"></path></svg>
+<span>Let's talk about your project</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</main>
+
+  <script>
+    /* ============================================
+       HERO-GIANT: el titular gigante siempre cabe en la
+       pantalla — se encoge en vez de recortarse por el borde
+       ============================================ */
+    const IS_UNIT = document.body.dataset.page === 'unit';
+    function fitHeroGiant() {
+      const el = document.querySelector('.hero-giant');
+      if (!el) return;
+      el.style.fontSize = '';
+      const visible = [...el.querySelectorAll('.es-body, .eu-body, .en-body')]
+        .find(s => getComputedStyle(s).display !== 'none');
+      if (!visible) return;
+      const cs = getComputedStyle(el);
+      const padInline = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+      const available = el.clientWidth - padInline;
+      const natural = visible.getBoundingClientRect().width;
+      const currentSize = parseFloat(cs.fontSize);
+      if (natural > available) {
+        el.style.fontSize = (currentSize * (available / natural) * 0.985) + 'px';
+      }
+    }
+    fitHeroGiant();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitHeroGiant);
+    window.addEventListener('resize', fitHeroGiant);
+
+    /* ============================================
+       MENÚ: dos rayas que despliegan el índice completo
+       ============================================ */
+    const menuToggle = document.getElementById('menuToggle');
+    const menuPanel = document.getElementById('menuPanel');
+    if (menuToggle && menuPanel) {
+      const positionMenu = () => {
+        const headerEl = document.querySelector('header');
+        if (headerEl) {
+          const rect = headerEl.getBoundingClientRect();
+          document.documentElement.style.setProperty('--menu-panel-top', (rect.bottom + 8) + 'px');
+        }
+      };
+      const openMenu = () => {
+        positionMenu();
+        menuPanel.classList.add('is-open');
+        menuPanel.setAttribute('aria-hidden', 'false');
+        menuToggle.setAttribute('aria-expanded', 'true');
+      };
+      const closeMenu = () => {
+        menuPanel.classList.remove('is-open');
+        menuPanel.setAttribute('aria-hidden', 'true');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      };
+      menuToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        menuPanel.classList.contains('is-open') ? closeMenu() : openMenu();
+      });
+      menuPanel.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMenu();
+      });
+      document.addEventListener('click', (e) => {
+        if (menuPanel.classList.contains('is-open') &&
+            !menuPanel.contains(e.target) &&
+            !menuToggle.contains(e.target)) {
+          closeMenu();
+        }
+      });
+      window.addEventListener('resize', () => {
+        if (menuPanel.classList.contains('is-open')) positionMenu();
+      });
+
+      /* Botón "Volver al menú" en cada sección: vuelve a Inicio y abre el índice */
+      document.querySelectorAll('[data-back]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!IS_UNIT) goHome();
+          openMenu();
+        });
+      });
+    }
+
+    /* ============================================
+       NAVEGACIÓN: Inicio muestra solo el título; cada punto
+       del menú abre su sección (una a una). El logo vuelve a Inicio.
+       ============================================ */
+    const contentSections = document.querySelectorAll('main > .section');
+
+    /* replaceState lanza SecurityError en previsualizaciones srcdoc;
+       en el sitio real (musubigara.org) funciona. Lo blindamos. */
+    function setHash(url) {
+      try { history.replaceState(null, '', url); } catch (e) {}
+    }
+
+    function goHome() {
+      document.body.classList.remove('section-view');
+      contentSections.forEach(s => s.classList.remove('is-active'));
+      setHash(location.pathname + location.search);
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      fitHeroGiant();
+    }
+    function openSection(id) {
+      const target = document.getElementById(id);
+      if (!target || !target.classList.contains('section')) { goHome(); return; }
+      contentSections.forEach(s => s.classList.toggle('is-active', s === target));
+      document.body.classList.add('section-view');
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      animateSectionEntrance(target);
+    }
+
+    /* ============================================
+       DINAMISMO DE INTERIORES
+       1) Entrada escalonada de los bloques al abrir la sección.
+       2) Contador animado de las cifras.
+       Ambos respetan prefers-reduced-motion.
+       ============================================ */
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* Reúne, en orden de lectura, los bloques a revelar: los párrafos del
+       idioma visible, uno a uno, y los bloques compartidos (proyectos, equipo…). */
+    function collectRevealItems(section) {
+      const scope = section.querySelector('.section-body-content');
+      if (!scope) return [];
+      const lang = document.body.dataset.langBody || 'es';
+      const items = [];
+      scope.querySelectorAll(':scope > *').forEach(child => {
+        if (child.matches('.es-body, .eu-body, .en-body')) {
+          if (child.classList.contains(lang + '-body')) {
+            child.querySelectorAll(':scope > *').forEach(el => items.push(el));
+          }
+        } else {
+          items.push(child);
+        }
+      });
+      return items;
+    }
+
+    function animateSectionEntrance(section) {
+      const items = collectRevealItems(section);
+      section.classList.remove('is-entering');
+      items.forEach(el => { el.classList.remove('reveal-item'); el.style.removeProperty('--reveal-i'); });
+      void section.offsetWidth; /* reinicia la animación */
+      if (!prefersReduced) {
+        items.forEach((el, i) => {
+          el.style.setProperty('--reveal-i', i);
+          el.classList.add('reveal-item');
+        });
+        section.classList.add('is-entering');
+      }
+      animateCounts(section);
+    }
+
+    /* Interpreta números en formato es-ES: "1,5" (decimal), "14.000" (miles). */
+    const PAGE_LANG = (document.documentElement.lang || 'es').slice(0, 2);
+    const NUM_LOCALE = PAGE_LANG === 'en' ? 'en-GB' : 'es-ES';
+    function parseEsNumber(str) {
+      if (PAGE_LANG === 'en') {
+        const decimals = str.includes('.') ? (str.split('.')[1] || '').length : 0;
+        return { value: parseFloat(str.replace(/,/g, '')), decimals };
+      }
+      const hasComma = str.includes(',');
+      const hasDot = str.includes('.');
+      let normalized = str;
+      if (hasComma && hasDot) normalized = str.replace(/\./g, '').replace(',', '.');
+      else if (hasComma) normalized = str.replace(',', '.');
+      else if (hasDot) normalized = str.replace(/\./g, '');
+      const decimals = hasComma ? (str.split(',')[1] || '').length : 0;
+      return { value: parseFloat(normalized), decimals };
+    }
+    function formatEs(value, decimals) {
+      return value.toLocaleString(NUM_LOCALE, { minimumFractionDigits: decimals, maximumFractionDigits: decimals });
+    }
+
+    function animateCounts(section) {
+      section.querySelectorAll('.figures-list').forEach(list => {
+        if (list.offsetParent === null) return; /* bloque de idioma oculto */
+        list.querySelectorAll('li').forEach(li => {
+          if (li.dataset.counted === '1') return;
+          const m = li.textContent.match(/^(\+?)\s*([\d.,]+)(.*)$/);
+          if (!m) return; /* no empieza por número: se deja tal cual */
+          const prefix = m[1], rest = m[3];
+          const { value, decimals } = parseEsNumber(m[2]);
+          if (!isFinite(value)) return;
+          li.dataset.counted = '1';
+          if (prefersReduced) return;
+          const duration = 1100, start = performance.now();
+          li.textContent = prefix + formatEs(0, decimals) + rest;
+          const step = (now) => {
+            const t = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - t, 3);
+            const current = decimals ? value * eased : Math.round(value * eased);
+            li.textContent = prefix + formatEs(current, decimals) + rest;
+            if (t < 1) requestAnimationFrame(step);
+            else li.textContent = prefix + formatEs(value, decimals) + rest;
+          };
+          requestAnimationFrame(step);
+        });
+      });
+    }
+
+    /* Enlaces internos con # (también "/#seccion" desde el menú): si apuntan
+       a esta misma página, se abren como sección sin recargar. */
+    document.querySelectorAll('a[href*="#"]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        if (IS_UNIT) return;
+        let url;
+        try { url = new URL(link.getAttribute('href'), location.href); } catch (err) { return; }
+        if (url.pathname !== location.pathname) return;
+        const hash = url.hash;
+        if (!hash || hash === '#' || hash === '#top') {
+          e.preventDefault();
+          goHome();
+          return;
+        }
+        const target = document.getElementById(hash.slice(1));
+        if (target && target.classList.contains('section')) {
+          e.preventDefault();
+          openSection(hash.slice(1));
+          setHash(hash);
+        }
+      });
+    });
+
+    /* Enlaces antiguos (#gestion-cultural / #gestion-deportiva) → páginas propias */
+    const UNIT_MOVED = {
+      'gestion-cultural': document.body.dataset.urlCult,
+      'gestion-deportiva': document.body.dataset.urlDep
+    };
+
+    function syncFromHash() {
+      const id = location.hash.slice(1);
+      if (UNIT_MOVED[id]) { location.replace(UNIT_MOVED[id]); return; }
+      const target = id && document.getElementById(id);
+      if (target && target.classList.contains('section')) openSection(id);
+      else goHome();
+    }
+    if (!IS_UNIT) {
+      window.addEventListener('hashchange', syncFromHash);
+      syncFromHash();
+    } else {
+      const s = document.querySelector('main > .section');
+      if (s) animateSectionEntrance(s);
+    }
+
+  </script>
+</body>
+</html>
