@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Ficheros internos de Netlify
+Disallow: /.netlify/
+
 Sitemap: https://musubigara.org/sitemap.xml
