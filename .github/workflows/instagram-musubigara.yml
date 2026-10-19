@@ -44,7 +44,7 @@ jobs:
           SITE_URL:   https://musubigara.org
           IG_LIMIT:   '36'
           IG_SIZES:   '(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px'
-        run: node scripts/instagram-sync.mjs
+        run: if [ -z "$IG_TOKEN" ]; then echo "Sin clave de Instagram - la galeria se queda como esta."; else node scripts/instagram-sync.mjs; fi
 
       - name: Guardar la clave renovada por Meta
         run: |
