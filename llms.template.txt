@@ -1,0 +1,34 @@
+# Musubigara®
+
+> Musubigara® es una marca de Vitoria-Gasteiz (Álava, Euskadi) con dos unidades de negocio: gestión cultural (conciertos, festivales, management musical, financiación y asesoría legal) y eventos deportivos de autor (carreras de montaña, trail y ultra trail). Organiza LARRE Long Distance, un ultra-trail de 214 km en Álava. Web trilingüe: castellano, euskera e inglés.
+
+Musubigara® es la marca paraguas de Ignacio Sanz Arana. Trabaja con artistas, instituciones, patrocinadores y organizadores en Euskadi y Navarra. Contacto: ignacio@musubigara.org.
+
+English: Musubigara® is a Basque (Vitoria-Gasteiz) company combining cultural management (concert and festival production, music management, funding, legal advice) with signature mountain-race and trail event organisation. It organises the 214 km LARRE Long Distance ultra-trail.
+
+## Unidades de negocio
+
+- Gestión cultural: producción de conciertos y festivales, representación y management musical, consultoría, financiación, patrocinio, asesoría legal e internacionalización cultural.
+- Eventos deportivos de autor: diseño, producción y patrocinio de carreras de montaña, trail y ultra trail en Euskadi.
+
+## Páginas (castellano)
+
+{{PAGES_ES}}
+
+## Euskera
+
+{{PAGES_EU}}
+
+## English
+
+{{PAGES_EN}}
+
+## Proyectos relacionados
+
+- [LARRE Long Distance](https://larrelongdistance.org/): ultra-trail non-stop de 214 km y 6.020 m D+ en autosuficiencia por Álava, 1ª edición en otoño de 2027.
+- [Mugarri](https://mugarri.org/): turismo activo artesano, rutas de gravel y trail running a medida en el País Vasco y Navarra.
+
+## Optional
+
+{{PAGES_LEGAL}}
+- [Instagram @musubi.gara](https://www.instagram.com/musubi.gara/)
