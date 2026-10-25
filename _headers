@@ -14,6 +14,14 @@
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 /*.js
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# El visor y sus datos tienen que llegar siempre al día: se revalidan en
+# cada visita (respuesta 304 cuando no han cambiado). Pesan muy poco, y
+# así ningún navegador se queda con una galería vieja durante horas.
+/musubi-gallery.js
+  Cache-Control: public, max-age=0, must-revalidate
+/gallery-data.js
+  Cache-Control: public, max-age=0, must-revalidate
 /musubigara-og.png
   Cache-Control: public, max-age=604800
 
