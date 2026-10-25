@@ -14,7 +14,7 @@ English: Musubigara® is a Basque (Vitoria-Gasteiz) company combining cultural m
 ## Páginas (castellano)
 
 - [Musubigara®](https://musubigara.org/): Gestión cultural y eventos deportivos de autor en Euskadi: producción de conciertos y festivales, management musical y carreras de montaña.
-- [Gestión cultural y conciertos en Euskadi](https://musubigara.org/gestion-cultural/): Producción de conciertos y festivales, representación y management musical, financiación, patrocinio y asesoría legal para artistas e instituciones en Euskadi.
+- [Gestión cultural y conciertos en Euskadi](https://musubigara.org/gestion-cultural/): Producción de conciertos y festivales, management musical, financiación, patrocinio y asesoría legal para artistas e instituciones en Euskadi.
 - [Organización de carreras de montaña en Euskadi](https://musubigara.org/eventos-deportivos/): Eventos deportivos de autor: diseño, producción y patrocinio de carreras de montaña, trail y ultra trail en Euskadi. Organizadores de LARRE Long Distance.
 - [Imágenes de conciertos y carreras de montaña](https://musubigara.org/galeria/): Galería de Musubigara®: fotografías de conciertos, festivales y carreras de montaña en Euskadi, actualizada desde Instagram.
 
@@ -22,14 +22,14 @@ English: Musubigara® is a Basque (Vitoria-Gasteiz) company combining cultural m
 
 - [Musubigara®](https://musubigara.org/eu/): Kultur kudeaketa eta egile-kirol ekitaldiak Euskadin: kontzertuen eta jaialdien ekoizpena, musika-management-a eta mendi-lasterketak.
 - [Kultur kudeaketa eta kontzertuak Euskadin](https://musubigara.org/eu/kultur-kudeaketa/): Kontzertuen eta jaialdien ekoizpena, musika-ordezkaritza eta management-a, finantzaketa, babesletza eta aholkularitza juridikoa Euskadin.
-- [Mendi-lasterketen antolakuntza Euskadin](https://musubigara.org/eu/kirol-ekitaldiak/): Egile-kirol ekitaldiak: mendi-lasterketen, trail-aren eta ultra trail-aren diseinua, ekoizpena eta babesletza Euskadin. LARRE Long Distance-en antolatzaileak.
+- [Mendi-lasterketen antolakuntza Euskadin](https://musubigara.org/eu/kirol-ekitaldiak/): Egile-kirol ekitaldiak: mendi-lasterketen, trail-aren eta ultra trail-aren diseinua, ekoizpena eta babesletza Euskadin. LARRE Long Distance.
 - [Kontzertu eta mendi-lasterketen irudiak](https://musubigara.org/eu/galeria/): Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta mendi-lasterketen argazkiak, Instagrametik eguneratuak.
 
 ## English
 
 - [Musubigara®](https://musubigara.org/en/): Cultural management and signature sporting events in the Basque Country: concert and festival production, music management and mountain races.
-- [Cultural management and concerts in Euskadi](https://musubigara.org/en/cultural-management/): Concert and festival production, music representation and management, funding, sponsorship and legal advice for artists and institutions in the Basque Country.
-- [Mountain race and trail organisation in Euskadi](https://musubigara.org/en/sporting-events/): Signature sporting events: design, production and sponsorship of mountain races, trail and ultra trail in the Basque Country. Organisers of LARRE Long Distance.
+- [Cultural management and concerts in Euskadi](https://musubigara.org/en/cultural-management/): Concert and festival production, music management, funding, sponsorship and legal advice for artists and institutions in the Basque Country.
+- [Mountain race and trail organisation in Euskadi](https://musubigara.org/en/sporting-events/): Signature sporting events: design, production and sponsorship of mountain, trail and ultra trail races in the Basque Country. LARRE Long Distance.
 - [Images of concerts and mountain races](https://musubigara.org/en/gallery/): Musubigara® gallery: photographs of concerts, festivals and mountain races in the Basque Country, updated from Instagram.
 
 ## Proyectos relacionados
