@@ -24,7 +24,9 @@
    ───────────────────────────────────────────────────────────── */
 
 import fs from 'node:fs/promises';
+import os from 'node:os';
 import path from 'node:path';
+import { spawn } from 'node:child_process';
 import sharp from 'sharp';
 
 /* ── Configuración ─────────────────────────────────────────── */
@@ -99,43 +101,52 @@ function arreglarCodificacion(s) {
 }
 
 /* ── Lectura del pie ───────────────────────────────────────────
-   Un pie de @musubi.gara tiene esta forma: titular en castellano,
-   varios párrafos de cuerpo, titular en euskera, varios párrafos más,
-   y al final las etiquetas y la web. No se puede repartir por bloques
-   —el castellano ya ocupa cinco— así que se hace en dos pasos:
+   Un pie de Instagram trae el mismo mensaje en dos o tres idiomas,
+   uno detrás de otro, y al final las menciones, la web y las etiquetas.
+   No se puede repartir por orden de bloques —el castellano puede ocupar
+   cinco y el inglés uno— así que se hace en dos pasos:
      1. se detecta el idioma de cada bloque por sus palabras,
-     2. de cada idioma se coge el TITULAR, que es su primera línea.
+     2. de cada idioma se coge su TITULAR, que es su primera línea.
    Debajo de una foto en una rejilla cabe un titular, no un comunicado. */
 
 const PAL_ES = new Set(('de la el que no una con los las es en se por para del su lo al como mas pero '
-  + 'todo cada sin sobre nos nuestra nuestro cuando porque son esta este hay ya').split(' '));
+  + 'todo cada sin sobre nos nuestra nuestro cuando porque son esta este hay ya nunca solo mismo '
+  + 'quien hace entre desde tiene donde').split(' '));
 const PAL_EU = new Set(('eta ez da dira bat batean bateko dugu dute ditugu dituen gabe baizik egiten '
   + 'duen den dela ere hau hori baino bakoitzaren izan zuen zegoen arte gure zure bere ditu dio nahi '
-  + 'behar guztia berberaz bezala horregatik baita dituzte duena zaintzen lan').split(' '));
+  + 'behar guztia berberaz bezala horregatik baita dituzte duena zaintzen lan inoiz soila dugun '
+  + 'aurretik ondoren batzuk').split(' '));
+const PAL_EN = new Set(('the and of is are you your we our with not what that this for from every out '
+  + 'here there when because they them have has was were will would can more most only just about '
+  + 'into than their who know race mountain').split(' '));
 
 function idiomaDe(texto) {
-  const pal = texto.toLowerCase()
+  const pal = String(texto).toLowerCase()
     .normalize('NFD').replace(/[̀-ͯ]/g, '')
     .split(/[^a-z0-9]+/).filter(Boolean);
-  let es = 0, eu = 0;
+  let es = 0, eu = 0, en = 0;
   for (const p of pal) {
     if (PAL_ES.has(p)) es++;
     if (PAL_EU.has(p)) eu++;
-    if (/(tzen|tzeko|tzea|aren|garen|rik|tzat)$/.test(p)) eu++;   // morfología vasca
+    if (PAL_EN.has(p)) en++;
+    if (/(tzen|tzeko|tzea|aren|garen|rik|tzat|ekin|etan)$/.test(p)) eu++;   // morfología vasca
   }
-  if (eu > es) return 'eu';
-  if (es > eu) return 'es';
-  return null;                                   // demasiado corto para decidir
+  const mejor = Math.max(es, eu, en);
+  if (!mejor) return null;                       // demasiado corto para decidir
+  if (en === mejor && en > es && en > eu) return 'en';
+  if (eu === mejor && eu > es) return 'eu';
+  if (es === mejor) return 'es';
+  return null;
 }
 
-/* El titular de un bloque: su primera línea. Si esa línea es muy corta
-   —un «—» o tres palabras— se le pega la siguiente para que diga algo. */
+/* El titular de un bloque: su primera línea. Si esa línea es un rótulo corto
+   —«LARRE», «¿Es una carrera? No.»— se le pega la siguiente para que diga algo. */
 function titularDe(bloque) {
   if (!bloque) return '';
-  const lineas = bloque.split('\n').map((l) => l.trim()).filter(Boolean);
+  const lineas = String(bloque).split('\n').map((l) => l.trim()).filter(Boolean);
   if (!lineas.length) return '';
   let t = lineas[0];
-  if (t.length < 18 && lineas[1]) t += ' ' + lineas[1];
+  if (t.length < 40 && lineas[1]) t += ' ' + lineas[1];
   return t.replace(/\s+/g, ' ').trim();
 }
 
@@ -145,6 +156,7 @@ function parseCaption(raw) {
     .split('\n')
     .map((l) => l.trim())
     .filter((l) => !/^[@#]/.test(l))                      // menciones y etiquetas
+    .filter((l) => !/^(info|link)\s*:/i.test(l))          // «info: ... (link en bio)»
     .filter((l) => !/^(https?:\/\/)?[\w.-]+\.(org|com|eus|net|eu)\/?$/i.test(l)) // webs sueltas
     .join('\n')
     .replace(/#[\p{L}\p{N}_]+/gu, '')
@@ -168,7 +180,35 @@ function parseCaption(raw) {
 
   // Si no se reconoce ningún idioma (pie muy corto), el primer bloque va al castellano.
   const es = primero('es') || cut(titularDe(bloques[0] || ''));
-  return { es, eu: primero('eu'), en: '' };
+  return { es, eu: primero('eu'), en: primero('en') };
+}
+
+/* ── Vídeos ────────────────────────────────────────────────────
+   Un vídeo no se convierte a WebP directamente: primero se saca un
+   fotograma con ffmpeg, que es lo mismo que hace Instagram con su
+   «thumbnail». Se toma al segundo de empezar porque el primer fotograma
+   suele venir en negro o con el rótulo a medio aparecer. */
+const ES_VIDEO = (p) => /\.(mp4|mov|m4v|webm|avi)$/i.test(p);
+
+async function bytesDeImagen(origen) {
+  if (!ES_VIDEO(origen)) return fs.readFile(origen);
+  for (const t of ['00:00:01.000', '00:00:00.200', '00:00:00.000']) {
+    const salida = path.join(os.tmpdir(),
+      `mg-${Date.now()}-${Math.random().toString(36).slice(2)}.jpg`);
+    try {
+      await new Promise((ok, ko) => {
+        const p = spawn('ffmpeg',
+          ['-v', 'error', '-ss', t, '-i', origen, '-frames:v', '1', '-q:v', '2', '-y', salida],
+          { stdio: 'ignore' });
+        p.on('error', ko);
+        p.on('close', (c) => (c === 0 ? ok() : ko(new Error('ffmpeg devolvió ' + c))));
+      });
+      const b = await fs.readFile(salida);
+      await fs.rm(salida, { force: true });
+      if (b.length) return b;
+    } catch { await fs.rm(salida, { force: true }).catch(() => {}); }
+  }
+  throw new Error('no se pudo extraer un fotograma del vídeo (¿falta ffmpeg?)');
 }
 
 /* El pie que se muestra en un idioma: si no hay texto propio, cae al
@@ -418,7 +458,9 @@ async function leerExportacion(dir) {
     for (const e of entradas) {
       const p = path.join(d, e.name);
       if (e.isDirectory()) await buscar(p, prof + 1);
-      else if (/^posts.*\.json$/i.test(e.name)) candidatos.push(p);
+      // publicaciones del feed y reels; el resto de ficheros de la exportación
+      // (historias, borrados, reposts) no forman parte de la galería
+      else if (/^(posts|reels)\b.*\.json$/i.test(e.name) || /^posts_\d+\.json$/i.test(e.name)) candidatos.push(p);
     }
   }
   await buscar(dir);
@@ -430,7 +472,7 @@ async function leerExportacion(dir) {
     let datos;
     try { datos = JSON.parse(await fs.readFile(f, 'utf8')); }
     catch (e) { warn(`No pude leer ${path.basename(f)}: ${e.message}`); continue; }
-    const lista = Array.isArray(datos) ? datos : (datos.photos || datos.posts || []);
+    const lista = Array.isArray(datos) ? datos : (datos.ig_reels_media || datos.photos || datos.posts || []);
     for (const post of lista) {
       const medios = post.media || [];
       const primero = medios.find((m) => /\.(jpe?g|png|webp|heic)$/i.test(m.uri || '')) || medios[0];
@@ -439,6 +481,8 @@ async function leerExportacion(dir) {
       const ts = post.creation_timestamp || primero.creation_timestamp || 0;
       items.push({
         rutaRelativa: primero.uri,
+        // el nombre del fichero en la exportación ES el id del medio en Instagram
+        mediaId: path.basename(primero.uri).replace(/\.[^.]+$/, ''),
         caption: pieTexto,
         timestamp: ts ? new Date(ts * 1000).toISOString() : new Date().toISOString(),
         raizExport: dir,
@@ -471,6 +515,29 @@ async function localizarMedio(item) {
   return encontrado;
 }
 
+
+/* ── Limpieza ──────────────────────────────────────────────────
+   Las fotos que ya no están en Instagram (borradas, archivadas) dejan su
+   WebP en /fotos/ para siempre. Aquí se barren las que no aparecen en la
+   galería, para que el repositorio no acumule peso muerto. Solo se tocan
+   ficheros con el patrón del robot: cualquier otra imagen se queda. */
+async function limpiarHuerfanas(photos) {
+  const dir = path.join(CFG.root, CFG.fotosDir);
+  let entradas = [];
+  try { entradas = await fs.readdir(dir); } catch { return false; }
+  const vivas = new Set();
+  for (const p of photos) { vivas.add(`${p.file}.webp`); vivas.add(`${p.file}-400.webp`); }
+  let n = 0;
+  for (const f of entradas) {
+    if (!/^ig-\d{4}-\d{2}-\d{2}-.+\.webp$/.test(f)) continue;   // no es del robot
+    if (vivas.has(f)) continue;
+    await fs.rm(path.join(dir, f), { force: true });
+    log(`Foto retirada (ya no está en Instagram): ${f}`);
+    n++;
+  }
+  return n > 0;
+}
+
 /* ── Principal ─────────────────────────────────────────────── */
 async function main() {
   const IMPORT = process.env.IG_IMPORT;
@@ -488,20 +555,27 @@ async function main() {
 
   const manual = await readJSON(CAPTIONS_FILE, {});
   const photos = [];
+  let changedFotos = false;
 
   if (IMPORT) {
     const items = await leerExportacion(IMPORT);
-    let n = 0;
+    const vistos = new Set();
     for (const item of items) {
       const origen = await localizarMedio(item);
       if (!origen) { warn(`No encuentro el fichero ${item.rutaRelativa}`); continue; }
       const date = item.timestamp.slice(0, 10);
-      const code = 'IM' + String(++n).padStart(4, '0');
+      // El identificador sale del id del medio en Instagram, no de un contador:
+      // así el nombre de la foto NO cambia cuando mañana se importe otra
+      // exportación con publicaciones nuevas, y los pies escritos a mano en
+      // gallery-captions.json siguen apuntando a su foto.
+      const code = String(item.mediaId || '');
       const file = `ig-${date}-${code.slice(-6)}`;
+      if (vistos.has(file)) { log(`Repetida, se omite: ${file}`); continue; }
+      vistos.add(file);
       try {
         const dir = path.join(CFG.root, CFG.fotosDir);
         await fs.mkdir(dir, { recursive: true });
-        const buf = await fs.readFile(origen);
+        const buf = await bytesDeImagen(origen);
         await sharp(buf).rotate().resize(900, 900, { fit: 'cover', position: 'centre' })
           .webp({ quality: 82 }).toFile(path.join(dir, `${file}.webp`));
         await sharp(buf).rotate().resize(400, 400, { fit: 'cover', position: 'centre' })
@@ -547,9 +621,10 @@ async function main() {
   }
 
   if (!photos.length) throw new Error('Ninguna publicación utilizable. Nada se ha modificado.');
+  if (await limpiarHuerfanas(photos)) changedFotos = true;
   photos.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
-  let changed = await writeData(photos);
+  let changed = changedFotos || await writeData(photos);
   let withMarkers = 0;
   for (const t of CFG.targets) {
     const r = await writeBlock(t, photos);
