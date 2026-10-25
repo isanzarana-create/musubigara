@@ -624,6 +624,19 @@ async function main() {
   if (await limpiarHuerfanas(photos)) changedFotos = true;
   photos.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
+  /* Red de seguridad (oct 2026): una foto que no esté realmente en disco
+     NO se publica. Hubo un día en que gallery-data.js quedó apuntando a
+     ficheros borrados y, al clicar en la rejilla, el visor enseñaba el
+     icono de imagen rota. Aquí se corta de raíz: si falta la grande o la
+     miniatura, esa foto se cae de la web y queda el aviso. */
+  for (let i = photos.length - 1; i >= 0; i--) {
+    const base = path.join(CFG.root, CFG.fotosDir, photos[i].file);
+    if (await exists(base + '.webp') && await exists(base + '-400.webp')) continue;
+    warn('Sin fichero en disco, no se publica: ' + photos[i].file);
+    photos.splice(i, 1);
+  }
+  if (!photos.length) throw new Error('Ninguna foto tiene su fichero en disco. Nada se ha modificado.');
+
   let changed = changedFotos || await writeData(photos);
   let withMarkers = 0;
   for (const t of CFG.targets) {
