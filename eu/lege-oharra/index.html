@@ -50,11 +50,11 @@
       --ink:     #0F0F0F;
       --graphite:#6B6B6B;
       --line:    #E4DCC9;
-      --brand:      #C21838;  /* cultura · acentos (punto, flechas, QR) */
+      --brand:      #C21838;  /* cultura · acentos (punto, flechas) */
       --brand-title:#8A1226;  /* cultura · títulos legibles sobre arena */
       --sport:      #35513C;  /* eventos deportivos · acentos */
       --sport-title:#26402E;  /* eventos deportivos · títulos legibles */
-      --accent:     #C21838;  /* rojo de marca (el mismo del QR) · palabras destacadas en el cuerpo */
+      --accent:     #C21838;  /* rojo de marca · palabras destacadas en el cuerpo */
 
       --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
       --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
@@ -683,7 +683,7 @@
     /* ============================================
        FOOTER
        ============================================ */
-    /* main como columna a altura de pantalla: empuja el footer (QR + CTAs)
+    /* main como columna a altura de pantalla: empuja el footer (CTAs)
        al fondo, para que quede siempre abajo a la derecha */
     main {
       min-height: 100vh;
@@ -693,7 +693,7 @@
     }
 
     /* footer a todo el ancho (sin el contenedor centrado de 1240px): así el
-       QR + CTAs van a la esquina inferior derecha en cualquier pantalla */
+       los CTAs van a la esquina inferior derecha en cualquier pantalla */
     .site-footer {
       margin-top: auto;
       width: 100%;
@@ -704,44 +704,13 @@
       gap: 1.5rem;
     }
 
-    /* Columna derecha del footer: QR de WhatsApp + lugar */
+    /* Columna derecha del footer: CTAs */
     .footer-right {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       gap: 1.1rem;
     }
-    /* QR de WhatsApp, en color de marca */
-    .footer-qr {
-      display: inline-flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.6rem;
-      width: max-content;
-    }
-    .footer-qr-code {
-      display: block;
-      width: 112px;
-      height: 112px;
-    }
-    .footer-qr-code svg { display: block; width: 100%; height: 100%; }
-    .footer-qr-caption {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      letter-spacing: 0.02em;
-      color: var(--graphite);
-      transition: color 0.2s ease;
-    }
-    .footer-qr-caption svg {
-      width: 15px;
-      height: 15px;
-      display: block;
-      flex: none;
-    }
-    .footer-qr:hover .footer-qr-caption { color: var(--ink); }
     .footer-row {
       display: flex;
       justify-content: space-between;
@@ -835,7 +804,7 @@
     #gestion-deportiva .section-body-content .service-lead { margin-top: 1.5rem; }
 
     /* ============================================
-       EQUIPO · portadas de disco (mismo tamaño que el QR: 112px)
+       EQUIPO · portadas de disco (112px)
        Reposo en gris para armonizar con la paleta; color al pasar
        el ratón o al enfocar. Enlazan al álbum en Spotify.
        ============================================ */
@@ -862,7 +831,7 @@
     }
     .team-cover-wrap {
       width: 100%;
-      max-width: 112px;        /* no crece por encima del tamaño del QR */
+      max-width: 112px;        /* tamaño máximo */
       aspect-ratio: 1 / 1;     /* cuadrada aunque se reduzca */
       overflow: hidden;
     }
@@ -886,7 +855,7 @@
     /* ============================================
        CTA FLOTANTE — visible sin desplegar ninguna sección
        ============================================ */
-    /* QR + CTAs juntos en el footer: los botones a la derecha del QR */
+    /* CTAs en el footer */
     .footer-contact {
       display: flex;
       align-items: center;
@@ -967,7 +936,7 @@
     }
     @media (max-width: 460px) { .contact-lead { text-align: left; } }
 
-    /* CTA de contacto: negro con texto claro y bordes redondeados, como los de junto al QR */
+    /* CTA de contacto: negro con texto claro y bordes redondeados, como los del pie */
     .contact-cta {
       display: inline-flex;
       align-items: center;
@@ -1363,11 +1332,6 @@
     /* Contacto: botones más pequeños */
     .contact-cta { padding: 0.42rem 0.95rem; font-size: 0.6rem; box-shadow: 0 2px 8px rgba(15,15,15,0.12); }
 
-    /* Pie: QR más pequeño, alineado con la línea de Aviso legal / Privacidad */
-    .footer-qr-code { width: 72px; height: 72px; }
-    .footer-qr { gap: 0.35rem; }
-    .footer-qr-caption { font-size: 0.62rem; }
-    .footer-qr-caption svg { width: 12px; height: 12px; }
     .footer-row { align-items: flex-end; }
     .footer-contact { align-items: flex-end; }
     .footer-legal { padding-bottom: 0.1rem; }
@@ -1493,13 +1457,11 @@
   
     /* ============================================
        MÓVIL · pie de página (solo ≤ 640 px; escritorio no cambia)
-       - sin QR (ya están los botones)
        - iconos repartidos a todo el ancho, alineados con el margen
        - enlaces legales en una línea, © debajo
        - botones de contacto en una sola fila a todo el ancho
        ============================================ */
     @media (max-width: 640px) {
-      .footer-qr { display: none; }
 
       .site-footer { padding-block: 2rem 1.75rem; gap: 0; }
       .footer-row { flex-direction: column; align-items: stretch; flex-wrap: nowrap; gap: 1.5rem; }
@@ -1645,19 +1607,12 @@
 <a aria-label="WhatsApp" href="https://wa.me/34620463558" rel="noopener" target="_blank" title="WhatsApp"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3.5 20.5l1.4-4.3A8.5 8.5 0 1 1 20.5 11.7z"></path><path d="M9.4 8.5c.2 0 .4.1.5.3l.7 1.5c.1.2 0 .4-.1.5l-.5.5c-.1.1-.1.2-.1.3.3.9 1.5 2.1 2.4 2.4.1 0 .2 0 .3-.1l.5-.5c.1-.1.3-.2.5-.1l1.5.7c.2.1.3.3.3.5 0 1-.8 1.7-1.7 1.7-2.9 0-5.9-3-5.9-5.9 0-.9.7-1.7 1.6-1.8z"></path></svg></a>
 <a aria-label="Nola iritsi — Pintor Pablo Uranga 12" href="https://www.google.com/maps/search/?api=1&amp;query=Pintor+Pablo+Uranga+12%2C+01008+Vitoria-Gasteiz" rel="noopener" target="_blank" title="Nola iritsi — Pintor Pablo Uranga 12"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><path d="M20 10.4c0 5.4-8 12.1-8 12.1s-8-6.7-8-12.1a8 8 0 0 1 16 0z"></path><circle cx="12" cy="10.2" r="2.9"></circle></svg></a>
 </div>
-<span>© 2026 Musubigara® · <a href="https://www.instagram.com/ignaciosanzarana/" rel="noopener" target="_blank" title="Instagram @ignaciosanzarana">Ignacio Sanz Arana</a></span>
+<span>© 2026 Musubigara®</span>
 <a href="/eu/lege-oharra/">Lege oharra</a>
 <a href="/eu/pribatutasun-politika/">Pribatutasun politika</a>
 </div>
 <div class="footer-right">
 <div class="footer-contact">
-<a aria-label="Musubigara®-en Instagram — @musubi.gara" class="footer-qr" href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank">
-<span class="footer-qr-code"><svg aria-label="Instagramgo QR kodea" role="img" viewbox="0 0 33 33" xmlns="http://www.w3.org/2000/svg"><path d="M2,2h1v1h-1zM3,2h1v1h-1zM4,2h1v1h-1zM5,2h1v1h-1zM6,2h1v1h-1zM7,2h1v1h-1zM8,2h1v1h-1zM16,2h1v1h-1zM17,2h1v1h-1zM20,2h1v1h-1zM21,2h1v1h-1zM24,2h1v1h-1zM25,2h1v1h-1zM26,2h1v1h-1zM27,2h1v1h-1zM28,2h1v1h-1zM29,2h1v1h-1zM30,2h1v1h-1zM2,3h1v1h-1zM8,3h1v1h-1zM10,3h1v1h-1zM11,3h1v1h-1zM12,3h1v1h-1zM15,3h1v1h-1zM17,3h1v1h-1zM21,3h1v1h-1zM24,3h1v1h-1zM30,3h1v1h-1zM2,4h1v1h-1zM4,4h1v1h-1zM5,4h1v1h-1zM6,4h1v1h-1zM8,4h1v1h-1zM11,4h1v1h-1zM17,4h1v1h-1zM18,4h1v1h-1zM21,4h1v1h-1zM24,4h1v1h-1zM26,4h1v1h-1zM27,4h1v1h-1zM28,4h1v1h-1zM30,4h1v1h-1zM2,5h1v1h-1zM4,5h1v1h-1zM5,5h1v1h-1zM6,5h1v1h-1zM8,5h1v1h-1zM12,5h1v1h-1zM14,5h1v1h-1zM17,5h1v1h-1zM18,5h1v1h-1zM20,5h1v1h-1zM24,5h1v1h-1zM26,5h1v1h-1zM27,5h1v1h-1zM28,5h1v1h-1zM30,5h1v1h-1zM2,6h1v1h-1zM4,6h1v1h-1zM5,6h1v1h-1zM6,6h1v1h-1zM8,6h1v1h-1zM10,6h1v1h-1zM11,6h1v1h-1zM14,6h1v1h-1zM15,6h1v1h-1zM16,6h1v1h-1zM17,6h1v1h-1zM19,6h1v1h-1zM20,6h1v1h-1zM21,6h1v1h-1zM22,6h1v1h-1zM24,6h1v1h-1zM26,6h1v1h-1zM27,6h1v1h-1zM28,6h1v1h-1zM30,6h1v1h-1zM2,7h1v1h-1zM8,7h1v1h-1zM13,7h1v1h-1zM16,7h1v1h-1zM17,7h1v1h-1zM18,7h1v1h-1zM20,7h1v1h-1zM21,7h1v1h-1zM22,7h1v1h-1zM24,7h1v1h-1zM30,7h1v1h-1zM2,8h1v1h-1zM3,8h1v1h-1zM4,8h1v1h-1zM5,8h1v1h-1zM6,8h1v1h-1zM7,8h1v1h-1zM8,8h1v1h-1zM10,8h1v1h-1zM12,8h1v1h-1zM14,8h1v1h-1zM16,8h1v1h-1zM18,8h1v1h-1zM20,8h1v1h-1zM22,8h1v1h-1zM24,8h1v1h-1zM25,8h1v1h-1zM26,8h1v1h-1zM27,8h1v1h-1zM28,8h1v1h-1zM29,8h1v1h-1zM30,8h1v1h-1zM14,9h1v1h-1zM15,9h1v1h-1zM16,9h1v1h-1zM17,9h1v1h-1zM19,9h1v1h-1zM20,9h1v1h-1zM21,9h1v1h-1zM22,9h1v1h-1zM2,10h1v1h-1zM4,10h1v1h-1zM6,10h1v1h-1zM8,10h1v1h-1zM12,10h1v1h-1zM14,10h1v1h-1zM16,10h1v1h-1zM18,10h1v1h-1zM19,10h1v1h-1zM21,10h1v1h-1zM22,10h1v1h-1zM26,10h1v1h-1zM29,10h1v1h-1zM2,11h1v1h-1zM4,11h1v1h-1zM5,11h1v1h-1zM7,11h1v1h-1zM14,11h1v1h-1zM18,11h1v1h-1zM22,11h1v1h-1zM23,11h1v1h-1zM24,11h1v1h-1zM27,11h1v1h-1zM30,11h1v1h-1zM2,12h1v1h-1zM3,12h1v1h-1zM6,12h1v1h-1zM8,12h1v1h-1zM11,12h1v1h-1zM15,12h1v1h-1zM28,12h1v1h-1zM29,12h1v1h-1zM30,12h1v1h-1zM3,13h1v1h-1zM5,13h1v1h-1zM7,13h1v1h-1zM9,13h1v1h-1zM11,13h1v1h-1zM13,13h1v1h-1zM18,13h1v1h-1zM19,13h1v1h-1zM20,13h1v1h-1zM21,13h1v1h-1zM26,13h1v1h-1zM29,13h1v1h-1zM2,14h1v1h-1zM3,14h1v1h-1zM4,14h1v1h-1zM7,14h1v1h-1zM8,14h1v1h-1zM11,14h1v1h-1zM18,14h1v1h-1zM19,14h1v1h-1zM20,14h1v1h-1zM22,14h1v1h-1zM23,14h1v1h-1zM24,14h1v1h-1zM27,14h1v1h-1zM29,14h1v1h-1zM30,14h1v1h-1zM6,15h1v1h-1zM10,15h1v1h-1zM13,15h1v1h-1zM15,15h1v1h-1zM18,15h1v1h-1zM22,15h1v1h-1zM23,15h1v1h-1zM24,15h1v1h-1zM25,15h1v1h-1zM27,15h1v1h-1zM30,15h1v1h-1zM3,16h1v1h-1zM4,16h1v1h-1zM6,16h1v1h-1zM8,16h1v1h-1zM9,16h1v1h-1zM11,16h1v1h-1zM12,16h1v1h-1zM13,16h1v1h-1zM14,16h1v1h-1zM16,16h1v1h-1zM18,16h1v1h-1zM19,16h1v1h-1zM22,16h1v1h-1zM23,16h1v1h-1zM25,16h1v1h-1zM27,16h1v1h-1zM29,16h1v1h-1zM30,16h1v1h-1zM2,17h1v1h-1zM3,17h1v1h-1zM6,17h1v1h-1zM7,17h1v1h-1zM9,17h1v1h-1zM10,17h1v1h-1zM12,17h1v1h-1zM13,17h1v1h-1zM15,17h1v1h-1zM16,17h1v1h-1zM18,17h1v1h-1zM19,17h1v1h-1zM20,17h1v1h-1zM23,17h1v1h-1zM24,17h1v1h-1zM27,17h1v1h-1zM29,17h1v1h-1zM2,18h1v1h-1zM4,18h1v1h-1zM5,18h1v1h-1zM6,18h1v1h-1zM8,18h1v1h-1zM14,18h1v1h-1zM16,18h1v1h-1zM17,18h1v1h-1zM18,18h1v1h-1zM19,18h1v1h-1zM23,18h1v1h-1zM24,18h1v1h-1zM25,18h1v1h-1zM27,18h1v1h-1zM29,18h1v1h-1zM30,18h1v1h-1zM3,19h1v1h-1zM4,19h1v1h-1zM7,19h1v1h-1zM12,19h1v1h-1zM16,19h1v1h-1zM22,19h1v1h-1zM24,19h1v1h-1zM27,19h1v1h-1zM28,19h1v1h-1zM30,19h1v1h-1zM2,20h1v1h-1zM6,20h1v1h-1zM7,20h1v1h-1zM8,20h1v1h-1zM10,20h1v1h-1zM12,20h1v1h-1zM14,20h1v1h-1zM15,20h1v1h-1zM24,20h1v1h-1zM25,20h1v1h-1zM29,20h1v1h-1zM30,20h1v1h-1zM3,21h1v1h-1zM4,21h1v1h-1zM6,21h1v1h-1zM10,21h1v1h-1zM11,21h1v1h-1zM14,21h1v1h-1zM17,21h1v1h-1zM19,21h1v1h-1zM20,21h1v1h-1zM22,21h1v1h-1zM24,21h1v1h-1zM27,21h1v1h-1zM29,21h1v1h-1zM2,22h1v1h-1zM5,22h1v1h-1zM7,22h1v1h-1zM8,22h1v1h-1zM17,22h1v1h-1zM18,22h1v1h-1zM19,22h1v1h-1zM22,22h1v1h-1zM23,22h1v1h-1zM24,22h1v1h-1zM25,22h1v1h-1zM26,22h1v1h-1zM10,23h1v1h-1zM14,23h1v1h-1zM15,23h1v1h-1zM18,23h1v1h-1zM19,23h1v1h-1zM20,23h1v1h-1zM21,23h1v1h-1zM22,23h1v1h-1zM26,23h1v1h-1zM28,23h1v1h-1zM29,23h1v1h-1zM30,23h1v1h-1zM2,24h1v1h-1zM3,24h1v1h-1zM4,24h1v1h-1zM5,24h1v1h-1zM6,24h1v1h-1zM7,24h1v1h-1zM8,24h1v1h-1zM11,24h1v1h-1zM13,24h1v1h-1zM14,24h1v1h-1zM16,24h1v1h-1zM18,24h1v1h-1zM21,24h1v1h-1zM22,24h1v1h-1zM24,24h1v1h-1zM26,24h1v1h-1zM27,24h1v1h-1zM29,24h1v1h-1zM30,24h1v1h-1zM2,25h1v1h-1zM8,25h1v1h-1zM11,25h1v1h-1zM13,25h1v1h-1zM15,25h1v1h-1zM16,25h1v1h-1zM19,25h1v1h-1zM20,25h1v1h-1zM22,25h1v1h-1zM26,25h1v1h-1zM27,25h1v1h-1zM29,25h1v1h-1zM30,25h1v1h-1zM2,26h1v1h-1zM4,26h1v1h-1zM5,26h1v1h-1zM6,26h1v1h-1zM8,26h1v1h-1zM10,26h1v1h-1zM11,26h1v1h-1zM12,26h1v1h-1zM13,26h1v1h-1zM16,26h1v1h-1zM18,26h1v1h-1zM19,26h1v1h-1zM22,26h1v1h-1zM23,26h1v1h-1zM24,26h1v1h-1zM25,26h1v1h-1zM26,26h1v1h-1zM29,26h1v1h-1zM30,26h1v1h-1zM2,27h1v1h-1zM4,27h1v1h-1zM5,27h1v1h-1zM6,27h1v1h-1zM8,27h1v1h-1zM11,27h1v1h-1zM13,27h1v1h-1zM14,27h1v1h-1zM15,27h1v1h-1zM16,27h1v1h-1zM18,27h1v1h-1zM19,27h1v1h-1zM20,27h1v1h-1zM26,27h1v1h-1zM28,27h1v1h-1zM29,27h1v1h-1zM30,27h1v1h-1zM2,28h1v1h-1zM4,28h1v1h-1zM5,28h1v1h-1zM6,28h1v1h-1zM8,28h1v1h-1zM10,28h1v1h-1zM13,28h1v1h-1zM15,28h1v1h-1zM19,28h1v1h-1zM20,28h1v1h-1zM22,28h1v1h-1zM23,28h1v1h-1zM25,28h1v1h-1zM26,28h1v1h-1zM27,28h1v1h-1zM30,28h1v1h-1zM2,29h1v1h-1zM8,29h1v1h-1zM11,29h1v1h-1zM12,29h1v1h-1zM14,29h1v1h-1zM16,29h1v1h-1zM17,29h1v1h-1zM18,29h1v1h-1zM19,29h1v1h-1zM20,29h1v1h-1zM21,29h1v1h-1zM22,29h1v1h-1zM26,29h1v1h-1zM29,29h1v1h-1zM2,30h1v1h-1zM3,30h1v1h-1zM4,30h1v1h-1zM5,30h1v1h-1zM6,30h1v1h-1zM7,30h1v1h-1zM8,30h1v1h-1zM10,30h1v1h-1zM11,30h1v1h-1zM14,30h1v1h-1zM15,30h1v1h-1zM19,30h1v1h-1zM21,30h1v1h-1zM22,30h1v1h-1zM24,30h1v1h-1zM25,30h1v1h-1zM26,30h1v1h-1zM27,30h1v1h-1zM29,30h1v1h-1zM30,30h1v1h-1z" fill="var(--brand)" shape-rendering="crispEdges"></path></svg></span>
-<span class="footer-qr-caption">
-<svg aria-hidden="true" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect height="18" rx="5" ry="5" width="18" x="3" y="3" fill="none" stroke="var(--brand)" stroke-width="2"></rect><circle cx="12" cy="12" r="4.2" fill="none" stroke="var(--brand)" stroke-width="2"></circle><circle cx="16.8" cy="7.2" r="1.2" fill="var(--brand)"></circle></svg>
-                Musubigara®
-              </span>
-</a>
 <div class="footer-cta">
 <a class="cta-pill" href="https://calendly.com/i-sanz-arana/new-meeting" rel="noopener" target="_blank">
 <svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
