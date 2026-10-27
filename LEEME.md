@@ -72,7 +72,6 @@ index.html                      portada en castellano
 eu/index.html                   portada en euskera
 en/index.html                   portada en inglés
 gestion-cultural/ · eu/kultur-kudeaketa/ · en/cultural-management/
-eventos-deportivos/ · eu/kirol-ekitaldiak/ · en/sporting-events/
 aviso-legal/ · eu/lege-oharra/ · en/legal-notice/
 politica-privacidad/ · eu/pribatutasun-politika/ · en/privacy-policy/
 
@@ -122,9 +121,6 @@ añadido, y está acotada a `.mg--page`.
 - El logo `MUSU·BIGARA®` del topbar apuntaba a Instagram en las 15 páginas. Ahora vuelve
   a la portada de su idioma. Además del gesto esperado, es el enlace que le dice a Google
   cuál es tu página principal desde todo el sitio.
-- El botón de Mugarri, en las tres versiones de eventos deportivos, apuntaba a
-  `mugarri.netlify.app`. Ahora va a `mugarri.org`, que es el dominio bueno y el que tiene
-  el SEO montado.
 
 ---
 
@@ -202,11 +198,9 @@ te propongo versiones cortas.
 |---|---|
 | `/en/` | 85 car. |
 | `/en/cultural-management/` | 80 car. |
-| `/en/sporting-events/` | 78 car. |
 | `/` | 71 car. |
-| `/eventos-deportivos/` | 68 car. |
 | `/gestion-cultural/` · `/eu/kultur-kudeaketa/` | 67 car. |
-| `/eu/` · `/eu/kirol-ekitaldiak/` | 66 car. |
+| `/eu/` | 66 car. |
 
 Y una menor: tu página de empresa de LinkedIn se enlaza por su número
 (`/company/136037162/`). Funciona, pero si le pones una URL personalizada en LinkedIn

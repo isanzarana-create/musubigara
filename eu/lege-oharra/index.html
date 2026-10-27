@@ -52,8 +52,6 @@
       --line:    #E4DCC9;
       --brand:      #C21838;  /* cultura · acentos (punto, flechas) */
       --brand-title:#8A1226;  /* cultura · títulos legibles sobre arena */
-      --sport:      #35513C;  /* eventos deportivos · acentos */
-      --sport-title:#26402E;  /* eventos deportivos · títulos legibles */
       --accent:     #C21838;  /* rojo de marca · palabras destacadas en el cuerpo */
 
       --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -308,16 +306,10 @@
     .menu-list a:hover .menu-title,
     .menu-list a:focus-visible .menu-title { color: var(--brand); }
 
-    /* Unidades de negocio destacadas por su color de unidad (cultura = granate, deporte = verde) */
+    /* Unidades de negocio destacadas por su color de unidad (cultura = granate) */
     .menu-unit--cultura .menu-num,
     .menu-unit--cultura .menu-title { color: var(--brand-title); }
-    .menu-unit--deporte .menu-num,
-    .menu-unit--deporte .menu-title { color: var(--sport-title); }
-    .menu-unit--deporte:hover,
-    .menu-unit--deporte:focus-visible { background: rgba(53, 81, 60, 0.08); }
-    .menu-unit--deporte:hover .menu-title,
-    .menu-unit--deporte:focus-visible .menu-title { color: var(--sport-title); }
-    .menu-unit--deporte::after { color: var(--sport-title) !important; }
+
     /* la etiqueta U.N.x + número necesita algo más de ancho */
     .menu-num--unit { min-width: 4.6em; font-weight: 500; }
     /* flecha que aparece y se desliza al pasar el ratón */
@@ -431,8 +423,6 @@
       color: var(--brand-title);
       margin: 0;
     }
-    /* La unidad de Eventos Deportivos usa el verde (título oscurecido) */
-    #gestion-deportiva .section-title { color: var(--sport-title); }
 
     /* Etiqueta de unidad de negocio sobre el título de cada sección de servicios */
     .unit-tag {
@@ -454,7 +444,6 @@
       background: currentColor;
     }
     .unit-tag--cultura { color: var(--brand-title); }
-    .unit-tag--deporte { color: var(--sport-title); }
 
     /* ============================================
        SECTION BODY
@@ -554,10 +543,9 @@
       transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
     }
     #gestion-cultural .service-lead::before { background: var(--brand-title); }
-    #gestion-deportiva .service-lead::before { background: var(--sport-title); }
+    
     .section.is-active .service-lead::before { transform: scaleY(1); }
     #gestion-cultural .service-lead strong { color: var(--brand-title); }
-    #gestion-deportiva .service-lead strong { color: var(--sport-title); }
 
     /* Cifras: números con ancho tabular para que el contador no "baile" */
     .figures-year, .figures-list li { font-variant-numeric: tabular-nums; }
@@ -568,13 +556,6 @@
       hyphens: none;
       -webkit-hyphens: none;
     }
-
-    /* Gestión de Eventos Culturales / Gestión de Eventos Deportivos de Autor:
-       titulares en negrita, texto seguido, sin saltos entre párrafos */
-    #gestion-cultural .section-body-content p + p,
-    #gestion-deportiva .section-body-content p + p { margin-top: 0; }
-    #gestion-cultural .section-body-content .service-lead,
-    #gestion-deportiva .section-body-content .service-lead { margin-top: 1.5rem; }
 
     /* Cifras: año + lista */
     .figures-year {
@@ -591,7 +572,7 @@
       text-align: left;
     }
     .figures-list li { padding: 0.12rem 0; }
-    /* cifra que pertenece a otra unidad (deportiva): se separa del bloque anterior */
+    
     .figures-list li.sep-top {
       margin-top: 0.75rem;
       padding-top: 0.75rem;
@@ -800,8 +781,6 @@
     /* ============================================
        SERVICIOS · aire antes de cada titular de servicio
        ============================================ */
-    #gestion-cultural .section-body-content .service-lead,
-    #gestion-deportiva .section-body-content .service-lead { margin-top: 1.5rem; }
 
     /* ============================================
        EQUIPO · portadas de disco (112px)
@@ -1020,8 +999,6 @@
       transform: translateY(-2px);
       outline: none;
     }
-    #gestion-deportiva .project-chip::after { color: var(--sport-title); }
-    #gestion-deportiva .project-chip:hover { border-color: var(--sport); color: var(--sport-title); }
 
     /* ============================================
        PROYECTOS PROPIOS / EVENTOS — botones tipo CTA,
@@ -1073,51 +1050,6 @@
     }
     .project-cta--static { cursor: default; }
 
-    /* Evento destacado (LARRE) */
-    .event-feature {
-      margin-top: 1.6rem;
-      padding: 1.1rem 1.2rem;
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--sport);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.4);
-    }
-    .event-feature + .event-feature { margin-top: 0.9rem; }
-    .event-feature-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.4rem 1rem;
-    }
-    .event-feature-name {
-      font-family: var(--font-mono);
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      color: var(--sport-title);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-    .event-feature-name a { border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
-    .event-feature-name a:hover { border-bottom-color: var(--sport); }
-    .event-feature-meta {
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--graphite);
-    }
-    .event-feature-desc {
-      margin-top: 0.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.73rem;
-      line-height: 1.7;
-      color: var(--ink);
-    }
-    .event-feature-desc strong { font-weight: 500; }
-
     /* ============================================
        TRAYECTORIA — formato esquemático
        ============================================ */
@@ -1138,7 +1070,7 @@
       color: var(--brand-title);
       white-space: nowrap;
     }
-    .track-item--sport .track-year { color: var(--sport-title); }
+    
     .track-desc {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -1185,7 +1117,6 @@
       padding-top: 1.4rem;
       border-top: 1px solid var(--line);
     }
-  
 
     /* =====================================================
        AÑADIDOS · sept. 2026
@@ -1222,7 +1153,7 @@
       transition: background 0.2s ease;
     }
     .hero-unit--cultura { color: var(--brand-title); }
-    .hero-unit--deporte { color: var(--sport-title); }
+    
     .hero-unit-num { font-size: 0.7rem; font-weight: 500; }
     .hero-unit-name {
       font-size: clamp(0.8rem, 1.2vw, 0.95rem);
@@ -1238,7 +1169,7 @@
       color: var(--ink);
     }
     .hero-unit--cultura:hover, .hero-unit--cultura:focus-visible { background: rgba(194, 24, 56, 0.06); }
-    .hero-unit--deporte:hover, .hero-unit--deporte:focus-visible { background: rgba(53, 81, 60, 0.08); }
+    
     .hero-unit:hover .hero-unit-arrow,
     .hero-unit:focus-visible .hero-unit-arrow { transform: translateX(4px); }
     @media (max-width: 640px) {
@@ -1276,7 +1207,6 @@
       .socials--footer svg { width: 20px; height: 20px; }
     }
 
-
     /* Formulario: selector con el mismo estilo que los campos */
     .form-row select {
       font-family: var(--font-mono);
@@ -1312,10 +1242,10 @@
       color: var(--brand-title);
       margin-bottom: 0.35rem;
     }
-    .track-group--sport .track-years { color: var(--sport-title); }
+    
     .track-items { list-style: none; margin: 0; padding: 0 0 0 0.9rem; border-left: 2px solid var(--line); }
     .track-group .track-items { border-left-color: rgba(138, 18, 38, 0.35); }
-    .track-group--sport .track-items { border-left-color: rgba(38, 64, 46, 0.4); }
+    
     .track-items li { font-size: 0.75rem; line-height: 1.65; }
     .track-items li + li { margin-top: 0.3rem; }
     .track-items strong { font-weight: 500; }
@@ -1365,7 +1295,7 @@
     }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after { content: "+"; color: var(--brand); font-weight: 500; transition: transform 0.2s ease; }
-    #gestion-deportiva .faq-item summary::after { color: var(--sport); }
+    
     .faq-item[open] summary::after { transform: rotate(45deg); }
     .faq-item p { padding-bottom: 0.8rem; margin: 0; }
     .unit-crosslink { margin-top: 2.2rem; }
@@ -1375,7 +1305,6 @@
     .menu-unit .menu-num { position: relative; }
     .menu-unit .menu-num::after { position: absolute; margin-left: 0; left: 1.62em; top: 50%; transform: translateY(-50%); width: 0.36rem; height: 0.36rem; }
 
-  
     /* ============================================
        AJUSTES 24-09
        ============================================ */
@@ -1432,14 +1361,11 @@
     .legal-block a:hover { border-bottom-color: var(--ink); }
     .legal-updated { color: var(--graphite); }
 
-
     /* Titular gigante de la portada: centrado */
     .hero-giant { text-align: center; }
     /* ---- Ronda 2 ---- */
     /* Sin barra de acento junto a los subtítulos de servicio */
-    .service-lead::before,
-    #gestion-cultural .service-lead::before,
-    #gestion-deportiva .service-lead::before { display: none !important; content: none !important; }
+    
     h3.service-lead, .service-lead { padding-left: 0; }
     .dash-list { padding-left: 0.6rem; }
     /* Cada subtítulo de servicio en una sola línea (en móvil puede envolver: no cabe) */
@@ -1484,7 +1410,7 @@
     }
   </style>
 </head>
-<body data-lang-body="eu" data-page="unit" data-url-cult="/eu/kultur-kudeaketa/" data-url-dep="/eu/kirol-ekitaldiak/">
+<body data-lang-body="eu" data-page="unit" data-url-cult="/eu/kultur-kudeaketa/">
 <!-- TOPBAR -->
 <header class="topbar">
 <div class="container topbar-inner">
@@ -1517,13 +1443,12 @@
 <ul class="menu-list">
 <li><a href="/eu/#presentacion"><span class="menu-num">01</span><span class="menu-title">Aurkezpena</span></a></li>
 <li><a class="menu-unit menu-unit--cultura" href="/eu/kultur-kudeaketa/"><span class="menu-num">02</span><span class="menu-title">Kultur Kudeaketa</span></a></li>
-<li><a class="menu-unit menu-unit--deporte" href="/eu/kirol-ekitaldiak/"><span class="menu-num">03</span><span class="menu-title">Egile-kirol ekitaldiak</span></a></li>
-<li><a href="/eu/#cifras"><span class="menu-num">04</span><span class="menu-title">Zenbakiak</span></a></li>
-<li><a href="/eu/#colaboraciones"><span class="menu-num">05</span><span class="menu-title">Gugan konfiantza dutenak</span></a></li>
-<li><a href="/eu/#trayectoria"><span class="menu-num">06</span><span class="menu-title">Ibilbidea</span></a></li>
-<li><a href="/eu/galeria/"><span class="menu-num">07</span><span class="menu-title">Irudiak</span></a></li>
-<li><a href="/eu/#equipo"><span class="menu-num">08</span><span class="menu-title">Taldea</span></a></li>
-<li><a href="/eu/#contacto"><span class="menu-num">09</span><span class="menu-title">Kontaktua</span></a></li>
+<li><a href="/eu/#cifras"><span class="menu-num">03</span><span class="menu-title">Zenbakiak</span></a></li>
+<li><a href="/eu/#colaboraciones"><span class="menu-num">04</span><span class="menu-title">Gugan konfiantza dutenak</span></a></li>
+<li><a href="/eu/#trayectoria"><span class="menu-num">05</span><span class="menu-title">Ibilbidea</span></a></li>
+<li><a href="/eu/galeria/"><span class="menu-num">06</span><span class="menu-title">Irudiak</span></a></li>
+<li><a href="/eu/#equipo"><span class="menu-num">07</span><span class="menu-title">Taldea</span></a></li>
+<li><a href="/eu/#contacto"><span class="menu-num">08</span><span class="menu-title">Kontaktua</span></a></li>
 </ul>
 </nav>
 <main id="top">
@@ -1553,7 +1478,7 @@
 </div>
 <div class="legal-block">
 <h2>2. Xedea</h2>
-<p>Lege ohar honek musubigara.org webgunerako sarbidea eta erabilera arautzen ditu. Musubigara®-k jendearen esku jartzen du, bere kultur kudeaketako eta egile-kirol ekitaldietako zerbitzuak ezagutarazteko. Webgunera sartzeak lege ohar hau onartzea dakar. Ados ez bazaude, ez erabili webgunea, mesedez.</p>
+<p>Lege ohar honek musubigara.org webgunerako sarbidea eta erabilera arautzen ditu. Musubigara®-k jendearen esku jartzen du, bere kultur kudeaketako zerbitzuak ezagutarazteko. Webgunera sartzeak lege ohar hau onartzea dakar. Ados ez bazaude, ez erabili webgunea, mesedez.</p>
 </div>
 <div class="legal-block">
 <h2>3. Erabilera-baldintzak</h2>
@@ -1856,10 +1781,9 @@
       });
     });
 
-    /* Enlaces antiguos (#gestion-cultural / #gestion-deportiva) → páginas propias */
+    /* Enlace antiguo (#gestion-cultural) → página propia */
     const UNIT_MOVED = {
-      'gestion-cultural': document.body.dataset.urlCult,
-      'gestion-deportiva': document.body.dataset.urlDep
+      'gestion-cultural': document.body.dataset.urlCult
     };
 
     function syncFromHash() {

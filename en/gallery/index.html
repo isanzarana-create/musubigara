@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Images of concerts and mountain races | Musubigara®</title>
-  <meta name="description" content="Musubigara® gallery: photographs of concerts, festivals and mountain races in the Basque Country, updated from Instagram.">
+  <title>Images of concerts and festivals | Musubigara®</title>
+  <meta name="description" content="Musubigara® gallery: photographs of concerts, festivals and cultural projects in the Basque Country, updated from Instagram.">
   <link rel="canonical" href="https://musubigara.org/en/gallery/">
   <link rel="alternate" hreflang="es" href="https://musubigara.org/galeria/">
   <link rel="alternate" hreflang="eu" href="https://musubigara.org/eu/galeria/">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Musubigara®">
   <meta property="og:title" content="Images — Musubigara®">
-  <meta property="og:description" content="Musubigara® gallery: photographs of concerts, festivals and mountain races in the Basque Country, updated from Instagram.">
+  <meta property="og:description" content="Musubigara® gallery: photographs of concerts, festivals and cultural projects in the Basque Country, updated from Instagram.">
   <meta property="og:url" content="https://musubigara.org/en/gallery/">
   <meta property="og:image" content="https://musubigara.org/musubigara-og.png">
   <meta property="og:image:alt" content="Musubigara®">
@@ -25,7 +25,7 @@
   <meta property="og:locale:alternate" content="eu_ES">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Images — Musubigara®">
-  <meta name="twitter:description" content="Musubigara® gallery: photographs of concerts, festivals and mountain races in the Basque Country, updated from Instagram.">
+  <meta name="twitter:description" content="Musubigara® gallery: photographs of concerts, festivals and cultural projects in the Basque Country, updated from Instagram.">
   <meta name="twitter:image" content="https://musubigara.org/musubigara-og.png">
 
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -52,8 +52,6 @@
       --line:    #E4DCC9;
       --brand:      #C21838;  /* cultura · acentos (punto, flechas) */
       --brand-title:#8A1226;  /* cultura · títulos legibles sobre arena */
-      --sport:      #35513C;  /* eventos deportivos · acentos */
-      --sport-title:#26402E;  /* eventos deportivos · títulos legibles */
       --accent:     #C21838;  /* rojo de marca · palabras destacadas en el cuerpo */
 
       --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -308,16 +306,10 @@
     .menu-list a:hover .menu-title,
     .menu-list a:focus-visible .menu-title { color: var(--brand); }
 
-    /* Unidades de negocio destacadas por su color de unidad (cultura = granate, deporte = verde) */
+    /* Unidades de negocio destacadas por su color de unidad (cultura = granate) */
     .menu-unit--cultura .menu-num,
     .menu-unit--cultura .menu-title { color: var(--brand-title); }
-    .menu-unit--deporte .menu-num,
-    .menu-unit--deporte .menu-title { color: var(--sport-title); }
-    .menu-unit--deporte:hover,
-    .menu-unit--deporte:focus-visible { background: rgba(53, 81, 60, 0.08); }
-    .menu-unit--deporte:hover .menu-title,
-    .menu-unit--deporte:focus-visible .menu-title { color: var(--sport-title); }
-    .menu-unit--deporte::after { color: var(--sport-title) !important; }
+
     /* la etiqueta U.N.x + número necesita algo más de ancho */
     .menu-num--unit { min-width: 4.6em; font-weight: 500; }
     /* flecha que aparece y se desliza al pasar el ratón */
@@ -431,8 +423,6 @@
       color: var(--brand-title);
       margin: 0;
     }
-    /* La unidad de Eventos Deportivos usa el verde (título oscurecido) */
-    #gestion-deportiva .section-title { color: var(--sport-title); }
 
     /* Etiqueta de unidad de negocio sobre el título de cada sección de servicios */
     .unit-tag {
@@ -454,7 +444,6 @@
       background: currentColor;
     }
     .unit-tag--cultura { color: var(--brand-title); }
-    .unit-tag--deporte { color: var(--sport-title); }
 
     /* ============================================
        SECTION BODY
@@ -554,10 +543,9 @@
       transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
     }
     #gestion-cultural .service-lead::before { background: var(--brand-title); }
-    #gestion-deportiva .service-lead::before { background: var(--sport-title); }
+    
     .section.is-active .service-lead::before { transform: scaleY(1); }
     #gestion-cultural .service-lead strong { color: var(--brand-title); }
-    #gestion-deportiva .service-lead strong { color: var(--sport-title); }
 
     /* Cifras: números con ancho tabular para que el contador no "baile" */
     .figures-year, .figures-list li { font-variant-numeric: tabular-nums; }
@@ -568,13 +556,6 @@
       hyphens: none;
       -webkit-hyphens: none;
     }
-
-    /* Gestión de Eventos Culturales / Gestión de Eventos Deportivos de Autor:
-       titulares en negrita, texto seguido, sin saltos entre párrafos */
-    #gestion-cultural .section-body-content p + p,
-    #gestion-deportiva .section-body-content p + p { margin-top: 0; }
-    #gestion-cultural .section-body-content .service-lead,
-    #gestion-deportiva .section-body-content .service-lead { margin-top: 1.5rem; }
 
     /* Cifras: año + lista */
     .figures-year {
@@ -591,7 +572,7 @@
       text-align: left;
     }
     .figures-list li { padding: 0.12rem 0; }
-    /* cifra que pertenece a otra unidad (deportiva): se separa del bloque anterior */
+    
     .figures-list li.sep-top {
       margin-top: 0.75rem;
       padding-top: 0.75rem;
@@ -800,8 +781,6 @@
     /* ============================================
        SERVICIOS · aire antes de cada titular de servicio
        ============================================ */
-    #gestion-cultural .section-body-content .service-lead,
-    #gestion-deportiva .section-body-content .service-lead { margin-top: 1.5rem; }
 
     /* ============================================
        EQUIPO · portadas de disco (112px)
@@ -1020,8 +999,6 @@
       transform: translateY(-2px);
       outline: none;
     }
-    #gestion-deportiva .project-chip::after { color: var(--sport-title); }
-    #gestion-deportiva .project-chip:hover { border-color: var(--sport); color: var(--sport-title); }
 
     /* ============================================
        PROYECTOS PROPIOS / EVENTOS — botones tipo CTA,
@@ -1073,51 +1050,6 @@
     }
     .project-cta--static { cursor: default; }
 
-    /* Evento destacado (LARRE) */
-    .event-feature {
-      margin-top: 1.6rem;
-      padding: 1.1rem 1.2rem;
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--sport);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.4);
-    }
-    .event-feature + .event-feature { margin-top: 0.9rem; }
-    .event-feature-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.4rem 1rem;
-    }
-    .event-feature-name {
-      font-family: var(--font-mono);
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      color: var(--sport-title);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-    .event-feature-name a { border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
-    .event-feature-name a:hover { border-bottom-color: var(--sport); }
-    .event-feature-meta {
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--graphite);
-    }
-    .event-feature-desc {
-      margin-top: 0.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.73rem;
-      line-height: 1.7;
-      color: var(--ink);
-    }
-    .event-feature-desc strong { font-weight: 500; }
-
     /* ============================================
        TRAYECTORIA — formato esquemático
        ============================================ */
@@ -1138,7 +1070,7 @@
       color: var(--brand-title);
       white-space: nowrap;
     }
-    .track-item--sport .track-year { color: var(--sport-title); }
+    
     .track-desc {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -1185,7 +1117,6 @@
       padding-top: 1.4rem;
       border-top: 1px solid var(--line);
     }
-  
 
     /* =====================================================
        AÑADIDOS · sept. 2026
@@ -1222,7 +1153,7 @@
       transition: background 0.2s ease;
     }
     .hero-unit--cultura { color: var(--brand-title); }
-    .hero-unit--deporte { color: var(--sport-title); }
+    
     .hero-unit-num { font-size: 0.7rem; font-weight: 500; }
     .hero-unit-name {
       font-size: clamp(0.8rem, 1.2vw, 0.95rem);
@@ -1238,7 +1169,7 @@
       color: var(--ink);
     }
     .hero-unit--cultura:hover, .hero-unit--cultura:focus-visible { background: rgba(194, 24, 56, 0.06); }
-    .hero-unit--deporte:hover, .hero-unit--deporte:focus-visible { background: rgba(53, 81, 60, 0.08); }
+    
     .hero-unit:hover .hero-unit-arrow,
     .hero-unit:focus-visible .hero-unit-arrow { transform: translateX(4px); }
     @media (max-width: 640px) {
@@ -1276,7 +1207,6 @@
       .socials--footer svg { width: 20px; height: 20px; }
     }
 
-
     /* Formulario: selector con el mismo estilo que los campos */
     .form-row select {
       font-family: var(--font-mono);
@@ -1312,10 +1242,10 @@
       color: var(--brand-title);
       margin-bottom: 0.35rem;
     }
-    .track-group--sport .track-years { color: var(--sport-title); }
+    
     .track-items { list-style: none; margin: 0; padding: 0 0 0 0.9rem; border-left: 2px solid var(--line); }
     .track-group .track-items { border-left-color: rgba(138, 18, 38, 0.35); }
-    .track-group--sport .track-items { border-left-color: rgba(38, 64, 46, 0.4); }
+    
     .track-items li { font-size: 0.75rem; line-height: 1.65; }
     .track-items li + li { margin-top: 0.3rem; }
     .track-items strong { font-weight: 500; }
@@ -1365,7 +1295,7 @@
     }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after { content: "+"; color: var(--brand); font-weight: 500; transition: transform 0.2s ease; }
-    #gestion-deportiva .faq-item summary::after { color: var(--sport); }
+    
     .faq-item[open] summary::after { transform: rotate(45deg); }
     .faq-item p { padding-bottom: 0.8rem; margin: 0; }
     .unit-crosslink { margin-top: 2.2rem; }
@@ -1375,7 +1305,6 @@
     .menu-unit .menu-num { position: relative; }
     .menu-unit .menu-num::after { position: absolute; margin-left: 0; left: 1.62em; top: 50%; transform: translateY(-50%); width: 0.36rem; height: 0.36rem; }
 
-  
     /* ============================================
        AJUSTES 24-09
        ============================================ */
@@ -1432,14 +1361,11 @@
     .legal-block a:hover { border-bottom-color: var(--ink); }
     .legal-updated { color: var(--graphite); }
 
-
     /* Titular gigante de la portada: centrado */
     .hero-giant { text-align: center; }
     /* ---- Ronda 2 ---- */
     /* Sin barra de acento junto a los subtítulos de servicio */
-    .service-lead::before,
-    #gestion-cultural .service-lead::before,
-    #gestion-deportiva .service-lead::before { display: none !important; content: none !important; }
+    
     h3.service-lead, .service-lead { padding-left: 0; }
     .dash-list { padding-left: 0.6rem; }
     /* Cada subtítulo de servicio en una sola línea (en móvil puede envolver: no cabe) */
@@ -1484,11 +1410,11 @@
     }
   </style>
   <link rel="stylesheet" href="/musubi-gallery.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://musubigara.org/en/gallery/#page", "url": "https://musubigara.org/en/gallery/", "name": "Images of concerts and mountain races | Musubigara®", "description": "Musubigara® gallery: photographs of concerts, festivals and mountain races in the Basque Country, updated from Instagram.", "inLanguage": "en-GB", "isPartOf": {"@type": "WebSite", "@id": "https://musubigara.org/#website", "name": "Musubigara®", "url": "https://musubigara.org/"}, "about": {"@id": "https://musubigara.org/#musubigara"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://musubigara.org/musubigara-og.png"}}, {"@type": "BreadcrumbList", "@id": "https://musubigara.org/en/gallery/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://musubigara.org/en/"}, {"@type": "ListItem", "position": 2, "name": "Images", "item": "https://musubigara.org/en/gallery/"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://musubigara.org/en/gallery/#page", "url": "https://musubigara.org/en/gallery/", "name": "Images of concerts and festivals | Musubigara®", "description": "Musubigara® gallery: photographs of concerts, festivals and cultural projects in the Basque Country, updated from Instagram.", "inLanguage": "en-GB", "isPartOf": {"@type": "WebSite", "@id": "https://musubigara.org/#website", "name": "Musubigara®", "url": "https://musubigara.org/"}, "about": {"@id": "https://musubigara.org/#musubigara"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://musubigara.org/musubigara-og.png"}}, {"@type": "BreadcrumbList", "@id": "https://musubigara.org/en/gallery/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://musubigara.org/en/"}, {"@type": "ListItem", "position": 2, "name": "Images", "item": "https://musubigara.org/en/gallery/"}]}]}</script>
   <!-- El robot de Instagram reescribe el bloque de aquí abajo: no tocar las marcas. -->
-  <!-- MUSUBI-GALLERY:JSONLD:START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageGallery","name":"Images · Musubigara®","url":"https://musubigara.org/en/gallery/","inLanguage":"en-GB","isPartOf":{"@type":"WebSite","name":"Musubigara®","url":"https://musubigara.org/"},"associatedMedia":[{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-24-696255.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-24-696255-400.webp","width":900,"height":900,"datePublished":"2026-10-24","caption":"Hands shaping a piece with a tool: culture is handmade too.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-19-224627.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-19-224627-400.webp","width":900,"height":900,"datePublished":"2026-10-19","caption":"Two gravel riders on a mountain track in autumn: signature sports events in the Basque Country.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-12-154744.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-12-154744-400.webp","width":900,"height":900,"datePublished":"2026-10-12","caption":"A violin scroll drawn on the golden ratio: behind every figure, a project cared for one by one.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-08-695330.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-08-695330-400.webp","width":900,"height":900,"datePublished":"2026-10-08","caption":"Two runners on a winding mountain track: cultural and sports projects guided with the same eye.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-05-123498.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-05-123498-400.webp","width":900,"height":900,"datePublished":"2026-10-05","caption":"A crowd in colour powder at a festival: a poster and a bar don’t make a signature festival.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-28-896851.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-28-896851-400.webp","width":900,"height":900,"datePublished":"2026-09-28","caption":"Piano keys in black and white: the talent is always there; the structure is not.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-037049.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-037049-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"Typographic card reading “SOMOS”: design and keeping pace with the times.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-534666.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-534666-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"Typographic card reading “MUSUBI”, Japanese for knot: every project has a rhythm of its own.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-028311.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-028311-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"Typographic card reading “GARA®”, Basque for “we are”: care in every detail, to the end.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"}]}</script><!-- MUSUBI-GALLERY:JSONLD:END -->
+  <!-- MUSUBI-GALLERY:JSONLD:START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageGallery","name":"Images · Musubigara®","url":"https://musubigara.org/en/gallery/","inLanguage":"en-GB","isPartOf":{"@type":"WebSite","name":"Musubigara®","url":"https://musubigara.org/"},"associatedMedia":[{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-24-696255.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-24-696255-400.webp","width":900,"height":900,"datePublished":"2026-10-24","caption":"Hands shaping a piece with a tool: culture is handmade too.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-12-154744.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-12-154744-400.webp","width":900,"height":900,"datePublished":"2026-10-12","caption":"A violin scroll drawn on the golden ratio: behind every figure, a project cared for one by one.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-05-123498.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-05-123498-400.webp","width":900,"height":900,"datePublished":"2026-10-05","caption":"A crowd in colour powder at a festival: a poster and a bar don’t make a signature festival.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-28-896851.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-28-896851-400.webp","width":900,"height":900,"datePublished":"2026-09-28","caption":"Piano keys in black and white: the talent is always there; the structure is not.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-037049.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-037049-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"Typographic card reading “SOMOS”: design and keeping pace with the times.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-534666.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-534666-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"Typographic card reading “MUSUBI”, Japanese for knot: every project has a rhythm of its own.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-028311.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-028311-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"Typographic card reading “GARA®”, Basque for “we are”: care in every detail, to the end.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"}]}</script><!-- MUSUBI-GALLERY:JSONLD:END -->
 </head>
-<body data-lang-body="en" data-page="unit" data-url-cult="/en/cultural-management/" data-url-dep="/en/sporting-events/">
+<body data-lang-body="en" data-page="unit" data-url-cult="/en/cultural-management/">
 <!-- TOPBAR -->
 <header class="topbar">
 <div class="container topbar-inner">
@@ -1521,13 +1447,12 @@
 <ul class="menu-list">
 <li><a href="/en/#presentacion"><span class="menu-num">01</span><span class="menu-title">Introduction</span></a></li>
 <li><a class="menu-unit menu-unit--cultura" href="/en/cultural-management/"><span class="menu-num">02</span><span class="menu-title">Cultural Management</span></a></li>
-<li><a class="menu-unit menu-unit--deporte" href="/en/sporting-events/"><span class="menu-num">03</span><span class="menu-title">Signature Sporting Events</span></a></li>
-<li><a href="/en/#cifras"><span class="menu-num">04</span><span class="menu-title">Figures</span></a></li>
-<li><a href="/en/#colaboraciones"><span class="menu-num">05</span><span class="menu-title">Trusted by</span></a></li>
-<li><a href="/en/#trayectoria"><span class="menu-num">06</span><span class="menu-title">Track record</span></a></li>
-<li><a href="/en/gallery/"><span class="menu-num">07</span><span class="menu-title">Images</span></a></li>
-<li><a href="/en/#equipo"><span class="menu-num">08</span><span class="menu-title">Team</span></a></li>
-<li><a href="/en/#contacto"><span class="menu-num">09</span><span class="menu-title">Contact</span></a></li>
+<li><a href="/en/#cifras"><span class="menu-num">03</span><span class="menu-title">Figures</span></a></li>
+<li><a href="/en/#colaboraciones"><span class="menu-num">04</span><span class="menu-title">Trusted by</span></a></li>
+<li><a href="/en/#trayectoria"><span class="menu-num">05</span><span class="menu-title">Track record</span></a></li>
+<li><a href="/en/gallery/"><span class="menu-num">06</span><span class="menu-title">Images</span></a></li>
+<li><a href="/en/#equipo"><span class="menu-num">07</span><span class="menu-title">Team</span></a></li>
+<li><a href="/en/#contacto"><span class="menu-num">08</span><span class="menu-title">Contact</span></a></li>
 </ul>
 </nav>
 <main id="top">
@@ -1542,14 +1467,14 @@
 <div class="section-body container">
 <div class="section-body-content">
 <div class="en-body">
-<p class="unit-lead">What we do, as it happens. Concerts, festivals, productions and mountain races, photographed on the ground and published on <a href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank">Instagram</a> first.</p>
+<p class="unit-lead">What we do, as it happens. Concerts, festivals and productions, photographed on the ground and published on <a href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank">Instagram</a> first.</p>
 <div class="mg mg--page">
 <div class="mg-head">
 <span class="mg-live">Live from Instagram</span>
 <a href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg> @musubi.gara</a>
 </div>
 <!-- El robot de Instagram reescribe el bloque de aquí abajo: no tocar las marcas. -->
-<!-- MUSUBI-GALLERY:EN:START --><div class="mg-grid"><figure><a class="mg-item" href="/fotos/ig-2026-10-24-696255.webp" data-mg-index="0" aria-label="Hands shaping a piece with a tool: culture is handmade too."><img src="/fotos/ig-2026-10-24-696255-400.webp" srcset="/fotos/ig-2026-10-24-696255-400.webp 400w, /fotos/ig-2026-10-24-696255.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Hands shaping a piece with a tool: culture is handmade too."></a><figcaption class="mg-figcap">Hands shaping a piece with a tool: culture is handmade too.<span class="mg-meta">24 Oct 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-19-224627.webp" data-mg-index="1" aria-label="Two gravel riders on a mountain track in autumn: signature sports events in the Basque Country."><img src="/fotos/ig-2026-10-19-224627-400.webp" srcset="/fotos/ig-2026-10-19-224627-400.webp 400w, /fotos/ig-2026-10-19-224627.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Two gravel riders on a mountain track in autumn: signature sports events in the Basque Country."></a><figcaption class="mg-figcap">Two gravel riders on a mountain track in autumn: signature sports events in the Basque Country.<span class="mg-meta">19 Oct 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-12-154744.webp" data-mg-index="2" aria-label="A violin scroll drawn on the golden ratio: behind every figure, a project cared for one by one."><img src="/fotos/ig-2026-10-12-154744-400.webp" srcset="/fotos/ig-2026-10-12-154744-400.webp 400w, /fotos/ig-2026-10-12-154744.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="A violin scroll drawn on the golden ratio: behind every figure, a project cared for one by one."></a><figcaption class="mg-figcap">A violin scroll drawn on the golden ratio: behind every figure, a project cared for one by one.<span class="mg-meta">12 Oct 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-08-695330.webp" data-mg-index="3" aria-label="Two runners on a winding mountain track: cultural and sports projects guided with the same eye."><img src="/fotos/ig-2026-10-08-695330-400.webp" srcset="/fotos/ig-2026-10-08-695330-400.webp 400w, /fotos/ig-2026-10-08-695330.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Two runners on a winding mountain track: cultural and sports projects guided with the same eye."></a><figcaption class="mg-figcap">Two runners on a winding mountain track: cultural and sports projects guided with the same eye.<span class="mg-meta">08 Oct 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-05-123498.webp" data-mg-index="4" aria-label="A crowd in colour powder at a festival: a poster and a bar don’t make a signature festival."><img src="/fotos/ig-2026-10-05-123498-400.webp" srcset="/fotos/ig-2026-10-05-123498-400.webp 400w, /fotos/ig-2026-10-05-123498.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="A crowd in colour powder at a festival: a poster and a bar don’t make a signature festival."></a><figcaption class="mg-figcap">A crowd in colour powder at a festival: a poster and a bar don’t make a signature festival.<span class="mg-meta">05 Oct 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-28-896851.webp" data-mg-index="5" aria-label="Piano keys in black and white: the talent is always there; the structure is not."><img src="/fotos/ig-2026-09-28-896851-400.webp" srcset="/fotos/ig-2026-09-28-896851-400.webp 400w, /fotos/ig-2026-09-28-896851.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="Piano keys in black and white: the talent is always there; the structure is not."></a><figcaption class="mg-figcap">Piano keys in black and white: the talent is always there; the structure is not.<span class="mg-meta">28 Sept 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-037049.webp" data-mg-index="6" aria-label="Typographic card reading “SOMOS”: design and keeping pace with the times."><img src="/fotos/ig-2026-09-24-037049-400.webp" srcset="/fotos/ig-2026-09-24-037049-400.webp 400w, /fotos/ig-2026-09-24-037049.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="Typographic card reading “SOMOS”: design and keeping pace with the times."></a><figcaption class="mg-figcap">Typographic card reading “SOMOS”: design and keeping pace with the times.<span class="mg-meta">24 Sept 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-534666.webp" data-mg-index="7" aria-label="Typographic card reading “MUSUBI”, Japanese for knot: every project has a rhythm of its own."><img src="/fotos/ig-2026-09-24-534666-400.webp" srcset="/fotos/ig-2026-09-24-534666-400.webp 400w, /fotos/ig-2026-09-24-534666.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="Typographic card reading “MUSUBI”, Japanese for knot: every project has a rhythm of its own."></a><figcaption class="mg-figcap">Typographic card reading “MUSUBI”, Japanese for knot: every project has a rhythm of its own.<span class="mg-meta">24 Sept 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-028311.webp" data-mg-index="8" aria-label="Typographic card reading “GARA®”, Basque for “we are”: care in every detail, to the end."><img src="/fotos/ig-2026-09-24-028311-400.webp" srcset="/fotos/ig-2026-09-24-028311-400.webp 400w, /fotos/ig-2026-09-24-028311.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="Typographic card reading “GARA®”, Basque for “we are”: care in every detail, to the end."></a><figcaption class="mg-figcap">Typographic card reading “GARA®”, Basque for “we are”: care in every detail, to the end.<span class="mg-meta">24 Sept 2026</span></figcaption></figure></div><!-- MUSUBI-GALLERY:EN:END -->
+<!-- MUSUBI-GALLERY:EN:START --><div class="mg-grid"><figure><a class="mg-item" href="/fotos/ig-2026-10-24-696255.webp" data-mg-index="0" aria-label="Hands shaping a piece with a tool: culture is handmade too."><img src="/fotos/ig-2026-10-24-696255-400.webp" srcset="/fotos/ig-2026-10-24-696255-400.webp 400w, /fotos/ig-2026-10-24-696255.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Hands shaping a piece with a tool: culture is handmade too."></a><figcaption class="mg-figcap">Hands shaping a piece with a tool: culture is handmade too.<span class="mg-meta">24 Oct 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-12-154744.webp" data-mg-index="1" aria-label="A violin scroll drawn on the golden ratio: behind every figure, a project cared for one by one."><img src="/fotos/ig-2026-10-12-154744-400.webp" srcset="/fotos/ig-2026-10-12-154744-400.webp 400w, /fotos/ig-2026-10-12-154744.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="A violin scroll drawn on the golden ratio: behind every figure, a project cared for one by one."></a><figcaption class="mg-figcap">A violin scroll drawn on the golden ratio: behind every figure, a project cared for one by one.<span class="mg-meta">12 Oct 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-05-123498.webp" data-mg-index="2" aria-label="A crowd in colour powder at a festival: a poster and a bar don’t make a signature festival."><img src="/fotos/ig-2026-10-05-123498-400.webp" srcset="/fotos/ig-2026-10-05-123498-400.webp 400w, /fotos/ig-2026-10-05-123498.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="A crowd in colour powder at a festival: a poster and a bar don’t make a signature festival."></a><figcaption class="mg-figcap">A crowd in colour powder at a festival: a poster and a bar don’t make a signature festival.<span class="mg-meta">05 Oct 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-28-896851.webp" data-mg-index="3" aria-label="Piano keys in black and white: the talent is always there; the structure is not."><img src="/fotos/ig-2026-09-28-896851-400.webp" srcset="/fotos/ig-2026-09-28-896851-400.webp 400w, /fotos/ig-2026-09-28-896851.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Piano keys in black and white: the talent is always there; the structure is not."></a><figcaption class="mg-figcap">Piano keys in black and white: the talent is always there; the structure is not.<span class="mg-meta">28 Sept 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-037049.webp" data-mg-index="4" aria-label="Typographic card reading “SOMOS”: design and keeping pace with the times."><img src="/fotos/ig-2026-09-24-037049-400.webp" srcset="/fotos/ig-2026-09-24-037049-400.webp 400w, /fotos/ig-2026-09-24-037049.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="Typographic card reading “SOMOS”: design and keeping pace with the times."></a><figcaption class="mg-figcap">Typographic card reading “SOMOS”: design and keeping pace with the times.<span class="mg-meta">24 Sept 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-534666.webp" data-mg-index="5" aria-label="Typographic card reading “MUSUBI”, Japanese for knot: every project has a rhythm of its own."><img src="/fotos/ig-2026-09-24-534666-400.webp" srcset="/fotos/ig-2026-09-24-534666-400.webp 400w, /fotos/ig-2026-09-24-534666.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="Typographic card reading “MUSUBI”, Japanese for knot: every project has a rhythm of its own."></a><figcaption class="mg-figcap">Typographic card reading “MUSUBI”, Japanese for knot: every project has a rhythm of its own.<span class="mg-meta">24 Sept 2026</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-028311.webp" data-mg-index="6" aria-label="Typographic card reading “GARA®”, Basque for “we are”: care in every detail, to the end."><img src="/fotos/ig-2026-09-24-028311-400.webp" srcset="/fotos/ig-2026-09-24-028311-400.webp 400w, /fotos/ig-2026-09-24-028311.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="Typographic card reading “GARA®”, Basque for “we are”: care in every detail, to the end."></a><figcaption class="mg-figcap">Typographic card reading “GARA®”, Basque for “we are”: care in every detail, to the end.<span class="mg-meta">24 Sept 2026</span></figcaption></figure></div><!-- MUSUBI-GALLERY:EN:END -->
 <p class="mg-empty">Images will appear here as soon as they are published on Instagram.</p>
 </div>
 </div>
@@ -1814,10 +1739,9 @@
       });
     });
 
-    /* Enlaces antiguos (#gestion-cultural / #gestion-deportiva) → páginas propias */
+    /* Enlace antiguo (#gestion-cultural) → página propia */
     const UNIT_MOVED = {
-      'gestion-cultural': document.body.dataset.urlCult,
-      'gestion-deportiva': document.body.dataset.urlDep
+      'gestion-cultural': document.body.dataset.urlCult
     };
 
     function syncFromHash() {

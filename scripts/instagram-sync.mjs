@@ -67,6 +67,14 @@ const NOMBRE = {
 const IDIOMA_BCP47 = { es: 'es-ES', eu: 'eu-ES', en: 'en-GB' };
 
 const TOKEN = process.env.IG_TOKEN;
+
+/* musubigara.org es solo gestión cultural: las publicaciones de Instagram cuyo
+   texto trate de deporte no se publican en la web (siguen en Instagram).
+   Se puede cambiar con IG_EXCLUDE (expresión regular, sin distinguir mayúsculas). */
+const EXCLUDE = new RegExp(
+  process.env.IG_EXCLUDE
+    || 'deport|sport|kirol|trail|ultra-?trail|carreras? de monta|mendi-?lasterket|lasterket|mountain race|gravel|runner|corredor|korrikalari|running',
+  'i');
 const STATE_FILE = path.join(CFG.root, '.instagram-state.json'); // solo fechas, nunca la clave
 const CAPTIONS_FILE = path.join(CFG.root, 'gallery-captions.json');
 
@@ -584,6 +592,7 @@ async function main() {
       } catch (e) { warn(`Fallo al convertir ${item.rutaRelativa}: ${e.message}`); continue; }
       const auto = parseCaption(item.caption);
       const over = manual[file] || {};
+      if (EXCLUDE.test(item.caption || '')) { log(`Fuera por tema (deporte): ${file}`); continue; }
       // "oculta": true en gallery-captions.json deja la foto fuera de la web
       // sin tocar nada en Instagram.
       if (over.oculta) { log(`Oculta por decisión propia: ${file}`); continue; }
@@ -608,6 +617,7 @@ async function main() {
 
       const auto = parseCaption(item.caption);
       const over = manual[file] || manual[code] || {};
+      if (EXCLUDE.test(item.caption || '')) { log(`Fuera por tema (deporte): ${file}`); continue; }
       if (over.oculta) { log(`Oculta por decisión propia: ${file}`); continue; }
       photos.push({
         id: code, file, date,

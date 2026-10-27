@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kontzertu eta mendi-lasterketen irudiak | Musubigara®</title>
-  <meta name="description" content="Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta mendi-lasterketen argazkiak, Instagrametik eguneratuak.">
+  <title>Kontzertu eta jaialdien irudiak | Musubigara®</title>
+  <meta name="description" content="Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta kultur proiektuen argazkiak, Instagrametik eguneratuak.">
   <link rel="canonical" href="https://musubigara.org/eu/galeria/">
   <link rel="alternate" hreflang="es" href="https://musubigara.org/galeria/">
   <link rel="alternate" hreflang="eu" href="https://musubigara.org/eu/galeria/">
@@ -16,7 +16,7 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Musubigara®">
   <meta property="og:title" content="Irudiak — Musubigara®">
-  <meta property="og:description" content="Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta mendi-lasterketen argazkiak, Instagrametik eguneratuak.">
+  <meta property="og:description" content="Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta kultur proiektuen argazkiak, Instagrametik eguneratuak.">
   <meta property="og:url" content="https://musubigara.org/eu/galeria/">
   <meta property="og:image" content="https://musubigara.org/musubigara-og.png">
   <meta property="og:image:alt" content="Musubigara®">
@@ -25,7 +25,7 @@
   <meta property="og:locale:alternate" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Irudiak — Musubigara®">
-  <meta name="twitter:description" content="Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta mendi-lasterketen argazkiak, Instagrametik eguneratuak.">
+  <meta name="twitter:description" content="Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta kultur proiektuen argazkiak, Instagrametik eguneratuak.">
   <meta name="twitter:image" content="https://musubigara.org/musubigara-og.png">
 
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -52,8 +52,6 @@
       --line:    #E4DCC9;
       --brand:      #C21838;  /* cultura · acentos (punto, flechas) */
       --brand-title:#8A1226;  /* cultura · títulos legibles sobre arena */
-      --sport:      #35513C;  /* eventos deportivos · acentos */
-      --sport-title:#26402E;  /* eventos deportivos · títulos legibles */
       --accent:     #C21838;  /* rojo de marca · palabras destacadas en el cuerpo */
 
       --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -308,16 +306,10 @@
     .menu-list a:hover .menu-title,
     .menu-list a:focus-visible .menu-title { color: var(--brand); }
 
-    /* Unidades de negocio destacadas por su color de unidad (cultura = granate, deporte = verde) */
+    /* Unidades de negocio destacadas por su color de unidad (cultura = granate) */
     .menu-unit--cultura .menu-num,
     .menu-unit--cultura .menu-title { color: var(--brand-title); }
-    .menu-unit--deporte .menu-num,
-    .menu-unit--deporte .menu-title { color: var(--sport-title); }
-    .menu-unit--deporte:hover,
-    .menu-unit--deporte:focus-visible { background: rgba(53, 81, 60, 0.08); }
-    .menu-unit--deporte:hover .menu-title,
-    .menu-unit--deporte:focus-visible .menu-title { color: var(--sport-title); }
-    .menu-unit--deporte::after { color: var(--sport-title) !important; }
+
     /* la etiqueta U.N.x + número necesita algo más de ancho */
     .menu-num--unit { min-width: 4.6em; font-weight: 500; }
     /* flecha que aparece y se desliza al pasar el ratón */
@@ -431,8 +423,6 @@
       color: var(--brand-title);
       margin: 0;
     }
-    /* La unidad de Eventos Deportivos usa el verde (título oscurecido) */
-    #gestion-deportiva .section-title { color: var(--sport-title); }
 
     /* Etiqueta de unidad de negocio sobre el título de cada sección de servicios */
     .unit-tag {
@@ -454,7 +444,6 @@
       background: currentColor;
     }
     .unit-tag--cultura { color: var(--brand-title); }
-    .unit-tag--deporte { color: var(--sport-title); }
 
     /* ============================================
        SECTION BODY
@@ -554,10 +543,9 @@
       transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
     }
     #gestion-cultural .service-lead::before { background: var(--brand-title); }
-    #gestion-deportiva .service-lead::before { background: var(--sport-title); }
+    
     .section.is-active .service-lead::before { transform: scaleY(1); }
     #gestion-cultural .service-lead strong { color: var(--brand-title); }
-    #gestion-deportiva .service-lead strong { color: var(--sport-title); }
 
     /* Cifras: números con ancho tabular para que el contador no "baile" */
     .figures-year, .figures-list li { font-variant-numeric: tabular-nums; }
@@ -568,13 +556,6 @@
       hyphens: none;
       -webkit-hyphens: none;
     }
-
-    /* Gestión de Eventos Culturales / Gestión de Eventos Deportivos de Autor:
-       titulares en negrita, texto seguido, sin saltos entre párrafos */
-    #gestion-cultural .section-body-content p + p,
-    #gestion-deportiva .section-body-content p + p { margin-top: 0; }
-    #gestion-cultural .section-body-content .service-lead,
-    #gestion-deportiva .section-body-content .service-lead { margin-top: 1.5rem; }
 
     /* Cifras: año + lista */
     .figures-year {
@@ -591,7 +572,7 @@
       text-align: left;
     }
     .figures-list li { padding: 0.12rem 0; }
-    /* cifra que pertenece a otra unidad (deportiva): se separa del bloque anterior */
+    
     .figures-list li.sep-top {
       margin-top: 0.75rem;
       padding-top: 0.75rem;
@@ -800,8 +781,6 @@
     /* ============================================
        SERVICIOS · aire antes de cada titular de servicio
        ============================================ */
-    #gestion-cultural .section-body-content .service-lead,
-    #gestion-deportiva .section-body-content .service-lead { margin-top: 1.5rem; }
 
     /* ============================================
        EQUIPO · portadas de disco (112px)
@@ -1020,8 +999,6 @@
       transform: translateY(-2px);
       outline: none;
     }
-    #gestion-deportiva .project-chip::after { color: var(--sport-title); }
-    #gestion-deportiva .project-chip:hover { border-color: var(--sport); color: var(--sport-title); }
 
     /* ============================================
        PROYECTOS PROPIOS / EVENTOS — botones tipo CTA,
@@ -1073,51 +1050,6 @@
     }
     .project-cta--static { cursor: default; }
 
-    /* Evento destacado (LARRE) */
-    .event-feature {
-      margin-top: 1.6rem;
-      padding: 1.1rem 1.2rem;
-      border: 1px solid var(--line);
-      border-left: 4px solid var(--sport);
-      border-radius: 8px;
-      background: rgba(255,255,255,0.4);
-    }
-    .event-feature + .event-feature { margin-top: 0.9rem; }
-    .event-feature-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.4rem 1rem;
-    }
-    .event-feature-name {
-      font-family: var(--font-mono);
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.02em;
-      color: var(--sport-title);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-    }
-    .event-feature-name a { border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
-    .event-feature-name a:hover { border-bottom-color: var(--sport); }
-    .event-feature-meta {
-      font-family: var(--font-mono);
-      font-size: 0.66rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--graphite);
-    }
-    .event-feature-desc {
-      margin-top: 0.5rem;
-      font-family: var(--font-mono);
-      font-size: 0.73rem;
-      line-height: 1.7;
-      color: var(--ink);
-    }
-    .event-feature-desc strong { font-weight: 500; }
-
     /* ============================================
        TRAYECTORIA — formato esquemático
        ============================================ */
@@ -1138,7 +1070,7 @@
       color: var(--brand-title);
       white-space: nowrap;
     }
-    .track-item--sport .track-year { color: var(--sport-title); }
+    
     .track-desc {
       font-family: var(--font-mono);
       font-size: 0.75rem;
@@ -1185,7 +1117,6 @@
       padding-top: 1.4rem;
       border-top: 1px solid var(--line);
     }
-  
 
     /* =====================================================
        AÑADIDOS · sept. 2026
@@ -1222,7 +1153,7 @@
       transition: background 0.2s ease;
     }
     .hero-unit--cultura { color: var(--brand-title); }
-    .hero-unit--deporte { color: var(--sport-title); }
+    
     .hero-unit-num { font-size: 0.7rem; font-weight: 500; }
     .hero-unit-name {
       font-size: clamp(0.8rem, 1.2vw, 0.95rem);
@@ -1238,7 +1169,7 @@
       color: var(--ink);
     }
     .hero-unit--cultura:hover, .hero-unit--cultura:focus-visible { background: rgba(194, 24, 56, 0.06); }
-    .hero-unit--deporte:hover, .hero-unit--deporte:focus-visible { background: rgba(53, 81, 60, 0.08); }
+    
     .hero-unit:hover .hero-unit-arrow,
     .hero-unit:focus-visible .hero-unit-arrow { transform: translateX(4px); }
     @media (max-width: 640px) {
@@ -1276,7 +1207,6 @@
       .socials--footer svg { width: 20px; height: 20px; }
     }
 
-
     /* Formulario: selector con el mismo estilo que los campos */
     .form-row select {
       font-family: var(--font-mono);
@@ -1312,10 +1242,10 @@
       color: var(--brand-title);
       margin-bottom: 0.35rem;
     }
-    .track-group--sport .track-years { color: var(--sport-title); }
+    
     .track-items { list-style: none; margin: 0; padding: 0 0 0 0.9rem; border-left: 2px solid var(--line); }
     .track-group .track-items { border-left-color: rgba(138, 18, 38, 0.35); }
-    .track-group--sport .track-items { border-left-color: rgba(38, 64, 46, 0.4); }
+    
     .track-items li { font-size: 0.75rem; line-height: 1.65; }
     .track-items li + li { margin-top: 0.3rem; }
     .track-items strong { font-weight: 500; }
@@ -1365,7 +1295,7 @@
     }
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary::after { content: "+"; color: var(--brand); font-weight: 500; transition: transform 0.2s ease; }
-    #gestion-deportiva .faq-item summary::after { color: var(--sport); }
+    
     .faq-item[open] summary::after { transform: rotate(45deg); }
     .faq-item p { padding-bottom: 0.8rem; margin: 0; }
     .unit-crosslink { margin-top: 2.2rem; }
@@ -1375,7 +1305,6 @@
     .menu-unit .menu-num { position: relative; }
     .menu-unit .menu-num::after { position: absolute; margin-left: 0; left: 1.62em; top: 50%; transform: translateY(-50%); width: 0.36rem; height: 0.36rem; }
 
-  
     /* ============================================
        AJUSTES 24-09
        ============================================ */
@@ -1432,14 +1361,11 @@
     .legal-block a:hover { border-bottom-color: var(--ink); }
     .legal-updated { color: var(--graphite); }
 
-
     /* Titular gigante de la portada: centrado */
     .hero-giant { text-align: center; }
     /* ---- Ronda 2 ---- */
     /* Sin barra de acento junto a los subtítulos de servicio */
-    .service-lead::before,
-    #gestion-cultural .service-lead::before,
-    #gestion-deportiva .service-lead::before { display: none !important; content: none !important; }
+    
     h3.service-lead, .service-lead { padding-left: 0; }
     .dash-list { padding-left: 0.6rem; }
     /* Cada subtítulo de servicio en una sola línea (en móvil puede envolver: no cabe) */
@@ -1484,11 +1410,11 @@
     }
   </style>
   <link rel="stylesheet" href="/musubi-gallery.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://musubigara.org/eu/galeria/#page", "url": "https://musubigara.org/eu/galeria/", "name": "Kontzertu eta mendi-lasterketen irudiak | Musubigara®", "description": "Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta mendi-lasterketen argazkiak, Instagrametik eguneratuak.", "inLanguage": "eu-ES", "isPartOf": {"@type": "WebSite", "@id": "https://musubigara.org/#website", "name": "Musubigara®", "url": "https://musubigara.org/"}, "about": {"@id": "https://musubigara.org/#musubigara"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://musubigara.org/musubigara-og.png"}}, {"@type": "BreadcrumbList", "@id": "https://musubigara.org/eu/galeria/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hasiera", "item": "https://musubigara.org/eu/"}, {"@type": "ListItem", "position": 2, "name": "Irudiak", "item": "https://musubigara.org/eu/galeria/"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "@id": "https://musubigara.org/eu/galeria/#page", "url": "https://musubigara.org/eu/galeria/", "name": "Kontzertu eta jaialdien irudiak | Musubigara®", "description": "Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta kultur proiektuen argazkiak, Instagrametik eguneratuak.", "inLanguage": "eu-ES", "isPartOf": {"@type": "WebSite", "@id": "https://musubigara.org/#website", "name": "Musubigara®", "url": "https://musubigara.org/"}, "about": {"@id": "https://musubigara.org/#musubigara"}, "primaryImageOfPage": {"@type": "ImageObject", "url": "https://musubigara.org/musubigara-og.png"}}, {"@type": "BreadcrumbList", "@id": "https://musubigara.org/eu/galeria/#breadcrumb", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Hasiera", "item": "https://musubigara.org/eu/"}, {"@type": "ListItem", "position": 2, "name": "Irudiak", "item": "https://musubigara.org/eu/galeria/"}]}]}</script>
   <!-- El robot de Instagram reescribe el bloque de aquí abajo: no tocar las marcas. -->
-  <!-- MUSUBI-GALLERY:JSONLD:START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageGallery","name":"Irudiak · Musubigara®","url":"https://musubigara.org/eu/galeria/","inLanguage":"eu-ES","isPartOf":{"@type":"WebSite","name":"Musubigara®","url":"https://musubigara.org/"},"associatedMedia":[{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-24-696255.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-24-696255-400.webp","width":900,"height":900,"datePublished":"2026-10-24","caption":"Esku batzuk pieza bat tresnaz lantzen: kultura ere eskuz egiten da.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-19-224627.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-19-224627-400.webp","width":900,"height":900,"datePublished":"2026-10-19","caption":"Bi gravel txirrindulari mendiko pistan udazkenean: egile ikuspegitik egindako kirol-ekitaldiak Euskadin.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-12-154744.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-12-154744-400.webp","width":900,"height":900,"datePublished":"2026-10-12","caption":"Biolin-kiribila urrezko proportzioaren gainean marraztua: zifra bakoitzaren atzean, banan-banan zaindutako proiektu bat.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-08-695330.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-08-695330-400.webp","width":900,"height":900,"datePublished":"2026-10-08","caption":"Bi korrikalari mendiko pistan: kultur eta kirol proiektuak begirada berberaz lagunduta.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-05-123498.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-05-123498-400.webp","width":900,"height":900,"datePublished":"2026-10-05","caption":"Jendea kolore-hautsekin jaialdi batean: kartel batek eta barra batek ez dute egile-jaialdi bat egiten.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-28-896851.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-28-896851-400.webp","width":900,"height":900,"datePublished":"2026-09-28","caption":"Pianoaren teklak zuri-beltzean: talentua beti dago; egitura, ez beti.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-037049.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-037049-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"«SOMOS» letra-lamina: diseinua eta garaietara egokitzea kultura eta kirol kudeaketan.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-534666.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-534666-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"«MUSUBI» letra-lamina, korapiloa japonieraz: proiektu bakoitzak bere erritmoa du, formula itxirik gabe.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-028311.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-028311-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"«GARA®» letra-lamina: mimoa eta zaintza xehetasun bakoitzean, azkeneraino.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"}]}</script><!-- MUSUBI-GALLERY:JSONLD:END -->
+  <!-- MUSUBI-GALLERY:JSONLD:START --><script type="application/ld+json">{"@context":"https://schema.org","@type":"ImageGallery","name":"Irudiak · Musubigara®","url":"https://musubigara.org/eu/galeria/","inLanguage":"eu-ES","isPartOf":{"@type":"WebSite","name":"Musubigara®","url":"https://musubigara.org/"},"associatedMedia":[{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-24-696255.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-24-696255-400.webp","width":900,"height":900,"datePublished":"2026-10-24","caption":"Esku batzuk pieza bat tresnaz lantzen: kultura ere eskuz egiten da.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-12-154744.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-12-154744-400.webp","width":900,"height":900,"datePublished":"2026-10-12","caption":"Biolin-kiribila urrezko proportzioaren gainean marraztua: zifra bakoitzaren atzean, banan-banan zaindutako proiektu bat.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-10-05-123498.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-10-05-123498-400.webp","width":900,"height":900,"datePublished":"2026-10-05","caption":"Jendea kolore-hautsekin jaialdi batean: kartel batek eta barra batek ez dute egile-jaialdi bat egiten.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-28-896851.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-28-896851-400.webp","width":900,"height":900,"datePublished":"2026-09-28","caption":"Pianoaren teklak zuri-beltzean: talentua beti dago; egitura, ez beti.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-037049.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-037049-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"«SOMOS» letra-lamina: diseinua eta garaietara egokitzea kultura kudeaketan.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-534666.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-534666-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"«MUSUBI» letra-lamina, korapiloa japonieraz: proiektu bakoitzak bere erritmoa du, formula itxirik gabe.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"},{"@type":"ImageObject","contentUrl":"https://musubigara.org/fotos/ig-2026-09-24-028311.webp","thumbnailUrl":"https://musubigara.org/fotos/ig-2026-09-24-028311-400.webp","width":900,"height":900,"datePublished":"2026-09-24","caption":"«GARA®» letra-lamina: mimoa eta zaintza xehetasun bakoitzean, azkeneraino.","creditText":"Musubigara®","license":"https://musubigara.org/","acquireLicensePage":"https://musubigara.org/#contacto"}]}</script><!-- MUSUBI-GALLERY:JSONLD:END -->
 </head>
-<body data-lang-body="eu" data-page="unit" data-url-cult="/eu/kultur-kudeaketa/" data-url-dep="/eu/kirol-ekitaldiak/">
+<body data-lang-body="eu" data-page="unit" data-url-cult="/eu/kultur-kudeaketa/">
 <!-- TOPBAR -->
 <header class="topbar">
 <div class="container topbar-inner">
@@ -1521,13 +1447,12 @@
 <ul class="menu-list">
 <li><a href="/eu/#presentacion"><span class="menu-num">01</span><span class="menu-title">Aurkezpena</span></a></li>
 <li><a class="menu-unit menu-unit--cultura" href="/eu/kultur-kudeaketa/"><span class="menu-num">02</span><span class="menu-title">Kultur Kudeaketa</span></a></li>
-<li><a class="menu-unit menu-unit--deporte" href="/eu/kirol-ekitaldiak/"><span class="menu-num">03</span><span class="menu-title">Egile-kirol ekitaldiak</span></a></li>
-<li><a href="/eu/#cifras"><span class="menu-num">04</span><span class="menu-title">Zenbakiak</span></a></li>
-<li><a href="/eu/#colaboraciones"><span class="menu-num">05</span><span class="menu-title">Gugan konfiantza dutenak</span></a></li>
-<li><a href="/eu/#trayectoria"><span class="menu-num">06</span><span class="menu-title">Ibilbidea</span></a></li>
-<li><a href="/eu/galeria/"><span class="menu-num">07</span><span class="menu-title">Irudiak</span></a></li>
-<li><a href="/eu/#equipo"><span class="menu-num">08</span><span class="menu-title">Taldea</span></a></li>
-<li><a href="/eu/#contacto"><span class="menu-num">09</span><span class="menu-title">Kontaktua</span></a></li>
+<li><a href="/eu/#cifras"><span class="menu-num">03</span><span class="menu-title">Zenbakiak</span></a></li>
+<li><a href="/eu/#colaboraciones"><span class="menu-num">04</span><span class="menu-title">Gugan konfiantza dutenak</span></a></li>
+<li><a href="/eu/#trayectoria"><span class="menu-num">05</span><span class="menu-title">Ibilbidea</span></a></li>
+<li><a href="/eu/galeria/"><span class="menu-num">06</span><span class="menu-title">Irudiak</span></a></li>
+<li><a href="/eu/#equipo"><span class="menu-num">07</span><span class="menu-title">Taldea</span></a></li>
+<li><a href="/eu/#contacto"><span class="menu-num">08</span><span class="menu-title">Kontaktua</span></a></li>
 </ul>
 </nav>
 <main id="top">
@@ -1542,14 +1467,14 @@
 <div class="section-body container">
 <div class="section-body-content">
 <div class="eu-body">
-<p class="unit-lead">Egiten duguna, gertatu ahala. Kontzertuak, jaialdiak, muntaiak eta mendi-lasterketak, lekuan bertan argazkituak eta beste inon baino lehen <a href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank">Instagramen</a> argitaratuak.</p>
+<p class="unit-lead">Egiten duguna, gertatu ahala. Kontzertuak, jaialdiak eta muntaiak, lekuan bertan argazkituak eta beste inon baino lehen <a href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank">Instagramen</a> argitaratuak.</p>
 <div class="mg mg--page">
 <div class="mg-head">
 <span class="mg-live">Zuzenean Instagrametik</span>
 <a href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.4" viewbox="0 0 24 24"><rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg> @musubi.gara</a>
 </div>
 <!-- El robot de Instagram reescribe el bloque de aquí abajo: no tocar las marcas. -->
-<!-- MUSUBI-GALLERY:EU:START --><div class="mg-grid"><figure><a class="mg-item" href="/fotos/ig-2026-10-24-696255.webp" data-mg-index="0" aria-label="Esku batzuk pieza bat tresnaz lantzen: kultura ere eskuz egiten da."><img src="/fotos/ig-2026-10-24-696255-400.webp" srcset="/fotos/ig-2026-10-24-696255-400.webp 400w, /fotos/ig-2026-10-24-696255.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Esku batzuk pieza bat tresnaz lantzen: kultura ere eskuz egiten da."></a><figcaption class="mg-figcap">Esku batzuk pieza bat tresnaz lantzen: kultura ere eskuz egiten da.<span class="mg-meta">2026 urr. 24</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-19-224627.webp" data-mg-index="1" aria-label="Bi gravel txirrindulari mendiko pistan udazkenean: egile ikuspegitik egindako kirol-ekitaldiak Euskadin."><img src="/fotos/ig-2026-10-19-224627-400.webp" srcset="/fotos/ig-2026-10-19-224627-400.webp 400w, /fotos/ig-2026-10-19-224627.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Bi gravel txirrindulari mendiko pistan udazkenean: egile ikuspegitik egindako kirol-ekitaldiak Euskadin."></a><figcaption class="mg-figcap">Bi gravel txirrindulari mendiko pistan udazkenean: egile ikuspegitik egindako kirol-ekitaldiak Euskadin.<span class="mg-meta">2026 urr. 19</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-12-154744.webp" data-mg-index="2" aria-label="Biolin-kiribila urrezko proportzioaren gainean marraztua: zifra bakoitzaren atzean, banan-banan zaindutako proiektu bat."><img src="/fotos/ig-2026-10-12-154744-400.webp" srcset="/fotos/ig-2026-10-12-154744-400.webp 400w, /fotos/ig-2026-10-12-154744.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Biolin-kiribila urrezko proportzioaren gainean marraztua: zifra bakoitzaren atzean, banan-banan zaindutako proiektu bat."></a><figcaption class="mg-figcap">Biolin-kiribila urrezko proportzioaren gainean marraztua: zifra bakoitzaren atzean, banan-banan zaindutako proiektu bat.<span class="mg-meta">2026 urr. 12</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-08-695330.webp" data-mg-index="3" aria-label="Bi korrikalari mendiko pistan: kultur eta kirol proiektuak begirada berberaz lagunduta."><img src="/fotos/ig-2026-10-08-695330-400.webp" srcset="/fotos/ig-2026-10-08-695330-400.webp 400w, /fotos/ig-2026-10-08-695330.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Bi korrikalari mendiko pistan: kultur eta kirol proiektuak begirada berberaz lagunduta."></a><figcaption class="mg-figcap">Bi korrikalari mendiko pistan: kultur eta kirol proiektuak begirada berberaz lagunduta.<span class="mg-meta">2026 urr. 08</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-05-123498.webp" data-mg-index="4" aria-label="Jendea kolore-hautsekin jaialdi batean: kartel batek eta barra batek ez dute egile-jaialdi bat egiten."><img src="/fotos/ig-2026-10-05-123498-400.webp" srcset="/fotos/ig-2026-10-05-123498-400.webp 400w, /fotos/ig-2026-10-05-123498.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="Jendea kolore-hautsekin jaialdi batean: kartel batek eta barra batek ez dute egile-jaialdi bat egiten."></a><figcaption class="mg-figcap">Jendea kolore-hautsekin jaialdi batean: kartel batek eta barra batek ez dute egile-jaialdi bat egiten.<span class="mg-meta">2026 urr. 05</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-28-896851.webp" data-mg-index="5" aria-label="Pianoaren teklak zuri-beltzean: talentua beti dago; egitura, ez beti."><img src="/fotos/ig-2026-09-28-896851-400.webp" srcset="/fotos/ig-2026-09-28-896851-400.webp 400w, /fotos/ig-2026-09-28-896851.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="Pianoaren teklak zuri-beltzean: talentua beti dago; egitura, ez beti."></a><figcaption class="mg-figcap">Pianoaren teklak zuri-beltzean: talentua beti dago; egitura, ez beti.<span class="mg-meta">2026 ira. 28</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-037049.webp" data-mg-index="6" aria-label="«SOMOS» letra-lamina: diseinua eta garaietara egokitzea kultura eta kirol kudeaketan."><img src="/fotos/ig-2026-09-24-037049-400.webp" srcset="/fotos/ig-2026-09-24-037049-400.webp 400w, /fotos/ig-2026-09-24-037049.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="«SOMOS» letra-lamina: diseinua eta garaietara egokitzea kultura eta kirol kudeaketan."></a><figcaption class="mg-figcap">«SOMOS» letra-lamina: diseinua eta garaietara egokitzea kultura eta kirol kudeaketan.<span class="mg-meta">2026 ira. 24</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-534666.webp" data-mg-index="7" aria-label="«MUSUBI» letra-lamina, korapiloa japonieraz: proiektu bakoitzak bere erritmoa du, formula itxirik gabe."><img src="/fotos/ig-2026-09-24-534666-400.webp" srcset="/fotos/ig-2026-09-24-534666-400.webp 400w, /fotos/ig-2026-09-24-534666.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="«MUSUBI» letra-lamina, korapiloa japonieraz: proiektu bakoitzak bere erritmoa du, formula itxirik gabe."></a><figcaption class="mg-figcap">«MUSUBI» letra-lamina, korapiloa japonieraz: proiektu bakoitzak bere erritmoa du, formula itxirik gabe.<span class="mg-meta">2026 ira. 24</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-028311.webp" data-mg-index="8" aria-label="«GARA®» letra-lamina: mimoa eta zaintza xehetasun bakoitzean, azkeneraino."><img src="/fotos/ig-2026-09-24-028311-400.webp" srcset="/fotos/ig-2026-09-24-028311-400.webp 400w, /fotos/ig-2026-09-24-028311.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="«GARA®» letra-lamina: mimoa eta zaintza xehetasun bakoitzean, azkeneraino."></a><figcaption class="mg-figcap">«GARA®» letra-lamina: mimoa eta zaintza xehetasun bakoitzean, azkeneraino.<span class="mg-meta">2026 ira. 24</span></figcaption></figure></div><!-- MUSUBI-GALLERY:EU:END -->
+<!-- MUSUBI-GALLERY:EU:START --><div class="mg-grid"><figure><a class="mg-item" href="/fotos/ig-2026-10-24-696255.webp" data-mg-index="0" aria-label="Esku batzuk pieza bat tresnaz lantzen: kultura ere eskuz egiten da."><img src="/fotos/ig-2026-10-24-696255-400.webp" srcset="/fotos/ig-2026-10-24-696255-400.webp 400w, /fotos/ig-2026-10-24-696255.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Esku batzuk pieza bat tresnaz lantzen: kultura ere eskuz egiten da."></a><figcaption class="mg-figcap">Esku batzuk pieza bat tresnaz lantzen: kultura ere eskuz egiten da.<span class="mg-meta">2026 urr. 24</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-12-154744.webp" data-mg-index="1" aria-label="Biolin-kiribila urrezko proportzioaren gainean marraztua: zifra bakoitzaren atzean, banan-banan zaindutako proiektu bat."><img src="/fotos/ig-2026-10-12-154744-400.webp" srcset="/fotos/ig-2026-10-12-154744-400.webp 400w, /fotos/ig-2026-10-12-154744.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Biolin-kiribila urrezko proportzioaren gainean marraztua: zifra bakoitzaren atzean, banan-banan zaindutako proiektu bat."></a><figcaption class="mg-figcap">Biolin-kiribila urrezko proportzioaren gainean marraztua: zifra bakoitzaren atzean, banan-banan zaindutako proiektu bat.<span class="mg-meta">2026 urr. 12</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-10-05-123498.webp" data-mg-index="2" aria-label="Jendea kolore-hautsekin jaialdi batean: kartel batek eta barra batek ez dute egile-jaialdi bat egiten."><img src="/fotos/ig-2026-10-05-123498-400.webp" srcset="/fotos/ig-2026-10-05-123498-400.webp 400w, /fotos/ig-2026-10-05-123498.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Jendea kolore-hautsekin jaialdi batean: kartel batek eta barra batek ez dute egile-jaialdi bat egiten."></a><figcaption class="mg-figcap">Jendea kolore-hautsekin jaialdi batean: kartel batek eta barra batek ez dute egile-jaialdi bat egiten.<span class="mg-meta">2026 urr. 05</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-28-896851.webp" data-mg-index="3" aria-label="Pianoaren teklak zuri-beltzean: talentua beti dago; egitura, ez beti."><img src="/fotos/ig-2026-09-28-896851-400.webp" srcset="/fotos/ig-2026-09-28-896851-400.webp 400w, /fotos/ig-2026-09-28-896851.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="eager" decoding="async" alt="Pianoaren teklak zuri-beltzean: talentua beti dago; egitura, ez beti."></a><figcaption class="mg-figcap">Pianoaren teklak zuri-beltzean: talentua beti dago; egitura, ez beti.<span class="mg-meta">2026 ira. 28</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-037049.webp" data-mg-index="4" aria-label="«SOMOS» letra-lamina: diseinua eta garaietara egokitzea kultura kudeaketan."><img src="/fotos/ig-2026-09-24-037049-400.webp" srcset="/fotos/ig-2026-09-24-037049-400.webp 400w, /fotos/ig-2026-09-24-037049.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="«SOMOS» letra-lamina: diseinua eta garaietara egokitzea kultura kudeaketan."></a><figcaption class="mg-figcap">«SOMOS» letra-lamina: diseinua eta garaietara egokitzea kultura kudeaketan.<span class="mg-meta">2026 ira. 24</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-534666.webp" data-mg-index="5" aria-label="«MUSUBI» letra-lamina, korapiloa japonieraz: proiektu bakoitzak bere erritmoa du, formula itxirik gabe."><img src="/fotos/ig-2026-09-24-534666-400.webp" srcset="/fotos/ig-2026-09-24-534666-400.webp 400w, /fotos/ig-2026-09-24-534666.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="«MUSUBI» letra-lamina, korapiloa japonieraz: proiektu bakoitzak bere erritmoa du, formula itxirik gabe."></a><figcaption class="mg-figcap">«MUSUBI» letra-lamina, korapiloa japonieraz: proiektu bakoitzak bere erritmoa du, formula itxirik gabe.<span class="mg-meta">2026 ira. 24</span></figcaption></figure><figure><a class="mg-item" href="/fotos/ig-2026-09-24-028311.webp" data-mg-index="6" aria-label="«GARA®» letra-lamina: mimoa eta zaintza xehetasun bakoitzean, azkeneraino."><img src="/fotos/ig-2026-09-24-028311-400.webp" srcset="/fotos/ig-2026-09-24-028311-400.webp 400w, /fotos/ig-2026-09-24-028311.webp 900w" sizes="(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px" width="900" height="900" loading="lazy" decoding="async" alt="«GARA®» letra-lamina: mimoa eta zaintza xehetasun bakoitzean, azkeneraino."></a><figcaption class="mg-figcap">«GARA®» letra-lamina: mimoa eta zaintza xehetasun bakoitzean, azkeneraino.<span class="mg-meta">2026 ira. 24</span></figcaption></figure></div><!-- MUSUBI-GALLERY:EU:END -->
 <p class="mg-empty">Irudiak hemen agertuko dira Instagramen argitaratu bezain laster.</p>
 </div>
 </div>
@@ -1814,10 +1739,9 @@
       });
     });
 
-    /* Enlaces antiguos (#gestion-cultural / #gestion-deportiva) → páginas propias */
+    /* Enlace antiguo (#gestion-cultural) → página propia */
     const UNIT_MOVED = {
-      'gestion-cultural': document.body.dataset.urlCult,
-      'gestion-deportiva': document.body.dataset.urlDep
+      'gestion-cultural': document.body.dataset.urlCult
     };
 
     function syncFromHash() {
