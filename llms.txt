@@ -13,7 +13,7 @@ English: Musubigara® is a Basque (Vitoria-Gasteiz) artisan cultural management 
 ## Páginas (castellano)
 
 - [Gestión cultural artesanal en Euskadi](https://musubigara.org/): Gestión cultural artesanal en Euskadi: producción de conciertos y festivales, management musical, financiación y asesoría legal para artistas e instituciones.
-- [Gestión cultural y conciertos en Euskadi](https://musubigara.org/gestion-cultural/): Producción de conciertos y festivales, management musical, financiación, patrocinio y asesoría legal para artistas e instituciones en Euskadi.
+- [Gestión cultural y producción de conciertos en Euskadi](https://musubigara.org/gestion-cultural/): Producción de conciertos y festivales, management musical y consultoría artística para ayuntamientos, festivales y artistas en Euskadi y Navarra.
 - [Imágenes de conciertos y festivales](https://musubigara.org/galeria/): Galería de Musubigara®: fotografías de conciertos, festivales y proyectos culturales en Euskadi, actualizada desde Instagram.
 
 ## Euskera
