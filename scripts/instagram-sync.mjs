@@ -395,8 +395,10 @@ async function writeJsonLd(target, photos) {
       caption: pie(p, lang),
       ...(p.place ? { contentLocation: { '@type': 'Place', name: p.place } } : {}),
       creditText: MARCA,
-      license: SITE + '/',
-      acquireLicensePage: SITE + '/#contacto',
+      creator: { '@type': 'Organization', name: MARCA, url: SITE + '/' },
+      copyrightNotice: `© ${MARCA}`,
+      license: SITE + { es: '/aviso-legal/', eu: '/eu/lege-oharra/', en: '/en/legal-notice/' }[lang],
+      acquireLicensePage: SITE + { es: '/#contacto', eu: '/eu/#contacto', en: '/en/#contacto' }[lang],
     })),
   };
   const tag = `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
