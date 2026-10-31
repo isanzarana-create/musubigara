@@ -1,0 +1,4 @@
+/* Enlace de salto al contenido (WCAG 2.4.1 Evitar bloques) */
+.skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:#C21838;color:#fff;padding:.6rem 1rem;font:500 .95rem/1.2 Inter,system-ui,sans-serif;text-decoration:none;border-radius:0 0 4px 0}
+.skip-link:focus{left:0}
+main:focus,#contenido:focus{outline:none}
