@@ -1,0 +1,35 @@
+name: Control SEO
+
+# Comprueba en cada cambio (y cada día, por si el robot de Instagram ha tocado
+# algo) que:
+#   - todo el JSON-LD es válido,
+#   - toda imagen (ImageObject) lleva creator, creditText, copyrightNotice,
+#     license y acquireLicensePage (informe «Metadatos de imagen» de Search Console),
+#   - los <lastmod> del sitemap no son anteriores al último cambio de cada página.
+# Si algo falla, la ejecución sale en rojo y GitHub avisa por correo.
+# No hace commits: no gasta despliegues de Netlify.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '41 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # hace falta el historial para saber cuándo cambió cada página
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Comprobar datos estructurados y sitemap
+        run: node scripts/check-seo.mjs

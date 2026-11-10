@@ -217,3 +217,19 @@ quitar una línea de `musubi-gallery.css`.
 **El rótulo es «Imágenes» y la URL `/galeria/`.** Lo he separado a propósito: «galería» es
 lo que la gente escribe en Google, «Imágenes» es lo que encaja con el resto de tu menú. Si
 quieres que coincidan, se cambia en un minuto.
+
+---
+
+## Control SEO automático (desde el 10 nov 2026)
+
+`scripts/check-seo.mjs` comprueba que todas las imágenes del JSON-LD llevan los cinco
+campos de licencia que pide Search Console (creator, creditText, copyrightNotice,
+license, acquireLicensePage) y que los `<lastmod>` del sitemap no son anteriores al
+último cambio real de cada página. Lo ejecuta la Action **Control SEO** en cada push y
+cada día; si sale en rojo, GitHub avisa por correo.
+
+Al editar páginas a mano, antes del commit:
+
+    node scripts/check-seo.mjs --fix-sitemap
+
+(pone al día los `<lastmod>` de las páginas modificadas y verifica todo lo demás).
