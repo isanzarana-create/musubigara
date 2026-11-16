@@ -724,6 +724,10 @@
       text-align: left;
     }
     .figures-list li { padding: 0.12rem 0; }
+    /* Total destacado y desglose debajo */
+    .figures-list:has(+ .figures-among) { margin-bottom: 0.4rem; font-weight: 600; }
+    .figures-among { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; margin: 0; }
+    .figures-among + .figures-list { margin-top: 0.3rem; }
     
     .figures-list li.sep-top {
       margin-top: 0.75rem;
@@ -1696,6 +1700,9 @@
 <p class="unit-tag unit-tag--cultura figures-unit">Gestión Cultural</p>
 <ul class="figures-list">
 <li>+90 eventos culturales</li>
+</ul>
+<p class="figures-among">Entre ellos:</p>
+<ul class="figures-list">
 <li>16 conciertos</li>
 <li>2 festivales</li>
 <li>8 talleres</li>
@@ -1747,10 +1754,8 @@
 <div class="track-group">
 <p class="track-years">2023 · 2024 · 2025 · 2026</p>
 <ul class="track-items">
-<li>Producción de la <strong><a href="https://ama-sma.kulturaraba.eus/es/" rel="noopener" target="_blank">Semana de Música Antigua de Álava</a></strong>.</li>
-<li>Organización de la <strong><a href="https://ama-sma.kulturaraba.eus/es/" rel="noopener" target="_blank">Semana de Música Antigua de Álava</a></strong>.</li>
-<li>Secretaría Técnica del <strong><a href="https://poetasenmayo.com/es/" rel="noopener" target="_blank">Festival de Poetas en Mayo®</a></strong>.</li>
-<li>Producción del <strong><a href="https://poetasenmayo.com/es/" rel="noopener" target="_blank">Festival de Poetas en Mayo®</a></strong>.</li>
+<li><strong><a href="https://ama-sma.kulturaraba.eus/es/" rel="noopener" target="_blank">Semana de Música Antigua de Álava</a></strong>: producción y organización.</li>
+<li><strong><a href="https://poetasenmayo.com/es/" rel="noopener" target="_blank">Festival de Poetas en Mayo®</a></strong>: secretaría técnica y producción.</li>
 </ul>
 </div>
 <div class="track-group">
@@ -1843,6 +1848,16 @@
 <div class="form-row">
 <label for="cf-email">Email</label>
 <input autocomplete="email" id="cf-email" name="email" required="" type="email"/>
+</div>
+<div class="form-row">
+<label for="cf-perfil">¿Quién nos escribe?</label>
+<select id="cf-perfil" name="perfil">
+<option value="Ayuntamiento o institución">Ayuntamiento o institución pública</option>
+<option value="Artista o grupo">Artista o grupo</option>
+<option value="Festival u organizador">Festival u organizador de eventos</option>
+<option value="Empresa o marca">Empresa o marca</option>
+<option value="Otro">Otro</option>
+</select>
 </div>
 <div class="form-row">
 <label for="cf-unidad">¿Sobre qué?</label>

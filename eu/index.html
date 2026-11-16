@@ -724,6 +724,10 @@
       text-align: left;
     }
     .figures-list li { padding: 0.12rem 0; }
+    /* Total destacado y desglose debajo */
+    .figures-list:has(+ .figures-among) { margin-bottom: 0.4rem; font-weight: 600; }
+    .figures-among { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; margin: 0; }
+    .figures-among + .figures-list { margin-top: 0.3rem; }
     
     .figures-list li.sep-top {
       margin-top: 0.75rem;
@@ -1696,6 +1700,9 @@
 <p class="unit-tag unit-tag--cultura figures-unit">Kultur Kudeaketa</p>
 <ul class="figures-list">
 <li>+90 kultur ekitaldi</li>
+</ul>
+<p class="figures-among">Horien artean:</p>
+<ul class="figures-list">
 <li>16 kontzertu</li>
 <li>2 jaialdi</li>
 <li>8 tailer</li>
@@ -1747,10 +1754,8 @@
 <div class="track-group">
 <p class="track-years">2023 · 2024 · 2025 · 2026</p>
 <ul class="track-items">
-<li><strong><a href="https://ama-sma.kulturaraba.eus/es/" rel="noopener" target="_blank">Arabako Antzinako Musikaren Astea</a></strong>: ekoizpena.</li>
-<li><strong><a href="https://ama-sma.kulturaraba.eus/es/" rel="noopener" target="_blank">Arabako Antzinako Musikaren Astea</a></strong>: antolakuntza.</li>
-<li><strong><a href="https://poetasenmayo.com/es/" rel="noopener" target="_blank">Poetas en Mayo® jaialdia</a></strong>: idazkaritza teknikoa.</li>
-<li><strong><a href="https://poetasenmayo.com/es/" rel="noopener" target="_blank">Poetas en Mayo® jaialdia</a></strong>: ekoizpena.</li>
+<li><strong><a href="https://ama-sma.kulturaraba.eus/es/" rel="noopener" target="_blank">Arabako Antzinako Musikaren Astea</a></strong>: ekoizpena eta antolakuntza.</li>
+<li><strong><a href="https://poetasenmayo.com/es/" rel="noopener" target="_blank">Poetas en Mayo® jaialdia</a></strong>: idazkaritza teknikoa eta ekoizpena.</li>
 </ul>
 </div>
 <div class="track-group">
@@ -1843,6 +1848,16 @@
 <div class="form-row">
 <label for="cf-email">Email</label>
 <input autocomplete="email" id="cf-email" name="email" required="" type="email"/>
+</div>
+<div class="form-row">
+<label for="cf-perfil">Nor zara?</label>
+<select id="cf-perfil" name="perfil">
+<option value="Ayuntamiento o institución">Udala edo erakunde publikoa</option>
+<option value="Artista o grupo">Artista edo taldea</option>
+<option value="Festival u organizador">Jaialdia edo ekitaldi-antolatzailea</option>
+<option value="Empresa o marca">Enpresa edo marka</option>
+<option value="Otro">Beste bat</option>
+</select>
 </div>
 <div class="form-row">
 <label for="cf-unidad">Zer buruz?</label>

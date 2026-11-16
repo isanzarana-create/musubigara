@@ -724,6 +724,10 @@
       text-align: left;
     }
     .figures-list li { padding: 0.12rem 0; }
+    /* Total destacado y desglose debajo */
+    .figures-list:has(+ .figures-among) { margin-bottom: 0.4rem; font-weight: 600; }
+    .figures-among { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.08em; margin: 0; }
+    .figures-among + .figures-list { margin-top: 0.3rem; }
     
     .figures-list li.sep-top {
       margin-top: 0.75rem;
@@ -1697,6 +1701,9 @@
 <p class="unit-tag unit-tag--cultura figures-unit">Cultural Management</p>
 <ul class="figures-list">
 <li>+90 cultural events</li>
+</ul>
+<p class="figures-among">Among them:</p>
+<ul class="figures-list">
 <li>16 concerts</li>
 <li>2 festivals</li>
 <li>8 workshops</li>
@@ -1748,10 +1755,8 @@
 <div class="track-group">
 <p class="track-years">2023 · 2024 · 2025 · 2026</p>
 <ul class="track-items">
-<li>Production of the <strong><a href="https://ama-sma.kulturaraba.eus/es/" rel="noopener" target="_blank">Álava Early Music Week</a></strong>.</li>
-<li>Organisation of the <strong><a href="https://ama-sma.kulturaraba.eus/es/" rel="noopener" target="_blank">Álava Early Music Week</a></strong>.</li>
-<li>Technical Secretariat of the <strong><a href="https://poetasenmayo.com/es/" rel="noopener" target="_blank">Poetas en Mayo® Festival</a></strong>.</li>
-<li>Production of the <strong><a href="https://poetasenmayo.com/es/" rel="noopener" target="_blank">Poetas en Mayo® Festival</a></strong>.</li>
+<li><strong><a href="https://ama-sma.kulturaraba.eus/es/" rel="noopener" target="_blank">Álava Early Music Week</a></strong>: production and organisation.</li>
+<li><strong><a href="https://poetasenmayo.com/es/" rel="noopener" target="_blank">Poetas en Mayo® Festival</a></strong>: technical secretariat and production.</li>
 </ul>
 </div>
 <div class="track-group">
@@ -1844,6 +1849,16 @@
 <div class="form-row">
 <label for="cf-email">Email</label>
 <input autocomplete="email" id="cf-email" name="email" required="" type="email"/>
+</div>
+<div class="form-row">
+<label for="cf-perfil">Who is writing?</label>
+<select id="cf-perfil" name="perfil">
+<option value="Ayuntamiento o institución">Local council or public institution</option>
+<option value="Artista o grupo">Artist or band</option>
+<option value="Festival u organizador">Festival or event organiser</option>
+<option value="Empresa o marca">Company or brand</option>
+<option value="Otro">Other</option>
+</select>
 </div>
 <div class="form-row">
 <label for="cf-unidad">What about?</label>
