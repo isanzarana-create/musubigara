@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kultur kudeaketa eta kontzertuak Euskadin | Musubigara®</title>
-  <meta name="description" content="Kontzertuen eta jaialdien ekoizpena, musika-management-a eta aholkularitza artistikoa udalentzat, jaialdientzat eta artistentzat Euskadin eta Nafarroan.">
+  <title>Kultur kudeaketa eta kontzertuak | Musubigara®</title>
+  <meta name="description" content="Kontzertuen eta jaialdien ekoizpena, musika-management-a eta aholkularitza artistikoa udalentzat, jaialdientzat eta artistentzat.">
   <link rel="canonical" href="https://musubigara.org/eu/kultur-kudeaketa/">
   <link rel="alternate" hreflang="es" href="https://musubigara.org/gestion-cultural/">
   <link rel="alternate" hreflang="eu" href="https://musubigara.org/eu/kultur-kudeaketa/">
@@ -15,8 +15,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Musubigara®">
-  <meta property="og:title" content="Kultur kudeaketa eta kontzertuak Euskadin | Musubigara®">
-  <meta property="og:description" content="Kontzertuen eta jaialdien ekoizpena, musika-management-a eta aholkularitza artistikoa udalentzat, jaialdientzat eta artistentzat Euskadin eta Nafarroan.">
+  <meta property="og:title" content="Kultur kudeaketa eta kontzertuak | Musubigara®">
+  <meta property="og:description" content="Kontzertuen eta jaialdien ekoizpena, musika-management-a eta aholkularitza artistikoa udalentzat, jaialdientzat eta artistentzat.">
   <meta property="og:url" content="https://musubigara.org/eu/kultur-kudeaketa/">
   <meta property="og:image" content="https://musubigara.org/musubigara-og.png">
   <meta property="og:image:alt" content="Musubigara®">
@@ -24,8 +24,8 @@
   <meta property="og:locale:alternate" content="es_ES">
   <meta property="og:locale:alternate" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kultur kudeaketa eta kontzertuak Euskadin | Musubigara®">
-  <meta name="twitter:description" content="Kontzertuen eta jaialdien ekoizpena, musika-management-a eta aholkularitza artistikoa udalentzat, jaialdientzat eta artistentzat Euskadin eta Nafarroan.">
+  <meta name="twitter:title" content="Kultur kudeaketa eta kontzertuak | Musubigara®">
+  <meta name="twitter:description" content="Kontzertuen eta jaialdien ekoizpena, musika-management-a eta aholkularitza artistikoa udalentzat, jaialdientzat eta artistentzat.">
   <meta name="twitter:image" content="https://musubigara.org/musubigara-og.png">
 
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -65,8 +65,6 @@
         "@id": "https://musubigara.org/#musubigara"
       },
       "areaServed": [
-        "Euskadi",
-        "Nafarroa",
         "Araba",
         "Bizkaia",
         "Gipuzkoa",
@@ -115,8 +113,8 @@
       "@type": "WebPage",
       "@id": "https://musubigara.org/eu/kultur-kudeaketa/#webpage",
       "url": "https://musubigara.org/eu/kultur-kudeaketa/",
-      "name": "Kultur kudeaketa Euskadin · kontzertuak eta jaialdiak | Musubigara®",
-      "description": "Kontzertuen eta jaialdien ekoizpena, musika-ordezkaritza eta management-a, finantzaketa, babesletza eta aholkularitza juridikoa Euskadiko artistentzat eta erakundeentzat.",
+      "name": "Kultur kudeaketa · kontzertuak eta jaialdiak | Musubigara®",
+      "description": "Kontzertuen eta jaialdien ekoizpena, musika-ordezkaritza eta management-a, finantzaketa, babesletza eta aholkularitza juridikoa artistentzat eta erakundeentzat.",
       "inLanguage": "eu",
       "isPartOf": {
         "@id": "https://musubigara.org/eu/#website"
@@ -673,6 +671,31 @@
       .who-num { font-size: 4.6rem; }
     }
 
+
+    /* Pantallas táctiles: zonas de toque de 44 px sin cambiar el aspecto */
+    @media (pointer: coarse), (max-width: 1023px) {
+      .lang-opt, .socials a, .contact-item a, .unit-back a, .footer-row .c-top a, .footer-row .c-legal a, .menu-toggle { position: relative; }
+      .lang-opt::before, .socials a::before, .contact-item a::before, .unit-back a::before,
+      .footer-row .c-top a::before, .footer-row .c-legal a::before, .menu-toggle::before {
+        content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: 44px; transform: translate(-50%, -50%);
+      }
+      .lang-toggle { gap: 6px; }
+      .socials { gap: 18px; }
+      .menu-list a { padding-block: 12px; }
+    }
+
+
+    .aggregate { grid-column: 2 / -1; }
+    @media (max-width: 759px) {
+      .aggregate { grid-column: 1 / -1; }
+      /* franjas con flecha: número y flecha en la primera línea, título debajo */
+      body .index-row .c-num { grid-column: 1 / 4; grid-row: 1; align-self: center; padding-top: var(--pad); }
+      body .index-row .c-arrow { grid-column: 4 / 5; grid-row: 1; min-height: 64px; }
+      body .index-row .c-arrow svg { width: 52%; }
+      body .index-row .sec-title, body .index-row--s .sec-title { grid-column: 1 / -1; grid-row: 2; padding-top: 6px; }
+      body .index-row .c-note { grid-column: 1 / -1; grid-row: 3; }
+    }
+
     /* ---------- Entradas al hacer scroll ---------- */
     .rv { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: calc(var(--i, 0) * 70ms); }
     .rv.is-in, .no-js .rv { opacity: 1; transform: none; }
@@ -819,7 +842,7 @@
       <div class="cell unit-crumb"><span class="label unit-tag">Negozio-unitatea · Kultura</span></div>
       <div class="cell unit-back"><a class="label" href="/eu/">← Hasiera</a></div>
     </div>
-    <h1 class="hero-giant" id="heroGiant"><span class="eu-body"><span class="ln"><span>Kultur Kudeaketa</span></span></span><span class="h1-sub"> Euskadin</span></h1>
+    <h1 class="hero-giant" id="heroGiant"><span class="eu-body"><span class="ln"><span>Kultur Kudeaketa</span></span></span></h1>
     <div class="g rule unit-intro">
       <div class="cell unit-intro-text prose es-body">
         <p class="unit-lead rv"><strong><span class="hl">Artistentzat, musikarientzat, jaialdientzat eta erakundeentzat</span>, beren proiektua gauzatzea eta hazitzea nahi dutenentzat.</strong></p>

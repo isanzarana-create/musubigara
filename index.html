@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gestión cultural artesanal en Euskadi | Musubigara®</title>
-  <meta name="description" content="Gestión cultural artesanal en Euskadi y Navarra: conciertos, festivales, management musical, financiación y asesoría legal para artistas e instituciones.">
+  <title>Gestión cultural artesanal | Musubigara®</title>
+  <meta name="description" content="Gestión cultural artesanal: conciertos, festivales, management musical, financiación y asesoría legal para artistas e instituciones.">
   <link rel="canonical" href="https://musubigara.org/">
   <link rel="alternate" hreflang="es" href="https://musubigara.org/">
   <link rel="alternate" hreflang="eu" href="https://musubigara.org/eu/">
@@ -15,8 +15,8 @@
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Musubigara®">
-  <meta property="og:title" content="Musubigara® — Gestión cultural artesanal en Euskadi">
-  <meta property="og:description" content="Gestión cultural artesanal para artistas, festivales e instituciones: conciertos, festivales, management musical, financiación y asesoría legal en Euskadi.">
+  <meta property="og:title" content="Musubigara® — Gestión cultural artesanal">
+  <meta property="og:description" content="Gestión cultural artesanal para artistas, festivales e instituciones: conciertos, festivales, management musical, financiación y asesoría legal.">
   <meta property="og:url" content="https://musubigara.org/">
   <meta property="og:image" content="https://musubigara.org/musubigara-og.png">
   <meta property="og:image:alt" content="Musubigara®">
@@ -24,8 +24,8 @@
   <meta property="og:locale:alternate" content="eu_ES">
   <meta property="og:locale:alternate" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Musubigara® — Gestión cultural artesanal en Euskadi">
-  <meta name="twitter:description" content="Gestión cultural artesanal para artistas, festivales e instituciones: conciertos, festivales, management musical, financiación y asesoría legal en Euskadi.">
+  <meta name="twitter:title" content="Musubigara® — Gestión cultural artesanal">
+  <meta name="twitter:description" content="Gestión cultural artesanal para artistas, festivales e instituciones: conciertos, festivales, management musical, financiación y asesoría legal.">
   <meta name="twitter:image" content="https://musubigara.org/musubigara-og.png">
 
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
@@ -51,7 +51,7 @@
       "url": "https://musubigara.org/",
       "logo": "https://musubigara.org/musubigara-og.png",
       "image": "https://musubigara.org/musubigara-og.png",
-      "description": "Gestión cultural artesanal en Euskadi: producción de conciertos y festivales, management musical, financiación y asesoría legal.",
+      "description": "Gestión cultural artesanal: producción de conciertos y festivales, management musical, financiación y asesoría legal.",
       "slogan": "Gestión cultural, con mirada artesanal.",
       "telephone": "+34620463558",
       "email": "ignacio@musubigara.org",
@@ -67,8 +67,6 @@
         ]
       },
       "areaServed": [
-        "Euskadi",
-        "Navarra",
         "Álava / Araba",
         "Bizkaia",
         "Gipuzkoa",
@@ -109,8 +107,6 @@
         "@id": "https://musubigara.org/#musubigara"
       },
       "areaServed": [
-        "Euskadi",
-        "Navarra",
         "Álava / Araba",
         "Bizkaia",
         "Gipuzkoa",
@@ -173,8 +169,8 @@
       "@type": "WebPage",
       "@id": "https://musubigara.org/#webpage",
       "url": "https://musubigara.org/",
-      "name": "Musubigara® | Gestión cultural artesanal en Euskadi",
-      "description": "Gestión cultural artesanal en Euskadi: producción de conciertos y festivales, management musical, financiación y asesoría legal para artistas e instituciones.",
+      "name": "Musubigara® | Gestión cultural artesanal",
+      "description": "Gestión cultural artesanal: producción de conciertos y festivales, management musical, financiación y asesoría legal para artistas e instituciones.",
       "inLanguage": "es",
       "isPartOf": {
         "@id": "https://musubigara.org/#website"
@@ -709,6 +705,31 @@
       .who-num { font-size: 4.6rem; }
     }
 
+
+    /* Pantallas táctiles: zonas de toque de 44 px sin cambiar el aspecto */
+    @media (pointer: coarse), (max-width: 1023px) {
+      .lang-opt, .socials a, .contact-item a, .unit-back a, .footer-row .c-top a, .footer-row .c-legal a, .menu-toggle { position: relative; }
+      .lang-opt::before, .socials a::before, .contact-item a::before, .unit-back a::before,
+      .footer-row .c-top a::before, .footer-row .c-legal a::before, .menu-toggle::before {
+        content: ""; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: 44px; transform: translate(-50%, -50%);
+      }
+      .lang-toggle { gap: 6px; }
+      .socials { gap: 18px; }
+      .menu-list a { padding-block: 12px; }
+    }
+
+
+    .aggregate { grid-column: 2 / -1; }
+    @media (max-width: 759px) {
+      .aggregate { grid-column: 1 / -1; }
+      /* franjas con flecha: número y flecha en la primera línea, título debajo */
+      body .index-row .c-num { grid-column: 1 / 4; grid-row: 1; align-self: center; padding-top: var(--pad); }
+      body .index-row .c-arrow { grid-column: 4 / 5; grid-row: 1; min-height: 64px; }
+      body .index-row .c-arrow svg { width: 52%; }
+      body .index-row .sec-title, body .index-row--s .sec-title { grid-column: 1 / -1; grid-row: 2; padding-top: 6px; }
+      body .index-row .c-note { grid-column: 1 / -1; grid-row: 3; }
+    }
+
     /* ---------- Entradas al hacer scroll ---------- */
     .rv { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); transition-delay: calc(var(--i, 0) * 70ms); }
     .rv.is-in, .no-js .rv { opacity: 1; transform: none; }
@@ -858,7 +879,7 @@
     </div>
     <div class="g rule hero-body">
       <div class="hero-claim rv" style="--i:1">
-        <h1 class="hero-tagline"><strong>Gestión cultural artesanal</strong> en Euskadi</h1>
+        <h1 class="hero-tagline"><strong>Gestión cultural artesanal</strong></h1>
         <p class="hero-tagline">Con mimo, detalle y mirada artesanal.</p>
       </div>
       <div class="hero-cta rv" style="--i:4">
@@ -872,8 +893,8 @@
   <!-- CINTA -->
   <div class="band ticker" aria-hidden="true">
     <div class="ticker-track">
-      <span class="ticker-item">Gestión cultural <i>_</i> artesanal <i>_</i> Euskadi <i>_</i> </span>
-      <span class="ticker-item">Gestión cultural <i>_</i> artesanal <i>_</i> Euskadi <i>_</i> </span>
+      <span class="ticker-item">Gestión cultural <i>_</i> artesanal <i>_</i> </span>
+      <span class="ticker-item">Gestión cultural <i>_</i> artesanal <i>_</i> </span>
     </div>
   </div>
 
@@ -893,7 +914,7 @@
         <div class="es-body">
           <p class="lead rv"><strong>Musubigara® es <a href="/gestion-cultural/"><span class="hl">gestión cultural</span></a> artesanal.</strong> Conocemos la creación desde dentro, y también la gestión que la hace posible.</p>
                     <p class="rv">Crear es solo el principio. Después hay que <span class="hl">producir, financiar, contratar o buscar escenarios</span>. Ahí entramos nosotros. Artistas, festivales, instituciones y organizadores saben qué quieren; nosotros hacemos que ocurra y te <span class="hl">acompañamos de la mano</span>, de principio a fin.</p>
-          <p class="rv">Trabajamos en <strong>toda Euskadi</strong>, con <span class="hl">mimo, detalle y cercanía</span>, de forma artesanal: sin fórmulas cerradas. Cuidamos cada proceso para que tu proyecto tenga recorrido.</p>
+          <p class="rv">Trabajamos con <span class="hl">mimo, detalle y cercanía</span>, de forma artesanal: sin fórmulas cerradas. Cuidamos cada proceso para que tu proyecto tenga recorrido.</p>
         </div>
       </div>
       <figure class="cell c-side rv" style="--i:2">
@@ -1022,7 +1043,7 @@
         <li class="rv"><span class="n"><span data-count="1" data-prefix="+">+1</span><small> M€</small></span><span class="t">+1 millón de € en financiación obtenida</span></li>
         <li class="rv" style="--i:1"><span class="n" data-count="14000" data-prefix="+">+14.000</span><span class="t">personas de público</span></li>
       </ul>
-      <div class="g rule"><p class="cell c-wide label" style="grid-column:2/-1">Cifras agregadas de toda nuestra trayectoria, no de un proyecto concreto.</p></div>
+      <div class="g rule"><p class="cell c-wide label aggregate">Cifras agregadas de toda nuestra trayectoria, no de un proyecto concreto.</p></div>
     </div>
       </div>
     </div>
@@ -1110,7 +1131,7 @@
           <div class="contact-item"><span class="label">Email</span><a href="mailto:ignacio@musubigara.org" rel="noopener" target="_blank">ignacio@musubigara.org</a></div>
           <div class="contact-item"><span class="label">Teléfono</span><a href="tel:+34620463558">620 463 558</a></div>
           <div class="contact-item"><span class="label">Instagram</span><a href="https://www.instagram.com/musubi.gara/" rel="noopener" target="_blank">@musubi.gara</a></div>
-          <div class="contact-item"><span class="label">Dirección</span><span>Vitoria-Gasteiz (Álava) · trabajo en Euskadi y Navarra</span></div>
+          <div class="contact-item"><span class="label">Dirección</span><span>Vitoria-Gasteiz (Álava)</span></div>
         </div>
       </div>
       <form action="/gracias/" class="cell contact-form rv c-contact-r" style="--i:2" data-netlify="true" method="POST" name="contacto" netlify-honeypot="bot-field">
