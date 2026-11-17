@@ -1,10 +1,10 @@
 # Musubigara®
 
-> Musubigara® es gestión cultural artesanal en Euskadi y Navarra, con proyectos puntuales en el resto de España: producción de conciertos y festivales, representación y management musical, consultoría, financiación, patrocinio y asesoría legal para artistas, colectivos e instituciones. Web trilingüe: castellano, euskera e inglés.
+> Musubigara® es gestión cultural artesanal: producción de conciertos y festivales, representación y management musical, consultoría, financiación, patrocinio y asesoría legal para artistas, colectivos e instituciones. Web trilingüe: castellano, euskera e inglés.
 
 Trabaja con artistas y grupos, ayuntamientos y servicios de cultura, festivales, asociaciones y patrocinadores. Cada proyecto se trabaja a medida, con foco y respetando el ritmo de cada colaborador. Cifras agregadas de toda la trayectoria: más de 1,5 millones de € en financiación obtenida y más de 14.000 personas de público. Contacto: ignacio@musubigara.org · WhatsApp +34 620 463 558 · https://musubigara.org/#contacto
 
-English: Musubigara® is an artisan cultural management practice in the Basque Country (Euskadi) and Navarre: concert and festival production, music management, consulting, funding, sponsorship and legal advice for artists, collectives and institutions.
+English: Musubigara® is an artisan cultural management practice: concert and festival production, music management, consulting, funding, sponsorship and legal advice for artists, collectives and institutions.
 
 ## Servicios
 
@@ -12,21 +12,21 @@ English: Musubigara® is an artisan cultural management practice in the Basque C
 
 ## Páginas (castellano)
 
-- [Gestión cultural artesanal en Euskadi](https://musubigara.org/): Gestión cultural artesanal en Euskadi y Navarra: conciertos, festivales, management musical, financiación y asesoría legal para artistas e instituciones.
-- [Gestión cultural y conciertos en Euskadi](https://musubigara.org/gestion-cultural/): Producción de conciertos y festivales, management musical y consultoría artística para ayuntamientos, festivales y artistas en Euskadi y Navarra.
-- [Imágenes de conciertos y festivales](https://musubigara.org/galeria/): Galería de Musubigara®: fotografías de conciertos, festivales y proyectos culturales en Euskadi, actualizada desde Instagram.
+- [Gestión cultural artesanal](https://musubigara.org/): Gestión cultural artesanal: conciertos, festivales, management musical, financiación y asesoría legal para artistas e instituciones.
+- [Gestión cultural y conciertos](https://musubigara.org/gestion-cultural/): Producción de conciertos y festivales, management musical y consultoría artística para ayuntamientos, festivales y artistas.
+- [Imágenes de conciertos y festivales](https://musubigara.org/galeria/): Galería de Musubigara®: fotografías de conciertos, festivales y proyectos culturales, actualizada desde Instagram.
 
 ## Euskera
 
-- [Kultur kudeaketa artisaua Euskadin](https://musubigara.org/eu/): Kultur kudeaketa artisaua Euskadin: kontzertu eta jaialdien ekoizpena, musika-managementa, finantzaketa eta aholkularitza artista eta erakundeentzat.
-- [Kultur kudeaketa eta kontzertuak Euskadin](https://musubigara.org/eu/kultur-kudeaketa/): Kontzertuen eta jaialdien ekoizpena, musika-management-a eta aholkularitza artistikoa udalentzat, jaialdientzat eta artistentzat Euskadin eta Nafarroan.
-- [Kontzertu eta jaialdien irudiak](https://musubigara.org/eu/galeria/): Musubigara®-ren galeria: Euskadin antolatutako kontzertu, jaialdi eta kultur proiektuen argazkiak, Instagrametik eguneratuak.
+- [Kultur kudeaketa artisaua](https://musubigara.org/eu/): Kultur kudeaketa artisaua: kontzertu eta jaialdien ekoizpena, musika-managementa, finantzaketa eta aholkularitza artista eta erakundeentzat.
+- [Kultur kudeaketa eta kontzertuak](https://musubigara.org/eu/kultur-kudeaketa/): Kontzertuen eta jaialdien ekoizpena, musika-management-a eta aholkularitza artistikoa udalentzat, jaialdientzat eta artistentzat.
+- [Kontzertu eta jaialdien irudiak](https://musubigara.org/eu/galeria/): Musubigara®-ren galeria: kontzertu, jaialdi eta kultur proiektuen argazkiak, Instagrametik eguneratuak.
 
 ## English
 
-- [Artisan cultural management in Euskadi](https://musubigara.org/en/): Artisan cultural management in the Basque Country: concert and festival production, music management, funding and legal advice for artists and institutions.
-- [Cultural management and concerts in Euskadi](https://musubigara.org/en/cultural-management/): Concert and festival production, music management and artistic consultancy for town councils, festivals and artists in the Basque Country and Navarre.
-- [Images of concerts and festivals](https://musubigara.org/en/gallery/): Musubigara® gallery: photographs of concerts, festivals and cultural projects in the Basque Country, updated from Instagram.
+- [Artisan cultural management](https://musubigara.org/en/): Artisan cultural management: concert and festival production, music management, funding and legal advice for artists and institutions.
+- [Cultural management and concerts](https://musubigara.org/en/cultural-management/): Concert and festival production, music management and artistic consultancy for town councils, festivals and artists.
+- [Images of concerts and festivals](https://musubigara.org/en/gallery/): Musubigara® gallery: photographs of concerts, festivals and cultural projects, updated from Instagram.
 
 ## Optional
 
