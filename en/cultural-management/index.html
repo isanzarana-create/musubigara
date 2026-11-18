@@ -619,56 +619,60 @@
     }
 
 
-    /* Gestión Cultural: intro con foto, tarjetas de servicio y públicos */
+    /* Gestión Cultural: intro con foto, y mosaico entrelazado de servicios + públicos */
     .unit-intro { align-items: stretch; }
     .unit-intro-text { grid-column: 2 / 5; display: flex; flex-direction: column; justify-content: flex-end; gap: 0; padding-block: calc(var(--pad) * 2); }
     .unit-intro-text .btn-block { margin-top: 1.2em; }
-    .unit-lead { font-size: calc(var(--fs-text) + 2px) !important; }
     .unit-photo { grid-column: 5 / -1; }
     .figure-photo--wide { aspect-ratio: 16 / 10; }
-    .svc-grid, .who-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); }
+
+    /* Mosaico: servicios (tarjeta clara, invierte en hover) y públicos (tarjeta oscura) intercalados en una sola cuadrícula */
+    .mosaic-grid { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); }
+    .svc-card, .who-card { grid-column: span 2; border-left: 1px solid var(--line); position: relative; isolation: isolate; }
+    .mosaic-grid > :nth-child(4n+1) { border-left: 0; }
+    .mosaic-grid > :nth-child(n+5) { border-top: 1px solid var(--line); }
     .svc-card {
-      grid-column: span 2; padding: calc(var(--pad) * 1.2) var(--pad) calc(var(--pad) * 1.6);
-      display: flex; flex-direction: column; gap: 18px;
-      border-left: 1px solid var(--line); position: relative; isolation: isolate; transition: color .45s var(--ease);
+      padding: calc(var(--pad) * 1.2) var(--pad) calc(var(--pad) * 1.6);
+      display: flex; flex-direction: column; gap: 16px; transition: color .45s var(--ease);
     }
-    .svc-card:first-child { border-left: 0; }
     .svc-card::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--ink); transform: scaleY(0); transform-origin: bottom; transition: transform .6s var(--ease); }
     .svc-card:hover { color: var(--paper); }
     .svc-card:hover::before { transform: scaleY(1); }
     .svc-card:hover .label { color: var(--mute-d); }
     .svc-card:hover .svc-ico { color: var(--brand-d); transform: translateY(-4px); }
     .svc-top { display: flex; justify-content: space-between; align-items: flex-start; }
-    .svc-ico { width: clamp(52px, 4.6vw, 72px); height: auto; color: var(--brand); transition: color .45s, transform .6s var(--ease); }
-    .svc-title { margin-top: clamp(40px, 6vw, 96px); min-height: 2.12em; font: 400 clamp(1.45rem, 1rem + 1.2vw, 2.15rem)/1.06 var(--sans); letter-spacing: -.03em; }
+    .svc-ico { width: clamp(48px, 4.2vw, 68px); height: auto; color: var(--brand); transition: color .45s, transform .6s var(--ease); }
+    .svc-title { margin-top: clamp(28px, 4vw, 56px); min-height: 2.12em; font: 400 clamp(1.3rem, .95rem + 1vw, 1.9rem)/1.08 var(--sans); letter-spacing: -.03em; }
     .who-card {
-      grid-column: span 2; padding: var(--pad) var(--pad) calc(var(--pad) * 1.6);
-      display: flex; flex-direction: column; gap: 14px; border-left: 1px solid var(--line-d);
+      padding: var(--pad) var(--pad) calc(var(--pad) * 1.6);
+      display: flex; flex-direction: column; justify-content: flex-end; gap: 14px;
+      background: var(--ink); color: var(--paper); border-left-color: var(--line-d);
+      transition: background .45s var(--ease);
     }
-    .who-card:first-child { border-left: 0; }
+    .who-card .label { color: var(--mute-d); }
+    .who-card .hl { background-image: linear-gradient(transparent 62%, rgba(224,74,99,.35) 62%, rgba(224,74,99,.35) 92%, transparent 92%); }
+    .who-card .prose a:hover { color: var(--brand-d); }
     .who-num {
-      font: 400 clamp(5rem, 11vw, 11rem)/.8 var(--sans); letter-spacing: -.06em; margin: 6px 0 clamp(28px, 4vw, 64px) -.04em;
+      font: 400 clamp(3.2rem, 6.4vw, 6rem)/.8 var(--sans); letter-spacing: -.05em; margin: 0 0 clamp(16px, 2.2vw, 28px) -.03em;
       color: transparent; -webkit-text-stroke: 1px rgba(244,238,225,.6); transition: -webkit-text-stroke-color .5s, color .5s;
     }
     .who-card:hover .who-num { -webkit-text-stroke-color: var(--brand-d); color: var(--brand-d); }
-    .who-title { min-height: 2.16em; font: 400 clamp(1.35rem, 1rem + 1vw, 1.95rem)/1.08 var(--sans); letter-spacing: -.028em; }
+    .who-title { min-height: 2.16em; font: 400 clamp(1.15rem, .9rem + .7vw, 1.55rem)/1.12 var(--sans); letter-spacing: -.026em; }
     @media (max-width: 1023px) {
       .unit-intro-text { grid-column: 2 / -1; padding-bottom: 0; }
       .unit-photo { grid-column: 2 / -1; }
       .svc-card, .who-card { grid-column: span 4; min-height: 0; }
-      .svc-card:nth-child(odd), .who-card:nth-child(odd) { border-left: 0; }
-      .svc-card:nth-child(n+3), .who-card:nth-child(n+3) { border-top: 1px solid var(--line); }
-      .who-card:nth-child(n+3) { border-top-color: var(--line-d); }
-      .svc-title { margin-top: 24px; }
-      .who-num { margin-bottom: 18px; }
+      .mosaic-grid > :nth-child(odd) { border-left: 0; }
+      .mosaic-grid > :nth-child(n+3) { border-top: 1px solid var(--line); }
+      .svc-title { margin-top: 22px; }
+      .who-num { margin-bottom: 16px; }
       .svc-title, .who-title { min-height: 0; }
     }
     @media (max-width: 759px) {
       .unit-intro-text, .unit-photo { grid-column: 1 / -1; }
       .svc-card, .who-card { grid-column: 1 / -1; border-left: 0; }
-      .svc-card + .svc-card { border-top: 1px solid var(--line); }
-      .who-card + .who-card { border-top: 1px solid var(--line-d); }
-      .who-num { font-size: 4.6rem; }
+      .mosaic-grid > :not(:first-child) { border-top: 1px solid var(--line); }
+      .who-num { font-size: 4.2rem; }
     }
 
 
@@ -729,7 +733,7 @@
     .gallery-doc .mg-item { display: block; overflow: hidden; aspect-ratio: 1; background: var(--paper-2); border: 0; }
     .gallery-doc .mg-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); transform: scale(1.02); transition: filter .6s, transform 1s var(--ease); }
     .gallery-doc .mg-item:hover img, .gallery-doc .mg-item:focus-visible img { filter: grayscale(0); transform: scale(1.06); }
-    .gallery-doc .mg-figcap { margin-top: 10px; font-family: var(--verdana); font-size: 13px; line-height: 1.45; color: var(--ink); }
+    .gallery-doc .mg-figcap { margin-top: 10px; font-family: var(--mono); font-size: 13px; line-height: 1.45; color: var(--ink); }
     .gallery-doc .mg-meta { display: block; margin-top: 4px; font: 400 .68rem/1.4 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--mute); }
     .thanks-doc .section-lead { font-size: calc(var(--fs-text) + 2px) !important; font-weight: 700; }
     .thanks-doc .btn-block { margin-top: .6em; border: 0; }
@@ -893,8 +897,6 @@
     <h1 class="hero-giant" id="heroGiant"><span class="en-body"><span class="ln"><span>Cultural Management</span></span></span></h1>
     <div class="g rule unit-intro">
       <div class="cell unit-intro-text prose es-body">
-        <p class="unit-lead rv"><strong>For <span class="hl">artists, musicians, festivals and institutions</span> who want their project to happen and grow.</strong></p>
-        <p class="rv"><span class="hl">Comprehensive support</span>, when and as far as you need it.</p>
         <p class="rv" style="--i:2"><a class="btn-block btn-block--right" href="/en/#contacto">Tell us about your project <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="19" y1="12" y2="12"/><polyline points="13 6 19 12 13 18"/></svg></a></p>
       </div>
       <figure class="cell unit-photo rv" style="--i:2">
@@ -913,62 +915,52 @@
     </div>
   </div>
 
-  <!-- A · QUÉ HACEMOS -->
+  <!-- A · QUÉ HACEMOS Y PARA QUIÉN (mosaico entrelazado) -->
   <section class="band sec" aria-labelledby="t-servicios">
     <div class="g sec-head sub-head">
       <div class="cell c-num"><span class="label">[A]</span></div>
-      <h2 class="sec-title sub-title" id="t-servicios"><span>What we do</span></h2>
+      <h2 class="sec-title sub-title" id="t-servicios"><span>What we do · Who for</span></h2>
     </div>
-    <div class="svc-grid rule">
+    <div class="mosaic-grid rule">
       <article class="svc-card rv" style="--i:0">
         <div class="svc-top"><span class="label">01</span><svg class="svc-ico" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 50h52M10 50v8M54 50v8"/><path d="M14 8l8 6-3 4-8-6z"/><path d="M19 17l13 27M24 14l24 28"/><path d="M28 44h22" stroke-dasharray="2 3"/></svg></div>
         <h3 class="svc-title">Production and programming</h3>
         <div class="prose"><p>We make ideas possible, producing <span class="hl">concerts, festivals and cultural projects</span> and handling the technical, artistic and executive organisation, and the coordination of every detail, from start to finish.</p></div>
       </article>
-      <article class="svc-card rv" style="--i:1">
-        <div class="svc-top"><span class="label">02</span><svg class="svc-ico" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="6" width="16" height="28" rx="8"/><path d="M16 28a16 16 0 0 0 32 0M32 44v12M22 56h20"/><path d="M24 16h6M24 22h6"/></svg></div>
-        <h3 class="svc-title">Music representation and management</h3>
-        <div class="prose"><p>We put the artist on stage, finding <span class="hl">concerts and performances</span>, managing bookings and diaries, and supporting their artistic career development.</p></div>
-      </article>
-      <article class="svc-card rv" style="--i:2">
-        <div class="svc-top"><span class="label">03</span><svg class="svc-ico" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 56h48M8 56V8"/><path d="M16 46h8v10h-8zM30 36h8v20h-8zM44 22h8v34h-8z"/><path d="M14 36l14-12 10 6 16-16M46 14h8v8"/></svg></div>
-        <h3 class="svc-title">Consulting and funding</h3>
-        <div class="prose"><p>We make the journey viable, with strategic planning, new formats and finding <span class="hl">funding, sponsorship and patronage</span>.</p></div>
-      </article>
-      <article class="svc-card rv" style="--i:3">
-        <div class="svc-top"><span class="label">04</span><svg class="svc-ico" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="38" cy="30" r="18"/><path d="M20 30h36M38 12c-6 6-6 30 0 36M38 12c6 6 6 30 0 36"/><path d="M8 26h12v30H8z" /><path d="M11 33h6M11 39h6M11 45h4"/></svg></div>
-        <h3 class="svc-title">Legal advice and internationalisation</h3>
-        <div class="prose"><p>We protect what is created, handling contracts, <span class="hl">rights and intellectual property</span>, and the internationalisation of artists and cultural projects.</p></div>
-      </article>
-    </div>
-  </section>
-
-  <!-- B · PARA QUIÉN TRABAJAMOS -->
-  <section class="band band--ink sec" aria-labelledby="t-quien">
-    <div class="g sec-head sub-head">
-      <div class="cell c-num"><span class="label">[B]</span></div>
-      <h2 class="sec-title sub-title" id="t-quien"><span>Who we work for</span></h2>
-    </div>
-    <div class="who-grid rule">
-      <article class="who-card rv" style="--i:0">
+      <article class="who-card rv" style="--i:1">
         <span class="who-num" aria-hidden="true">01</span>
         <h3 class="who-title">Town councils and public bodies</h3>
         <div class="prose"><p>We design and produce your municipality's cultural programme: concerts, series and local festivities, including artist booking, technical production and grant reporting. We know both sides: we have produced for institutions and we have been on stage.</p></div>
       </article>
-      <article class="who-card rv" style="--i:1">
+      <article class="svc-card rv" style="--i:2">
+        <div class="svc-top"><span class="label">02</span><svg class="svc-ico" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="6" width="16" height="28" rx="8"/><path d="M16 28a16 16 0 0 0 32 0M32 44v12M22 56h20"/><path d="M24 16h6M24 22h6"/></svg></div>
+        <h3 class="svc-title">Music representation and management</h3>
+        <div class="prose"><p>We put the artist on stage, finding <span class="hl">concerts and performances</span>, managing bookings and diaries, and supporting their artistic career development.</p></div>
+      </article>
+      <article class="who-card rv" style="--i:3">
         <span class="who-num" aria-hidden="true">02</span>
         <h3 class="who-title">Festivals and promoters</h3>
         <div class="prose"><p>Line-up, budget, funding and sponsorship, executive production and artist coordination. Experience with the Álava Early Music Week and the Poetas en Mayo® Festival.</p></div>
       </article>
-      <article class="who-card rv" style="--i:2">
+      <article class="who-card rv" style="--i:4">
         <span class="who-num" aria-hidden="true">03</span>
         <h3 class="who-title">Bands and artists</h3>
         <div class="prose"><p>We find concerts, handle contracts and diaries, and help you fund your project.</p></div>
       </article>
-      <article class="who-card rv" style="--i:3">
+      <article class="svc-card rv" style="--i:5">
+        <div class="svc-top"><span class="label">03</span><svg class="svc-ico" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 56h48M8 56V8"/><path d="M16 46h8v10h-8zM30 36h8v20h-8zM44 22h8v34h-8z"/><path d="M14 36l14-12 10 6 16-16M46 14h8v8"/></svg></div>
+        <h3 class="svc-title">Consulting and funding</h3>
+        <div class="prose"><p>We make the journey viable, with strategic planning, new formats and finding <span class="hl">funding, sponsorship and patronage</span>.</p></div>
+      </article>
+      <article class="who-card rv" style="--i:6">
         <span class="who-num" aria-hidden="true">04</span>
         <h3 class="who-title">Cultural associations and venues</h3>
         <div class="prose"><p>Regular programming, grant applications and legal advice.</p></div>
+      </article>
+      <article class="svc-card rv" style="--i:7">
+        <div class="svc-top"><span class="label">04</span><svg class="svc-ico" aria-hidden="true" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="38" cy="30" r="18"/><path d="M20 30h36M38 12c-6 6-6 30 0 36M38 12c6 6 6 30 0 36"/><path d="M8 26h12v30H8z" /><path d="M11 33h6M11 39h6M11 45h4"/></svg></div>
+        <h3 class="svc-title">Legal advice and internationalisation</h3>
+        <div class="prose"><p>We protect what is created, handling contracts, <span class="hl">rights and intellectual property</span>, and the internationalisation of artists and cultural projects.</p></div>
       </article>
     </div>
   </section>
