@@ -6,10 +6,12 @@ name: Galería de Instagram (Musubigara)
 
 on:
   schedule:
-    # 06:43 UTC = 08:43 en Vitoria-Gasteiz. Minuto raro a propósito:
-    # a las horas en punto GitHub va saturado y retrasa las tareas.
-    # Media hora más tarde que LARRE para no solapar las dos.
-    - cron: '43 6 * * *'
+    # Lunes a las 06:40 UTC (07:40 en Vitoria-Gasteiz en invierno, 08:40 en
+    # verano). Una vez por semana, antes de la revisión de Search Console de
+    # los lunes. Minuto raro a propósito: a las horas en punto GitHub va
+    # saturado y retrasa las tareas. Media hora más tarde que LARRE para no
+    # solapar las dos.
+    - cron: '40 6 * * 1'
   workflow_dispatch:        # botón para lanzarlo a mano cuando quieras
 
 concurrency:
@@ -43,6 +45,7 @@ jobs:
           IG_PROFILE: https://www.instagram.com/musubi.gara/
           SITE_URL:   https://musubigara.org
           IG_LIMIT:   '36'
+          IG_APPROVAL: '1'    # las fotos nuevas esperan a tener pie de foto
           IG_SIZES:   '(max-width: 640px) 50vw, (max-width: 1180px) 32vw, 300px'
         run: if [ -z "$IG_TOKEN" ]; then echo "Sin clave de Instagram - la galeria se queda como esta."; else node scripts/instagram-sync.mjs; fi
 
@@ -71,6 +74,9 @@ jobs:
           fi
           echo "Limpio."
 
+      - name: Comprobar que la web sigue sana
+        run: node scripts/check-seo.mjs
+
       - name: Publicar los cambios
         run: |
           git config user.name  "Robot Musubigara"
@@ -80,6 +86,14 @@ jobs:
             echo "Nada que publicar: la web ya estaba al día."
             exit 0
           fi
-          git commit -m "Galería: sincronizada con Instagram"
+          # Si lo único que ha cambiado son fotos descargadas y la lista de
+          # pendientes, en la web no se ve nada nuevo: se marca el commit con
+          # [skip netlify] para no gastar un despliegue (y sus créditos).
+          if git diff --cached --name-only | grep -qvE '^(fotos/|gallery-pending\.json$|\.instagram-state\.json$)'; then
+            MSG="Galería: sincronizada con Instagram"
+          else
+            MSG="Galería: fotos nuevas en espera de pie de foto [skip netlify]"
+          fi
+          git commit -m "$MSG"
           git push
-          echo "Publicado. Netlify se encarga del resto."
+          echo "Publicado: $MSG"

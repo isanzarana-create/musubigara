@@ -50,6 +50,22 @@ La web es HTML estático: no hay nada que compilar.
 renueva él solo cada noche. Sin él funciona igual… hasta que un día de diciembre la
 galería se queda congelada sin avisar a nadie.
 
+### Cómo decide el robot qué publica (desde el 20 nov 2026)
+
+El robot corre **una vez por semana, los lunes por la mañana**. Cuando encuentra una
+publicación nueva en Instagram:
+
+1. Se descarga la foto, la recorta y la convierte a WebP (900 y 400 px) dentro de `fotos/`.
+2. **No la publica todavía.** La anota en `gallery-pending.json`, con el pie de foto que
+   traía de Instagram como sugerencia.
+3. La foto sale en la web cuando alguien escribe su pie en `gallery-captions.json`
+   (castellano, euskera e inglés). En la siguiente pasada del robot aparece en la galería
+   y desaparece de la lista de pendientes.
+
+Mientras solo haya fotos en espera, el commit lleva `[skip netlify]`: en la web no se ve
+nada distinto, así que no se gasta un despliegue. Para volver al comportamiento anterior
+(publicar sin revisión) basta con poner `IG_APPROVAL: '0'` en el workflow.
+
 ### Paso 4 · Lanzarlo
 
 Pestaña **Actions → Galería de Instagram (Musubigara) → Run workflow**.
@@ -86,7 +102,8 @@ gallery-captions.json           tus textos a mano, si quieres cambiar algún pie
 musubigara-og.png · robots.txt · sitemap.xml
 
 scripts/instagram-sync.mjs                      el robot
-.github/workflows/instagram-musubigara.yml      lo lanza cada día a las 08:43
+.github/workflows/instagram-musubigara.yml      lo lanza los lunes por la mañana
+gallery-pending.json                            fotos bajadas que esperan pie de foto
 ```
 
 La carpeta `fotos/` no está: la crea el robot con la primera ejecución.

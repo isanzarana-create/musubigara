@@ -77,6 +77,17 @@ const EXCLUDE = new RegExp(
   'i');
 const STATE_FILE = path.join(CFG.root, '.instagram-state.json'); // solo fechas, nunca la clave
 const CAPTIONS_FILE = path.join(CFG.root, 'gallery-captions.json');
+const PENDING_FILE  = path.join(CFG.root, 'gallery-pending.json');
+
+/* Dirección de la API de Meta. Se puede cambiar (IG_API_BASE) para probar el
+   robot en seco contra un servidor de mentira, sin tocar Instagram. */
+const API_BASE = (process.env.IG_API_BASE || 'https://graph.instagram.com').replace(/\/$/, '');
+
+/* Visto bueno antes de publicar (nov 2026). Con IG_APPROVAL=1 (lo normal), una
+   foto nueva de Instagram se descarga y se optimiza, pero NO sale en la web
+   hasta que alguien le escribe el pie en gallery-captions.json. Mientras tanto
+   espera en gallery-pending.json. Con IG_APPROVAL=0 se publica todo al vuelo. */
+const APPROVAL = process.env.IG_APPROVAL !== '0';
 
 let warnings = [];
 const log  = (...a) => console.log('·', ...a);
@@ -225,7 +236,7 @@ function pie(p, lang) { return p[lang] || p.es || p.eu || p.en || ''; }
 
 /* ── 1. Clave de Meta ──────────────────────────────────────── */
 async function refreshToken() {
-  const url = 'https://graph.instagram.com/refresh_access_token'
+  const url = `${API_BASE}/refresh_access_token`
             + `?grant_type=ig_refresh_token&access_token=${encodeURIComponent(TOKEN)}`;
   let r;
   try { r = await fetch(url); }
@@ -251,7 +262,7 @@ const FIELDS_MIN  = 'id,caption,media_type,media_url,permalink,timestamp';
 
 async function fetchMedia() {
   for (const fields of [FIELDS_FULL, FIELDS_MIN]) {
-    const url = `https://graph.instagram.com/${CFG.apiVersion}/me/media`
+    const url = `${API_BASE}/${CFG.apiVersion}/me/media`
               + `?fields=${encodeURIComponent(fields)}&limit=${CFG.fetchLimit}`
               + `&access_token=${encodeURIComponent(TOKEN)}`;
     const r = await fetch(url);
@@ -548,6 +559,36 @@ async function limpiarHuerfanas(photos) {
   return n > 0;
 }
 
+/* ── Visto bueno ───────────────────────────────────────────── */
+/* Deja constancia de las fotos que esperan pie de foto. El fichero es la lista
+   de trabajo: cuando se le escribe el pie en gallery-captions.json, la foto
+   sale sola en la siguiente pasada y desaparece de aquí. */
+async function escribirPendientes(pendientes) {
+  const antes = await readJSON(PENDING_FILE, null);
+  const doc = {
+    _como_funciona: 'Fotos nuevas de Instagram ya descargadas en /fotos/ que NO salen en la web porque todavía no tienen pie de foto. Para publicar una: copia su clave a gallery-captions.json con los textos es/eu/en. En la siguiente pasada del robot sale en la galería y se borra de esta lista. Este fichero lo escribe el robot: no hace falta tocarlo a mano.',
+    actualizado: new Date().toISOString(),
+    pendientes,
+  };
+  const igual = antes && JSON.stringify(antes.pendientes || []) === JSON.stringify(pendientes);
+  if (igual) return false;
+  await fs.writeFile(PENDING_FILE, JSON.stringify(doc, null, 2) + '\n', 'utf8');
+  if (pendientes.length) log(`Anotadas ${pendientes.length} foto(s) en gallery-pending.json`);
+  return true;
+}
+
+/* Una foto está aprobada si tiene pie escrito a mano en gallery-captions.json
+   o si ya está publicada en la web (gallery-data.js). Lo segundo es una red de
+   seguridad: al estrenar este control, nada de lo que ya se ve desaparece. */
+async function leerAprobadas(manual) {
+  const ok = new Set(Object.keys(manual).filter((k) => !k.startsWith('_')));
+  try {
+    const js = await fs.readFile(path.join(CFG.root, 'gallery-data.js'), 'utf8');
+    for (const m of js.matchAll(/"file"\s*:\s*"(ig-[^"]+)"/g)) ok.add(m[1]);
+  } catch { /* primera vez: aún no hay galería */ }
+  return ok;
+}
+
 /* ── Principal ─────────────────────────────────────────────── */
 async function main() {
   const IMPORT = process.env.IG_IMPORT;
@@ -564,7 +605,9 @@ async function main() {
   }
 
   const manual = await readJSON(CAPTIONS_FILE, {});
+  const aprobadas = APPROVAL ? await leerAprobadas(manual) : null;
   const photos = [];
+  const pendientes = [];   // descargadas y optimizadas, esperando pie de foto
   let changedFotos = false;
 
   if (IMPORT) {
@@ -598,6 +641,11 @@ async function main() {
       // "oculta": true en gallery-captions.json deja la foto fuera de la web
       // sin tocar nada en Instagram.
       if (over.oculta) { log(`Oculta por decisión propia: ${file}`); continue; }
+      if (aprobadas && !aprobadas.has(file)) {
+        pendientes.push({ file, date, permalink: CFG.profileUrl, pie_instagram: (item.caption || '').trim(), sugerencia: auto });
+        log(`En espera de pie de foto: ${file}`);
+        continue;
+      }
       photos.push({
         id: code, file, date,
         place: over.place ?? '',
@@ -614,13 +662,21 @@ async function main() {
       const date = (item.timestamp || new Date().toISOString()).slice(0, 10);
       const file = `ig-${date}-${code.slice(-6)}`;
 
+      const over = manual[file] || manual[code] || {};
+      // El descarte se decide ANTES de bajar la imagen: así el robot no gasta
+      // descarga ni conversión en fotos que nunca van a salir en la web.
+      if (EXCLUDE.test(item.caption || '')) { log(`Fuera por tema (deporte): ${file}`); continue; }
+      if (over.oculta) { log(`Oculta por decisión propia: ${file}`); continue; }
+
       try { await ensurePhoto(file, url); }
       catch (e) { warn(`Fallo al procesar ${file}: ${e.message}`); continue; }
 
       const auto = parseCaption(item.caption);
-      const over = manual[file] || manual[code] || {};
-      if (EXCLUDE.test(item.caption || '')) { log(`Fuera por tema (deporte): ${file}`); continue; }
-      if (over.oculta) { log(`Oculta por decisión propia: ${file}`); continue; }
+      if (aprobadas && !aprobadas.has(file)) {
+        pendientes.push({ file, date, permalink: item.permalink || CFG.profileUrl, pie_instagram: (item.caption || '').trim(), sugerencia: auto });
+        log(`En espera de pie de foto: ${file}`);
+        continue;
+      }
       photos.push({
         id: code, file, date,
         place: over.place ?? '',
@@ -632,8 +688,23 @@ async function main() {
     }
   }
 
-  if (!photos.length) throw new Error('Ninguna publicación utilizable. Nada se ha modificado.');
-  if (await limpiarHuerfanas(photos)) changedFotos = true;
+  // Las pendientes se anotan ANTES de cualquier aviso de error: si el robot se
+  // para, las fotos nuevas ya han quedado descargadas y apuntadas.
+  const cambioPendientes = await escribirPendientes(pendientes);
+
+  if (!photos.length) {
+    if (pendientes.length) {
+      log(`Nada que publicar todavía: ${pendientes.length} foto(s) esperan pie de foto en gallery-pending.json.`);
+      await fs.writeFile(STATE_FILE, JSON.stringify(state, null, 2) + '\n', 'utf8');
+      return;
+    }
+    throw new Error('Ninguna publicación utilizable. Nada se ha modificado.');
+  }
+  // Las pendientes también cuentan como vivas: sus ficheros no se borran.
+  if (await limpiarHuerfanas([...photos, ...pendientes])) changedFotos = true;
+  // cambioPendientes NO cuenta como cambio de la web: gallery-pending.json es
+  // una lista de trabajo interna y no debe mover las fechas del sitemap.
+  if (cambioPendientes) log('Lista de pendientes actualizada');
   photos.sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
 
   /* Red de seguridad (oct 2026): una foto que no esté realmente en disco
@@ -649,7 +720,12 @@ async function main() {
   }
   if (!photos.length) throw new Error('Ninguna foto tiene su fichero en disco. Nada se ha modificado.');
 
-  let changed = changedFotos || await writeData(photos);
+  // writeData SIEMPRE se ejecuta: antes iba detrás de un `||` y, cuando se
+  // había borrado alguna foto, JavaScript se saltaba la llamada y
+  // gallery-data.js seguía apuntando a ficheros que ya no existían
+  // (visor con imágenes rotas). Corregido el 20 nov 2026.
+  const datosEscritos = await writeData(photos);
+  let changed = changedFotos || datosEscritos;
   let withMarkers = 0;
   for (const t of CFG.targets) {
     const r = await writeBlock(t, photos);
