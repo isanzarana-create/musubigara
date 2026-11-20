@@ -33,4 +33,21 @@ User-agent: Google-Extended
 Allow: /
 Disallow: /.netlify/
 
+User-agent: Applebot
+Allow: /
+Disallow: /.netlify/
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /.netlify/
+
+# Otros buscadores (no IA)
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /.netlify/
+
+User-agent: YandexBot
+Allow: /
+Disallow: /.netlify/
+
 Sitemap: https://musubigara.org/sitemap.xml
