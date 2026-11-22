@@ -3,7 +3,7 @@
 .skip-link:focus{left:0}
 main:focus,#contenido:focus{outline:none}
 
-/* Insignia de socio (pie de página): Red de Periscopios */
-.footer-badge{display:inline-flex;align-items:center;background:#F4EEE1;padding:5px 10px;border-radius:3px;line-height:0;transition:opacity .2s}
-.footer-badge:hover{opacity:.82}
-.footer-badge img{display:block;height:17px;width:auto}
+/* Insignia de socio (pie de página): Red de Periscopios — mismo tratamiento que los iconos sociales */
+.socials a.footer-badge{display:inline-flex;align-items:center;width:auto;height:auto;line-height:0;transition:opacity .2s,transform .3s cubic-bezier(.2,.7,.1,1)}
+.footer-badge:hover{opacity:.72;transform:translateY(-2px)}
+.footer-badge img{display:block;height:13px;width:auto}
