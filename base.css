@@ -2,3 +2,8 @@
 .skip-link{position:absolute;left:-9999px;top:0;z-index:10000;background:#C21838;color:#fff;padding:.6rem 1rem;font:500 .95rem/1.2 Inter,system-ui,sans-serif;text-decoration:none;border-radius:0 0 4px 0}
 .skip-link:focus{left:0}
 main:focus,#contenido:focus{outline:none}
+
+/* Insignia de socio (pie de página): Red de Periscopios */
+.footer-badge{display:inline-flex;align-items:center;background:#F4EEE1;padding:5px 10px;border-radius:3px;line-height:0;transition:opacity .2s}
+.footer-badge:hover{opacity:.82}
+.footer-badge img{display:block;height:17px;width:auto}
