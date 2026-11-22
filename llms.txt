@@ -13,19 +13,19 @@ English: Musubigara® is an artisan cultural management practice: concert and fe
 ## Páginas (castellano)
 
 - [Gestión cultural artesanal](https://musubigara.org/): Gestión cultural artesanal: conciertos, festivales, management musical, financiación y asesoría legal para artistas e instituciones.
-- [Gestión cultural y conciertos](https://musubigara.org/gestion-cultural/): Producción de conciertos y festivales, management musical y consultoría artística para ayuntamientos y festivales de Euskadi y Navarra, y para artistas.
+- [Gestión cultural y conciertos](https://musubigara.org/gestion-cultural/): Producción de conciertos y festivales, secretaría técnica, management musical y subvenciones culturales para ayuntamientos, festivales y artistas de Euskadi y Navarra.
 - [Imágenes de conciertos y festivales](https://musubigara.org/galeria/): Galería de Musubigara®: fotografías de conciertos, festivales y proyectos culturales, actualizada desde Instagram.
 
 ## Euskera
 
 - [Kultur kudeaketa artisaua](https://musubigara.org/eu/): Kultur kudeaketa artisaua: kontzertu eta jaialdien ekoizpena, musika-managementa, finantzaketa eta aholkularitza artista eta erakundeentzat.
-- [Kultur kudeaketa eta kontzertuak](https://musubigara.org/eu/kultur-kudeaketa/): Kontzertuen eta jaialdien ekoizpena, musika-management-a eta aholkularitza artistikoa Euskadiko eta Nafarroako udalentzat eta jaialdientzat, eta artistentzat.
+- [Kultur kudeaketa eta kontzertuak](https://musubigara.org/eu/kultur-kudeaketa/): Kontzertuen eta jaialdien ekoizpena, idazkaritza teknikoa, musika-management-a eta kultura diru-laguntzak Euskadiko eta Nafarroako udalentzat, jaialdientzat eta artistentzat.
 - [Kontzertu eta jaialdien irudiak](https://musubigara.org/eu/galeria/): Musubigara®-ren galeria: kontzertu, jaialdi eta kultur proiektuen argazkiak, Instagrametik eguneratuak.
 
 ## English
 
 - [Artisan cultural management](https://musubigara.org/en/): Artisan cultural management: concert and festival production, music management, funding and legal advice for artists and institutions.
-- [Cultural management and concerts](https://musubigara.org/en/cultural-management/): Concert and festival production, music management and artistic consultancy for town councils and festivals in the Basque Country and Navarre, and for artists.
+- [Cultural management and concerts](https://musubigara.org/en/cultural-management/): Cultural management in the Basque Country: concert and festival production, Basque music booking and management, and cultural grants for town councils, festivals and artists.
 - [Images of concerts and festivals](https://musubigara.org/en/gallery/): Musubigara® gallery: photographs of concerts, festivals and cultural projects, updated from Instagram.
 
 ## Optional
