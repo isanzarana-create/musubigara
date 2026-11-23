@@ -9,11 +9,23 @@
 /fotos/*
   Cache-Control: public, max-age=31536000, immutable
 
-# CSS, JS e imagen social: se revalidan cada día
+# periscopio.png NO es una foto de Instagram: es un logo fijo que se puede
+# volver a tocar (como el 22 nov 2026). La regla /fotos/* de arriba lo
+# cachearía un año entero de forma "immutable", así que cualquier corrección
+# futura tardaría hasta un año en verse. Se revalida en cada visita, igual
+# que el visor de galería (ver más abajo).
+/fotos/periscopio.png
+  Cache-Control: public, max-age=0, must-revalidate
+
+# CSS y JS: se revalidan en cada visita (respuesta 304 cuando no han
+# cambiado; pesan muy poco). Antes se cacheaban un día entero, lo que dejó
+# el logo de la Red de Periscopios mal estirado en los navegadores que ya
+# tenían el CSS viejo en caché durante horas después de corregirlo
+# (incidencia del 23 nov 2026). No volver a poner aquí un max-age largo.
 /*.css
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, must-revalidate
 /*.js
-  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+  Cache-Control: public, max-age=0, must-revalidate
 
 # El visor y sus datos tienen que llegar siempre al día: se revalidan en
 # cada visita (respuesta 304 cuando no han cambiado). Pesan muy poco, y
