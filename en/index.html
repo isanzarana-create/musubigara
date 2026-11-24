@@ -394,7 +394,8 @@
     .hero-gloss dd { color: var(--ink); }
     .hero-gloss .label { display: block; margin-bottom: 14px; }
     .hero-foot { justify-content: flex-end; padding-block: clamp(8px, 1.6vw, 18px); }
-    .hero-cta { grid-column: 8 / 9; display: flex; align-items: flex-end; justify-content: flex-end; }
+    .hero-cta { grid-column: 8 / 9; grid-row: 2; display: flex; align-items: flex-end; justify-content: flex-end; }
+    .hero-tagline-foot { grid-column: 1 / -1; grid-row: 1; text-align: right; padding-inline: var(--pad); padding-bottom: .6em; }
 
     .btn-block {
       display: inline-flex; align-items: center; justify-content: space-between; gap: 18px;
@@ -928,12 +929,10 @@
           <p class="hero-giant" aria-hidden="true"><span class="en-body">Musubigara<span class="reg">®</span></span></p>
         </div>
       </div>
-      <div class="hero-claim rv" style="--i:1">
-        <h1 class="hero-tagline"><strong>Artisan Cultural Management</strong></h1>
-        <p class="hero-tagline">With care, attention to detail and a craft-made approach.</p>
-      </div>
+      <h1 class="sr-only">Artisan Cultural Management, with care, attention to detail and a craft-made approach</h1>
     </div>
     <div class="g rule hero-foot">
+      <p class="hero-tagline hero-tagline-foot rv" style="--i:3" aria-hidden="true"><strong>Artisan Cultural Management</strong>, with care, attention to detail and a craft-made approach</p>
       <div class="hero-cta rv" style="--i:4">
         <a class="btn-block" href="#presentacion" aria-label="Go to the introduction">Read more
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="4" y2="19"/><polyline points="6 13 12 19 18 13"/></svg>
