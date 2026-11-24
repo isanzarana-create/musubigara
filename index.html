@@ -357,16 +357,23 @@
 
     /* ---------- Hero ---------- */
     .hero { padding-top: var(--hd); min-height: 100vh; min-height: 100svh; display: flex; flex-direction: column; }
-    .hero-body { flex: 1 1 auto; }
-    .hero-giant {
-      font: 500 15vw/.8 var(--sans); letter-spacing: -.055em; text-transform: uppercase;
-      padding: clamp(18px, 2.4vw, 34px) calc(var(--pad) * .55) clamp(10px, 1.2vw, 18px);
-      white-space: nowrap; overflow: hidden;
+    .hero-center {
+      flex: 1 1 auto; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: clamp(14px, 2vw, 26px); text-align: center; padding-block: clamp(12px, 3vh, 36px);
     }
-    .hero-giant .ln { display: block; overflow: hidden; padding: .14em 0 .06em; margin-top: -.14em; }
-    .hero-giant .ln > span { display: inline-block; transform: translateY(105%); transition: transform 1.15s var(--ease); }
-    .hero-giant .ln:nth-child(2) > span { transition-delay: .09s; }
-    .is-ready .hero-giant .ln > span, .no-js .hero-giant .ln > span { transform: none; }
+    .hero-marquee {
+      width: 100%; overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+    }
+    .hero-marquee-track { display: flex; width: max-content; animation: heroMarquee 10s linear infinite; }
+    .hero-marquee:hover .hero-marquee-track { animation-play-state: paused; }
+    @keyframes heroMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .hero-giant {
+      flex: 0 0 auto; font: 500 15vw/.8 var(--sans); letter-spacing: -.055em; text-transform: uppercase;
+      padding: clamp(18px, 2.4vw, 34px) clamp(16px, 4vw, 60px) clamp(10px, 1.2vw, 18px);
+      white-space: nowrap;
+    }
     .hero-giant .knot { color: var(--brand); }
     .hero-giant .reg, .footer-giant .reg { font-size: .34em; vertical-align: .95em; margin-left: .04em; }
 
@@ -374,22 +381,19 @@
     .hero-meta .cell { display: flex; align-items: center; min-height: 44px; padding-block: 10px; }
     .hero-meta .c-coords { grid-column: 1 / -1; }
 
-    .hero-body { align-items: end; }
     .hero-claim {
-      grid-column: 2 / 5; align-self: stretch;
-      background: var(--ink); color: var(--paper);
-      padding: clamp(22px, 2.4vw, 36px) var(--pad);
-      display: flex; flex-direction: column; justify-content: flex-end; gap: 1.1em;
-      min-height: clamp(240px, 32vh, 400px);
+      max-width: 44rem; margin-inline: auto; padding-inline: var(--pad);
+      display: flex; flex-direction: column; align-items: center; gap: .6em;
     }
-    .hero-tagline { font: 400 clamp(1.15rem, .8rem + 1.25vw, 1.9rem)/1.18 var(--mono); letter-spacing: .02em; text-transform: uppercase; }
-    .hero-tagline strong { font-weight: 500; color: var(--brand-d); }
-    p.hero-tagline { font-size: .8rem; letter-spacing: .06em; color: var(--mute-d); }
+    .hero-tagline { font: 400 clamp(1.15rem, .8rem + 1.25vw, 1.9rem)/1.18 var(--mono); letter-spacing: .02em; text-transform: uppercase; color: var(--ink); }
+    .hero-tagline strong { font-weight: 500; color: var(--brand); }
+    p.hero-tagline { font-size: .8rem; letter-spacing: .06em; color: var(--mute); }
     .hero-gloss { grid-column: 6 / 8; align-self: end; border: 1px solid var(--line); border-bottom: 0; background: var(--paper); }
     .hero-gloss dl { display: grid; grid-template-columns: auto 1fr; gap: 6px 14px; font: 400 .8rem/1.5 var(--mono); }
     .hero-gloss dt { color: var(--brand); }
     .hero-gloss dd { color: var(--ink); }
     .hero-gloss .label { display: block; margin-bottom: 14px; }
+    .hero-foot { justify-content: flex-end; padding-block: clamp(8px, 1.6vw, 18px); }
     .hero-cta { grid-column: 8 / 9; display: flex; align-items: flex-end; justify-content: flex-end; }
 
     .btn-block {
@@ -785,9 +789,9 @@
     .is-in .draw, .draw.is-in, .no-js .draw { transform: scaleX(1); }
 
     @media (prefers-reduced-motion: reduce) {
-      .rv, .sec-title > span, .hero-giant .ln > span, .figure-photo img, .draw { transition: none !important; transform: none !important; opacity: 1 !important; }
+      .rv, .sec-title > span, .figure-photo img, .draw { transition: none !important; transform: none !important; opacity: 1 !important; }
       .hl { transition: none; background-size: 100% 100%; }
-      .ticker-track { animation: none; }
+      .ticker-track, .hero-marquee-track { animation: none; }
     }
 
     /* ---------- Responsive ---------- */
@@ -806,7 +810,6 @@
       .sec-body .c-text { grid-column: 2 / 9; }
       .sec-body .c-side { grid-column: 2 / 9; }
       .figure-photo--side { max-width: 520px; }
-      .hero-claim { grid-column: 1 / 6; }
       .hero-gloss { grid-column: 6 / 9; }
       .hero-cta { display: none; }
       .fig-big { grid-column: 2 / 9; }
@@ -823,11 +826,7 @@
       .topbar .socials { display: none; }
       .hero-meta .c-coords { grid-column: 1 / 5; }
       .hero-meta .c-year, .hero-meta .c-where { display: none; }
-      .hero-body { min-height: 0; }
-      .hero-claim { display: none; }               /* móvil: sin claim, como hasta ahora */
       .hero-gloss { grid-column: 1 / 5; border-inline: 0; }
-      .hero-body { flex: 0 0 auto; }
-      .hero .hero-giant { margin-block: auto; }
       .sec-title { font-size: 9.4vw; }
       .sec-head .c-num, .index-row .c-num { grid-column: 1 / 5; padding-bottom: 0; }
       .acc-btn .c-num { grid-column: 1 / 4; grid-row: 1; }
@@ -919,17 +918,22 @@
 
   <!-- 00 · HERO -->
   <section class="band hero" id="inicio" aria-label="Inicio">
-    <p class="hero-giant" id="heroGiant">
-      <span class="es-body"><span class="ln"><span>Musubigara<span class="reg">®</span></span></span></span>
-    </p>
     <div class="g rule hero-meta">
       <div class="cell c-coords"><span class="label" aria-hidden="true">42.8467° N · 2.6716° O</span></div>
     </div>
-    <div class="g rule hero-body">
+    <div class="hero-center" id="heroGiant">
+      <div class="hero-marquee">
+        <div class="hero-marquee-track">
+          <p class="hero-giant"><span class="es-body">Musubigara<span class="reg">®</span></span></p>
+          <p class="hero-giant" aria-hidden="true"><span class="es-body">Musubigara<span class="reg">®</span></span></p>
+        </div>
+      </div>
       <div class="hero-claim rv" style="--i:1">
-        <h1 class="hero-tagline"><strong>Gestión cultural artesanal</strong></h1>
+        <h1 class="hero-tagline"><strong>Gestión Cultural Artesanal</strong></h1>
         <p class="hero-tagline">Con mimo, detalle y mirada artesanal.</p>
       </div>
+    </div>
+    <div class="g rule hero-foot">
       <div class="hero-cta rv" style="--i:4">
         <a class="btn-block" href="#presentacion" aria-label="Ir a la presentación">Leer más
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="4" y2="19"/><polyline points="6 13 12 19 18 13"/></svg>
@@ -1280,7 +1284,7 @@
     }
     if (natural > 0) el.style.fontSize = (parseFloat(cs.fontSize) * (avail / natural) * 0.992) + 'px';
   }
-  const giants = [document.getElementById('heroGiant'), document.getElementById('footerGiant')];
+  const giants = [document.getElementById('footerGiant')];
   const fitAll = () => giants.forEach(fit);
   fitAll();
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { fitAll(); body.classList.add('is-ready'); });
