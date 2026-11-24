@@ -18,7 +18,7 @@ English: Musubigara® is an artisan cultural management practice working across 
 
 ## Euskera
 
-- [Kultur kudeaketa artisaua](https://musubigara.org/eu/): Kultur kudeaketa artisaua: kontzertu eta jaialdien ekoizpena, musika-managementa, finantzaketa eta aholkularitza artista eta erakundeentzat.
+- [Kultur kudeaketa artisaua · Euskadi, Nafarroa](https://musubigara.org/eu/): Kultur kudeaketa artisaua Euskadin, Nafarroan, estatuan eta nazioartean: kontzertuak, jaialdiak, musika-managementa eta finantzaketa.
 - [Kultur kudeaketa eta kontzertuak](https://musubigara.org/eu/kultur-kudeaketa/): Kontzertuen eta jaialdien ekoizpena, idazkaritza teknikoa, musika-management-a eta kultura diru-laguntzak Euskadiko eta Nafarroako udalentzat, jaialdientzat eta artistentzat.
 - [Kontzertu eta jaialdien irudiak](https://musubigara.org/eu/galeria/): Musubigara®-ren galeria: kontzertu, jaialdi eta kultur proiektuen argazkiak, Instagrametik eguneratuak.
 
