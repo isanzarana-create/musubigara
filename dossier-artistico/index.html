@@ -526,13 +526,6 @@
     .index-row--s .sec-title { font-size: clamp(2rem, 5.4vw, 5.6rem); }
     .index-row--s .c-arrow { min-height: clamp(84px, 8vw, 130px); }
     .index-row--s .c-arrow svg { width: 46%; }
-    .faq-q { grid-column: 2 / 8; font: 400 clamp(1.15rem, .95rem + .8vw, 1.6rem)/1.25 var(--sans); letter-spacing: -.015em; padding-block: calc(var(--pad) * 1.1); }
-    .acc--faq .c-icon { width: clamp(18px, 1.8vw, 26px); }
-    .acc--faq .c-icon i { height: 2px; margin-top: -1px; }
-    .acc--faq .acc-btn .c-num { padding-top: calc(var(--pad) * 1.1 + 6px); align-self: start; }
-    .acc--faq .acc-btn:hover .faq-q { color: var(--brand); }
-    .acc--faq.is-open .c-icon i:last-child { transform: rotate(0deg); }
-    .acc--faq .acc-inner .c-text { padding-top: 0; padding-bottom: calc(var(--pad) * 1.4); }
     @media (max-width: 1023px) {
       .svc-row .c-k { grid-column: 2 / -1; padding-bottom: 0; }
       .svc-row .c-v { grid-column: 2 / -1; }
@@ -544,9 +537,6 @@
       .unit-meta .unit-back { grid-column: 2 / -1; }
       .svc-row .c-n { grid-column: 1 / -1; padding-bottom: 0; }
       .svc-row .c-k, .svc-row .c-v, .unit-cta { grid-column: 1 / -1; }
-      .faq-q { grid-column: 1 / 4; }
-      .acc--faq .acc-btn .c-num { display: none; }
-      .acc--faq .c-icon { grid-row: auto; }
     }
 
 
@@ -937,63 +927,27 @@
     </a>
   </section>
 
-  <div class="band rule">
-    <div class="g sec-head sub-head">
-      <div class="cell c-num"><span class="label">[D]</span></div>
-      <h2 class="sec-title sub-title"><span>Preguntas frecuentes</span></h2>
+  <section class="band acc sec" id="faq">
+    <h2 class="acc-h">
+      <button class="g sec-head acc-btn" type="button" aria-expanded="false" aria-controls="p-faq" id="b-faq">
+        <span class="cell c-num"><span class="label">[D]</span></span>
+        <span class="sec-title"><span>Preguntas frecuentes</span></span>
+        <span class="c-icon" aria-hidden="true"><i></i><i></i></span>
+      </button>
+    </h2>
+    <div class="acc-panel" id="p-faq" role="region" aria-labelledby="b-faq">
+      <div class="acc-inner">
+    <div class="g rule sec-body">
+      <div class="cell c-wide prose es-body">
+        <p class="rv" style="--i:1"><strong>¿Cuánto debe durar un dossier artístico?</strong><br>Entre 2 y 4 páginas; el resto se resuelve con enlaces.</p>
+        <p class="rv" style="--i:2"><strong>¿Hace falta tener disco publicado?</strong><br>No: lo imprescindible es tener material grabado o en directo que se pueda escuchar.</p>
+        <p class="rv" style="--i:3"><strong>¿Musubigara ayuda a crear el dossier o solo a distribuirlo?</strong><br>Las dos cosas: acompañamos desde el contenido hasta a quién y cómo se envía.</p>
+      </div>
     </div>
-  </div>
-
-    <section class="band acc acc--faq sec" id="faq-1">
-      <h2 class="acc-h">
-        <button class="g sec-head acc-btn" type="button" aria-expanded="false" aria-controls="p-faq-1" id="b-faq-1">
-          <span class="cell c-num"><span class="label">01</span></span>
-          <span class="faq-q">¿Cuánto debe durar un dossier artístico?</span>
-          <span class="c-icon" aria-hidden="true"><i></i><i></i></span>
-        </button>
-      </h2>
-      <div class="acc-panel" id="p-faq-1" role="region" aria-labelledby="b-faq-1">
-        <div class="acc-inner">
-          <div class="g rule sec-body">
-            <div class="cell c-text prose"><p>Entre 2 y 4 páginas; el resto se resuelve con enlaces.</p></div>
-          </div>
-        </div>
+    <div class="spacer--s"></div>
       </div>
-    </section>
-
-    <section class="band acc acc--faq sec" id="faq-2">
-      <h2 class="acc-h">
-        <button class="g sec-head acc-btn" type="button" aria-expanded="false" aria-controls="p-faq-2" id="b-faq-2">
-          <span class="cell c-num"><span class="label">02</span></span>
-          <span class="faq-q">¿Hace falta tener disco publicado?</span>
-          <span class="c-icon" aria-hidden="true"><i></i><i></i></span>
-        </button>
-      </h2>
-      <div class="acc-panel" id="p-faq-2" role="region" aria-labelledby="b-faq-2">
-        <div class="acc-inner">
-          <div class="g rule sec-body">
-            <div class="cell c-text prose"><p>No: lo imprescindible es tener material grabado o en directo que se pueda escuchar.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="band acc acc--faq sec" id="faq-3">
-      <h2 class="acc-h">
-        <button class="g sec-head acc-btn" type="button" aria-expanded="false" aria-controls="p-faq-3" id="b-faq-3">
-          <span class="cell c-num"><span class="label">03</span></span>
-          <span class="faq-q">¿Musubigara ayuda a crear el dossier o solo a distribuirlo?</span>
-          <span class="c-icon" aria-hidden="true"><i></i><i></i></span>
-        </button>
-      </h2>
-      <div class="acc-panel" id="p-faq-3" role="region" aria-labelledby="b-faq-3">
-        <div class="acc-inner">
-          <div class="g rule sec-body">
-            <div class="cell c-text prose"><p>Las dos cosas: acompañamos desde el contenido hasta a quién y cómo se envía.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
   <div class="band"><div class="spacer"></div></div>
 
